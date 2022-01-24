@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const contentSchema = new mongoose.Schema({
-    typeof: {
+    typeOf: {
         type: String,
     },
     blogId: {
@@ -36,4 +36,4 @@ const contentSchema = new mongoose.Schema({
     link: {
         type: String
     }
-})
+});
