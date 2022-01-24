@@ -4,13 +4,17 @@ const contentSchema = new mongoose.Schema({
     typeOf: {
         type: String,
     },
-    blogId: {
-        type: Number,
-        required: [true, "We need to know where this is posting"]
+    //relationship to blog
+    blog: {
+        type: mongoose.Types.ObjectId,
+        required: [true, "We need to know where this is posting"],
+        ref: "Blog"
     },
-    userId: {
-        type: Number,
-        required: [true, "We need to know which account is posting"]
+    //relationship to user
+    user: {
+        type: mongoose.Types.ObjectId,
+        required: [true, "We need to know which account is posting"],
+        ref: "User"
     },
     title: {
         type: String
@@ -35,5 +39,8 @@ const contentSchema = new mongoose.Schema({
     },
     link: {
         type: String
-    }
-});
+    }}, {timestamps:true}
+);
+
+const Content = mongoose.model('Content', contentSchema);
+module.exports = Content; 
