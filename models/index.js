@@ -5,5 +5,5 @@ module.exports = {
     Content: require('./content_model.js'),
     User: require('./user_model.js'),
     Blog: require('./blog_model'),
-    Assets: require('./asset_model')
+    Asset: require('./asset_model')
 }
