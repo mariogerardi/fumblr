@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const controllers = require('./controllers')
+// const controllers = require('./controllers')
 const methodOverride = require('method-override');
 
 const PORT = 4000;
@@ -20,6 +20,6 @@ app.get("/*", (req, res) => {
     return res.status(404).render("404", context);
 });
         
-app.listen(PORT, function() {
+app.listen(process.env.PORT || 4000, function() {
     console.log(`I am listening on port ${PORT}`)
 });
