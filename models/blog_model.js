@@ -11,8 +11,12 @@ const blogSchema = new mongoose.Schema({
     keywords: {
         type: String,
     },
-    blogId: {
-        type: String,
-        required: [true]
-    }
+    user: {
+        type: mongoose.Types.ObjectId,
+        required: [true, "We need to know which account is posting"],
+        ref: "User"
+    },
 });
+
+const Blog = mongoose.model('Blog', blogSchema);
+module.exports = Blog;
