@@ -5,11 +5,11 @@ body {
 }
 hr {
     width: 460px;
-    margin: 20px;
+    margin: 20px 20px 40px;
 }
 .nav {
     height: 60px;
-    max-width: 1716px;
+    min-width: 100%;
     background: #22374A;
     width: 100%;
     display: flex;
@@ -32,21 +32,16 @@ hr {
     border: none;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
-    color: ivory;
+    color: white;
     font-size: larger;
     padding: 10px 20px;
     height: 40px;
     width: 100px;
 }
 #log_in {
-    color: ivory;
-    font-size: larger;
-    height: 40px;
-    width: 100px;
     background-color: #138511;
 }
 #sign_up {
-
     background-color: #3A91E4;
 }
 .landing {
@@ -64,7 +59,7 @@ hr {
     padding: 75px;
 }
 .call-to-action {
-    color: #fffff0;
+    color: white;
     font-size: x-large;
     text-align: center;
     overflow-wrap: break-word; 
