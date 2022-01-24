@@ -1,0 +1,27 @@
+{
+  "name": "fumblr",
+  "version": "1.0.0",
+  "description": "An attempt to reimagine and modernize the popular blog-hosting website, tumblr.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/mariogerardi/fumblr.git"
+  },
+  "keywords": [
+    "tumblr"
+  ],
+  "author": "Mario Gerardi, Ani Espinet, Max McGrath",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^14.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "jquery": "^3.6.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.1.7",
+    "nodemon": "^2.0.15"
+  }
+}
