@@ -19,7 +19,11 @@ app.use((req, res, next) => {
 
 app.get("/", function(req, res) {
     res.send("I am a test and I am working!")
-})
+});
+
+app.get("/fumblr", function(req, res) {
+    res.render("index.ejs")
+});
 
 app.get("/*", (req, res) => {
     const context = { error: req.error };
