@@ -19,4 +19,22 @@ router.get("/dashboard", (req, res) => {
     res.render("dashboard.ejs")
 });
 
+router.get("/create_post", (req, res) => {
+    res.render("create_post.ejs")
+});
+
+router.get('/:blogId', (req, res) => {
+    
+    Blog.findById(req.params.blogId, (error, foundBlog) => {
+        if (error) {
+            console.log(req.params)
+            console.log(error);
+            const context = { error: error };
+            return res.status(404).render("404", context);
+        }
+        return res.render('show.ejs', {blog: foundBlog});
+    });
+    
+});
+
 module.exports = router;
