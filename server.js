@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-// const controllers = require('./controllers')
+const controllers = require('./controllers')
 const methodOverride = require('method-override');
 require('./config/db.connection')
 const PORT = 4000;
@@ -10,6 +10,8 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
+
+app.use('/fumblr', controllers.blog);
 
 app.use((req, res, next) => {    
     console.log("I'm running for another new route")
@@ -21,9 +23,6 @@ app.get("/", function(req, res) {
     res.send("I am a test and I am working!")
 });
 
-app.get("/fumblr", function(req, res) {
-    res.render("index.ejs")
-});
 
 app.get("/*", (req, res) => {
     const context = { error: req.error };
