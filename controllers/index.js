@@ -1,5 +1,6 @@
 module.exports = {
     blog: require('./blog_controller'),
     content: require('./content_controller'),
-    user: require('./user_controller')
+    user: require('./user_controller'),
+    asset: require('./asset_controller')
 }
