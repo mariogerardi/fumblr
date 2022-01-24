@@ -2,14 +2,20 @@ const express = require('express');
 const app = express();
 // const controllers = require('./controllers')
 const methodOverride = require('method-override');
-
+require('./config/db.connection')
 const PORT = 4000;
 
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
+
+app.use((req, res, next) => {    
+    console.log("I'm running for another new route")
+	console.log(`${req.method} ${req.originalUrl}`);    
+	next();
+});
 
 app.get("/", function(req, res) {
     res.send("I am a test and I am working!")
@@ -20,6 +26,6 @@ app.get("/*", (req, res) => {
     return res.status(404).render("404", context);
 });
         
-app.listen(process.env.PORT || 4000, function() {
+app.listen(PORT, function() {
     console.log(`I am listening on port ${PORT}`)
 });
