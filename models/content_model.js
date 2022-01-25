@@ -7,13 +7,13 @@ const contentSchema = new mongoose.Schema({
     //relationship to blog
     blog: {
         type: mongoose.Types.ObjectId,
-        required: [true, "We need to know where this is posting"],
+        // required: [true, "We need to know where this is posting"],
         ref: "Blog"
     },
     //relationship to user
     user: {
         type: mongoose.Types.ObjectId,
-        required: [true, "We need to know which account is posting"],
+        // required: [true, "We need to know which account is posting"],
         ref: "User"
     },
     title: {
