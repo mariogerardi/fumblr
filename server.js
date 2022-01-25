@@ -2,10 +2,32 @@ const express = require('express');
 const app = express();
 const controllers = require('./controllers')
 const methodOverride = require('method-override');
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+
 require('./config/db.connection')
+
 const PORT = 4000;
 
 app.set('view engine', 'ejs');
+
+app.use(
+    session(
+        {
+        // where to store the sessions in mongodb
+        store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
+
+        // secret key is used to sign every cookie to say its is valid
+        secret: "super secret",
+        resave: false,
+        saveUninitialized: false,
+        // configure the experation of the cookie
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24 * 7 * 2, // two weeks
+        },
+        }
+    )
+);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
