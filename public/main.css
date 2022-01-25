@@ -8,8 +8,17 @@ h2 {
     font-weight: 600;
     margin: 0;
 }
+h3 {
+    color: rgb(237, 237, 237);
+    font-size: large;
+    font-weight: 400;
+    padding: 30px;
+}
 hr {
     color: rgb(237, 237, 237);
+}
+a {
+    text-decoration: none;
 }
 hr.title {
     width: 460px;
@@ -99,6 +108,14 @@ hr.title {
 }
 #sign_up {
     background-color: #3A91E4;
+}
+#kitten {
+    background-color: #c6519fb6;
+}
+.threebuttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .landing {
     width: 100%;
@@ -207,4 +224,11 @@ hr.title {
 }
 #newvideopost:hover {
     filter: invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%);
+}
+.fourohfour {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
 }

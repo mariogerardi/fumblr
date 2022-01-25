@@ -1,51 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('./partials/head.ejs') %>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
-    <link rel="stylesheet" href="/styles/main.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="/scripts/bulma.js" defer></script>
-    <title>Page Not Found!</title>
-</head>
-
-<body class="has-navbar-fixed-top">
-    <!-- https://bulma.io/documentation/components/navbar/#fixed-navbar -->
-    <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="/fumblr"> Back to Login </a>
-
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-    </nav>
-    </nav>
-    <section class="hero is-medium has-background-light">
-        <div class="hero-body">
-            <img width="300px" src="https://media.giphy.com/media/xTiN0L7EW5trfOvEk0/giphy.gif" alt="not found" />
-            <p class="title">404 Not Found 😞</p>
-            <% if (error) { %>
-                <p>
-                    <%= error.message %>
-                </p>
-                <% } %>
-        </div>
-    </section>
-    <main class="container is-max-widescreen">
-        <div class="columns p-6">
-            <div class="column">
-                <a class="button is-info" href="/fumblr/dashboard">Back To Dashboard</a>
-            </div>
-        </div>
-    </main>
-</body>
-
-</html>
+<div class="fourohfour">
+    <img width="300px" src="https://cdn-icons-png.flaticon.com/512/580/580185.png" alt="not found" />
+        <% if (error) { %>
+            <h3>
+                ERROR: <%= error.message %>
+            </h3>
+            <% } %>
+    <div class="login">
+        <a class="button" id="log_in" href="/fumblr/dashboard">Back To Dashboard</a>
+        <a class="button" id="sign_up" href="">Retry</a>
+        <a class="button" id="kitten" href="https://cf.ltkcdn.net/cats/images/orig/242157-1902x1268-persian-kittens.jpg">Need a Kitten?</a>
+    </div>
+</div>
