@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     Content.find({}, (error, foundContent) => {
         if(error) return console.log(error);
 
-        // console.log(foundContent)
+        console.log(foundContent)
         const context = {content: foundContent}
         res.render('blog.ejs', context);
     })
