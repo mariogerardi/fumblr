@@ -1,13 +1,12 @@
 <%- include('./partials/head.ejs') %>
+<%- include('./partials/restrictednav.ejs') %>
 
 <div class="fourohfour">
-    <img width="300px" src="https://cdn-icons-png.flaticon.com/512/580/580185.png" alt="not found" />
-        <% if (error) { %>
-            <h3>
-                ERROR: <%= error.message %>
-            </h3>
-            <% } %>
-    <div class="login">
+    <img width="325px" src="https://cdn-icons-png.flaticon.com/512/580/580185.png" alt="not found">
+    <% if (error) { %>
+    <h3><%= error.message %></h3>
+    <% } %>
+    <div class="login" id="notfound">
         <a class="button" id="log_in" href="/fumblr/dashboard">Back To Dashboard</a>
         <a class="button" id="sign_up" href="">Retry</a>
         <a class="button" id="kitten" href="https://cf.ltkcdn.net/cats/images/orig/242157-1902x1268-persian-kittens.jpg">Need a Kitten?</a>

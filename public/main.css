@@ -11,8 +11,6 @@ h2 {
 h3 {
     color: rgb(237, 237, 237);
     font-size: large;
-    font-weight: 400;
-    padding: 30px;
 }
 hr {
     color: rgb(237, 237, 237);
@@ -91,7 +89,7 @@ hr.title {
     padding: 35px;
 }
 .navlogin {
-    margin-right: 10px;
+    margin-right: 20px;
 }
 .button {
     border: none;
@@ -228,7 +226,8 @@ hr.title {
 .fourohfour {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 40px;
+}
+#notfound {
+    margin: 25px;;
 }
