@@ -3,74 +3,78 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #34526F;
 }
+h2 {
+    color: rgb(237, 237, 237);
+    font-weight: 600;
+    margin: 0;
+}
 hr {
+    color: rgb(237, 237, 237);
+}
+hr.title {
     width: 460px;
     margin: 20px 20px 40px;
 }
 .nav {
-    height: 60px;
-    min-width: 100%;
-    background: #22374A;
     width: 100%;
+    height: 60px;
+    padding: 16px 0px 8px;
+    background: #34526F;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
 }
 .navlogo {
-    height: 40px;
+    height: 50px;
     margin: 0px 10px;
     position: relative;
     top: 1px;
-    filter: brightness(88%);
+    filter: invert(16%) sepia(30%) saturate(2095%) hue-rotate(178deg) brightness(96%) contrast(81%);
 }
 .navleft {
-    width: 390px;
+    width: 425px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 .button-bar {
-    width: 400px;
+    width: 450px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 1.5%;
+    margin-right: 25px;
 }
 .input {
     width: 300px;
     padding: 12px 20px;
+    font-size: large;
     color: #414040;
     border: none;
     border-radius: 6px;
-    background-color: #c2c2c2;
+    background-color: rgb(237, 237, 237);
 }
 ::placeholder {
     color: rgb(109, 109, 109);
     font-size: large;
     position: relative;
-    top: 2px;
-    right: 10px;
 }
 .icon {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     filter: invert(69%) sepia(37%) saturate(321%) hue-rotate(168deg) brightness(97%) contrast(89%);
 }
 .icon#home {
-    width: 30px;
-    height: 30px;
+    width: 37px;
+    height: 37px;
 }
 .icon#messages {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 .icon:hover {
     filter: invert(90%);
-}
-.smallerbutton:hover {
-    filter: brightness(140%) saturate(50%);
 }
 .big-boy-logo {
     height: 80px;
@@ -84,37 +88,17 @@ hr {
     border: none;
     border-radius: 3px;
     margin: 5px 5px 5px 5px;
-    color: white;
+    color: rgb(237, 237, 237);
     font-size: larger;
     padding: 10px 20px;
     height: 40px;
     width: 100px;
-}
-.smallerbutton {
-    border: none;
-    border-radius: 3px;
-    margin: 5px 5px 5px 5px;
-    color: #ffffff;
-    font-size: medium;
-    padding: 10px 8px;
-    height: 20px;
-    width: 30px;
 }
 #log_in {
     background-color: #138511;
 }
 #sign_up {
     background-color: #3A91E4;
-}
-#createbutton {
-    background-color: #91B9DF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#navpost {
-    width: 40px;
-    height: 40px;
 }
 .landing {
     width: 100%;
@@ -131,9 +115,96 @@ hr {
     padding: 75px;
 }
 .call-to-action {
-    color: white;
+    color: rgb(237, 237, 237);
     font-size: x-large;
     text-align: center;
     overflow-wrap: break-word; 
     padding: 5px;
+}
+.contain {
+    height: 500px;
+    width: 96%;
+    margin: 1% 2% 2%;
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #22374A;
+}
+.feed {
+    width: 65%;
+    margin: 40px 20px 40px 40px;
+}
+.sidebar {
+    width: 30%;
+    margin: 40px 40px 40px 20px;
+}
+.content-creation {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.userphoto {
+    width: 10%;
+}
+.feedphoto {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+}
+.waytoomanyoptions {
+    width: 85%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(237, 237, 237);
+    border: none;
+    border-radius: 8px;
+    padding: 1%;
+}
+.createpost {
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+}
+#newtextpost {
+    width: 70px;
+}
+#newimagepost {
+    width: 70px;
+}
+#newquotepost {
+    width: 70px;
+}
+#newlinkpost {
+    width: 70px;
+}
+#newchatpost {
+    width: 70px;
+}
+#newaudiopost {
+    width: 70px;
+}
+#newvideopost {
+    width: 70px;
+}
+#newtextpost:hover {
+    filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(332deg) brightness(96%) contrast(92%);
+}
+#newimagepost:hover {
+    filter: invert(42%) sepia(71%) saturate(914%) hue-rotate(332deg) brightness(92%) contrast(84%);
+}
+#newquotepost:hover {
+    filter: invert(66%) sepia(95%) saturate(1714%) hue-rotate(341deg) brightness(104%) contrast(90%);
+}
+#newlinkpost:hover {
+    filter: invert(62%) sepia(12%) saturate(1528%) hue-rotate(98deg) brightness(103%) contrast(88%);
+}
+#newchatpost:hover {
+    filter: invert(61%) sepia(75%) saturate(342%) hue-rotate(164deg) brightness(81%) contrast(95%);
+}
+#newaudiopost:hover {
+    filter: invert(49%) sepia(80%) saturate(241%) hue-rotate(233deg) brightness(96%) contrast(87%);
+}
+#newvideopost:hover {
+    filter: invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%);
 }
