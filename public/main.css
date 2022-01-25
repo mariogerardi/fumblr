@@ -20,6 +20,57 @@ hr {
 .navlogo {
     height: 40px;
     margin: 0px 10px;
+    position: relative;
+    top: 1px;
+    filter: brightness(88%);
+}
+.navleft {
+    width: 390px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+}
+.button-bar {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 1.5%;
+}
+.input {
+    width: 300px;
+    padding: 12px 20px;
+    color: #414040;
+    border: none;
+    border-radius: 6px;
+    background-color: #c2c2c2;
+}
+::placeholder {
+    color: rgb(109, 109, 109);
+    font-size: large;
+    position: relative;
+    top: 2px;
+    right: 10px;
+}
+.icon {
+    width: 35px;
+    height: 35px;
+    filter: invert(69%) sepia(37%) saturate(321%) hue-rotate(168deg) brightness(97%) contrast(89%);
+}
+.icon#home {
+    width: 30px;
+    height: 30px;
+}
+.icon#messages {
+    width: 30px;
+    height: 30px;
+}
+.icon:hover {
+    filter: invert(90%);
+}
+.smallerbutton:hover {
+    filter: brightness(140%) saturate(50%);
 }
 .big-boy-logo {
     height: 80px;
@@ -39,6 +90,16 @@ hr {
     height: 40px;
     width: 100px;
 }
+.smallerbutton {
+    border: none;
+    border-radius: 3px;
+    margin: 5px 5px 5px 5px;
+    color: #ffffff;
+    font-size: medium;
+    padding: 10px 8px;
+    height: 20px;
+    width: 30px;
+}
 #log_in {
     background-color: #138511;
 }
@@ -46,7 +107,14 @@ hr {
     background-color: #3A91E4;
 }
 #createbutton {
-    background-color: #138511;
+    background-color: #91B9DF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#navpost {
+    width: 40px;
+    height: 40px;
 }
 .landing {
     width: 100%;
