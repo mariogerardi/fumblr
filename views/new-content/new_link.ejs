@@ -1,5 +1,23 @@
 <%- include('../partials/head.ejs') %>
-<%- include('../partials/nav.ejs') %>
+    <%- include('../partials/nav.ejs') %>
+
+        <section>
+            <h1>Create new link</h1>
+        </section>
+        <form action="/content" method="POST">
+            <div>
+                <label>Title</label>
+            </div>
+            <input class="input" type="text" placeholder="Title" name="title" />
+            <div>
+                <label>Link</label>
+            </div>
+            <input class="input" type="text" placeholder="your link" name="link" />
+            <div>
+                <button href="./fumblr/dashboard" class="button" id="cancel">Cancel</button>
+                <button class="button" id="submit">Submit</button>
+            </div>
+        </form>
 
 
-<%- include('../partials/footer.ejs') %>
+        <%- include('../partials/footer.ejs') %>
