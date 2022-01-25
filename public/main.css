@@ -17,6 +17,9 @@ h3 {
 hr {
     color: rgb(237, 237, 237);
 }
+a {
+    text-decoration: none;
+}
 hr.title {
     width: 460px;
     margin: 20px 20px 40px;
