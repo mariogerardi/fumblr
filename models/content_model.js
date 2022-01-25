@@ -37,6 +37,9 @@ const contentSchema = new mongoose.Schema({
     quote: {
         type: String
     },
+    author: {
+        type: String
+    },
     link: {
         type: String
     }}, {timestamps:true}
