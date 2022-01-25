@@ -1,7 +1,26 @@
-<%- include('./partials/head.ejs') %>
-<%- include('./partials/nav.ejs') %>
-<%- include('./partials/account.ejs') %>
-<%- include('./partials/inbox.ejs') %>
-<%- include('./partials/notifications.ejs') %>
+<%- include('../partials/head.ejs') %>
+    <%- include('../partials/nav.ejs') %>
 
-<%- include('./partials/footer.ejs') %>
+        <section>
+            <h1>Create new quote</h1>
+        </section>
+        <form action="/content" method="POST">
+            <div>
+                <label>Title</label>
+            </div>
+            <input class="input" type="text" placeholder="Title" name="title" />
+            <div>
+                <label>Quote</label>
+            </div>
+            <input class="input" type="text" placeholder="your quote" name="quote" />
+            <div>
+                <label>Author</label>
+            </div>
+            <input class="input" type="text" placeholder="your quote" name="author" />
+            <div>
+                <button href="./fumblr/dashboard" class="button" id="cancel">Cancel</button>
+                <button class="button" id="submit">Submit</button>
+            </div>
+        </form>
+
+        <%- include('../partials/footer.ejs') %>
