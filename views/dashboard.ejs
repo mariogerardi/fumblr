@@ -24,6 +24,30 @@
                 <img id="newvideopost" src="https://drive.google.com/uc?export=download&id=1hrpkRKYhD9yt4LFyAXVHmf0Mq_TG03vp"></a>
             </div>
         </div>
+        <div class="blogposts">
+
+<% for (let idx = 0; idx < content.length; idx++) { %> 
+<% const content = content[idx] %>
+<% userphoto = user.photo %>
+<% if content.typeOf = "text" { %>
+
+            <div class="content-creation">
+                <a class="userphoto" href="./blog/" + userphoto>
+                    <a class="feedphoto" href="<%= user.photo %>">
+                </a>
+                <div class="properties">
+                    <div class="content">
+                        <h3> <a href="/content/<%= content.id %>"> <%= content.title %> </a> </h3>
+                        <h4> <%= content.title %> </h4>                        
+                        <p> <%= content.text %> </p>
+                        <p> <%= content.link %> </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+<% } %>
+
     </div>
 <div class="sidebar">
     <h2>Check out these blogs</h2>
