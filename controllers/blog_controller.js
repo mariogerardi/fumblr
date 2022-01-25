@@ -28,7 +28,7 @@ router.get("/create_post", (req, res) => {
     res.render("create_post.ejs")
 });
 
-router.get("/new_text", (req, res) => {
+router.get("/new-text-post", (req, res) => {
     res.render("new-content/new_text.ejs")
 });
 
