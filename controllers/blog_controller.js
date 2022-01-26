@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Blog, Content } = require('../models')
+const { Blog, Content, User } = require('../models');
 
 router.get('/', (req, res) => {
     
@@ -15,16 +15,32 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get("/dashboard", (req, res) => {
+// router.get("/dashboard", (req, res) => {
+//     Content.find({}, (error, foundContent) => {
+//         if(error) return console.log(error);
+//         console.log(foundContent)
+//         const context = {content: foundContent}
+//         res.render('dashboard.ejs', context);
+//     })
+// });
+
+router.get('/dashboard', (req, res) => {
     Content.find({}, (error, foundContent) => {
-        if(error) return console.log(error);
-
-        console.log(foundContent)
-        const context = {content: foundContent}
-        res.render('dashboard.ejs', context);
+        if(error) {
+            console.log(error)
+            req.error = error;
+            return next();
+        }
+    User.find({}, (error, foundUsers) => {
+        console.log(error)
+        const context = {
+            content: foundContent,
+            user: foundUsers
+        };
+        return res.render('dashboard.ejs', context)
     })
-});
-
+    })
+})
 
 router.get('/:blogId', (req, res) => {
     
