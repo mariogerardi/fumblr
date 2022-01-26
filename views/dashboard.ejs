@@ -46,13 +46,46 @@
             <div class="blogpostcontain">
                 <h2 class="textpostitem"><%= cont.title %></h2>
 
-                <% if (content.text !== "") { %>
-                    <%- include('template_text_post.ejs') %>
-                <% } %>
+                <% console.log(cont) %>
+                <% if (cont.text && cont.text !== "") { %>
+                    <h4 class="textpostitem"><%= cont.text%> </h4>
+                <% } %> 
+
+                <% console.log(cont) %>
+                <% if (cont.photo && cont.photo !== "") { %>
+                    <img class="postimage" src="<%= cont.photo %>">
+                <% } %> 
+
+                <% console.log(cont) %>
+                <% if (cont.quote && cont.quote !== "") { %>
+                    <h3 class="postquote"><%= cont.quote %></h3>
+                <% } %> 
+
+                <% console.log(cont) %>
+                <% if (cont.link && cont.link !== "") { %>
+                    <iframe class ="postlink" src="<%= cont.link %>"></iframe>
+                <% } %> 
+
+                <% console.log(cont) %>
+                <% if (cont.chat && cont.chat !== "") { %>
+                    <h3 class="postchat"><%= cont.chat %></h3>
+                <% } %> 
+
+                <% console.log(cont) %>
+                <% if (cont.audio && cont.audio !== "") { %>
+                    <audio class="postaudio" src="<%= cont.audio %>"></audio>
+                <% } %> 
+
+                <% console.log(cont) %>
+                <% if (cont.video && cont.video !== "") { %>
+                    <a class="postvideo" src="<%= cont.video %>" type="video/webm"></a>
+                <% } %> 
 
                 <div class="actionbar">
                     <h5 class="textpostitem" id="notes"><%= cont.id %> notes</h5>
-                    <a class="button" id="log_in" href="/fumblr/dashboard">DELETE</a>
+                    <form action="/content/<%= cont.id %>?_method=DELETE" method="POST">
+                        <input class="button" type="submit" id="log_in" value="DELETE" />
+                    </form>
                 </div>
             </div>
         </div>
