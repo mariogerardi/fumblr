@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs')
-const { User } = require('../models')
+const { User } = require('../models');
+
+
 
 router.get('/register', function (req, res) {
     return res.render('register.ejs');
@@ -53,7 +55,6 @@ router.post('/login', async function (req, res) {
 
         //if not match send error
         if (!match) return res.send('Either email or password is incorrect');
-
         console.log(`the before version of req.session.currentUser is ${req.session.currentUser}`)
 
         //if match create the session and redirect to dashboard
@@ -74,7 +75,7 @@ router.post('/login', async function (req, res) {
 
 router.get('/logout', async function (req, res) {
     try {
-
+ 
         await req.session.destroy();
         return res.redirect('./login');
     } catch (error) {
