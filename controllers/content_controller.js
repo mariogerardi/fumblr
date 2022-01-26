@@ -17,6 +17,10 @@ router.get("/new-text-post", (req, res) => {
     res.render("new-content/new_text.ejs")
 });
 
+router.get("/new-image-post", (req, res) => {
+    res.render("new-content/new_image.ejs")
+});
+
 router.post('/', (req, res) => {
     Content.create(req.body, (error, createdContent) => {
         if(error) console.log(error);
