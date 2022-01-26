@@ -4,40 +4,65 @@
     <section>
         <h1 class="posttypetitle">EDIT POST</h1>
     </section>
-        
-        <% for(let idx = 0; idx < content.length; idx++) { %> 
-            <% const cont = content[idx] %>
-            <h3><%= cont %></h3>
-
-    <form action="/content/<%= cont.id %>?_method=PUT" method="POST">
-        <% if (cont.text && cont.text !== "") { %>
-            <h4 class="textpostitem"><%= cont.text%> </h4>
+    <form class="postform" action="/content/<%= content.id %>?_method=PUT" method="POST">
+        <% if (content.title && content.title !== "") { %>
+            <div>
+                <H3 class="posttext" id="smallmargin">Title:</H3>
+            </div>
+            <input class="titleinput" type="text" value="<%= content.title %>" placeholder="Title" name="title" />
         <% } %> 
-
-        <% if (cont.photo && cont.photo !== "") { %>
-            <img class="postimage" src="<%= cont.photo %>">
+        <% if (content.text && content.text !== "") { %>
+            <div>
+                <H3 class="posttext" id="smallmargin">Body:</H3>
+            </div>
+            <input class="textinput" type="text" value="<%= content.text %>" placeholder="Share your thoughts with the world..." name="text" />
         <% } %> 
-
-        <% if (cont.quote && cont.quote !== "") { %>
-            <h3 class="postquote"><%= cont.quote %></h3>
+        <% if (content.photo && content.photo !== "") { %>
+            <div>
+                <H3 class="posttext" id="smallmargin">Image Link:</H3>
+            </div>
+            <input class="titleinput" type="text" value="<%= content.photo %>" placeholder="Insert your link here..." name="photo" />
         <% } %> 
-
-        <% if (cont.link && cont.link !== "") { %>
-            <iframe class ="postlink" src="<%= cont.link %>"></iframe>
+        <% if (content.quote && content.quote !== "") { %>
+            <div>
+                <H3 class="posttext" id="smallmargin">Quote:</H3>
+            </div>
+            <input class="textinput" type="text" value="<%= content.quote %>" placeholder="'To be or not to be...'" name="quote" />
+            <div>
+                <H3 class="posttext" id="smallmargin">Author:</H3>
+            </div>
+            <input class="titleinput" type="text" value="<%= content.author %>" placeholder="Give credit where it's due!" name="author" />
         <% } %> 
-
-        <% if (cont.chat && cont.chat !== "") { %>
-            <h3 class="postchat"><%= cont.chat %></h3>
+        <% if (content.link && content.link !== "") { %>
+            <div>
+                <H3 class="posttext" id="smallmargin">Link:</H3>
+            </div>
+            <input class="titleinput" value="<%= content.link %>" type="text" placeholder="Where are we going?" name="link" />
         <% } %> 
-
-        <% if (cont.audio && cont.audio !== "") { %>
-            <audio class="postaudio" src="<%= cont.audio %>"></audio>
+        <% if (content.chat && content.chat !== "") { %>
+            <div>
+                <H3 class="posttext" id="smallmargin">Chat:</H3>
+            </div>
+            <input class="textinput" type="text" value="<%= content.cat %>" placeholder="What were we talking about again...?" name="chat" />
         <% } %> 
-
-        <% if (cont.video && cont.video !== "") { %>
-            <a class="postvideo" src="<%= cont.video %>" type="video/webm"></a>
+        <% if (content.audio && content.audio !== "") { %>
+            <div>
+                <H3 class="posttext" id="smallmargin">Link:</H3>
+            </div>
+            <input class="titleinput" type="text" value="<%= content.audio%>" placeholder="What's your favorite song?" name="audio" />
         <% } %> 
-
-    <% } %>
-
+        <% if (content.video && content.video !== "") { %>
+            <div>
+                <H3 class="posttext" id="smallmargin">Link:</H3>
+            </div>
+            <input class="titleinput" type="text" value="<%= content.video%>" placeholder="Who's going viral today?" name="video" />
+        <% } %> 
+        <div>
+            <button class="button" id="submit">Submit</button>
+            <a href="/fumblr/dashboard">
+                <button class="button" id="cancel">Cancel</button>
+            </a>
+        </div>
+    </form>
+</div>
 <%- include('./partials/footer.ejs') %>
