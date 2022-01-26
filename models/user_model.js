@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     typeOf: {
         type: String,
-        required: [true, "We need to know the user type"]
+        // required: [true, "We need to know the user type"]
     },
     firstName: {
         type: String,

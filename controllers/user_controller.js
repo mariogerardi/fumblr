@@ -14,7 +14,7 @@ router.post('/register', async function (req, res) {
         //if so redirect to login
         if (foundUser) {
             console.log("This email is already in use, please use different email address")
-            return res.redirect('/login')
+            return res.redirect('./login')
         }
         //if not create user and redirect to login
 
@@ -26,7 +26,7 @@ router.post('/register', async function (req, res) {
         const newUser = await User.create(req.body);
         console.log(newUser);
 
-        return res.redirect('/login');
+        return res.redirect('./login');
     } catch (err) {
         console.log(error);
         return res.send(err);
@@ -65,7 +65,7 @@ router.post('/login', async function (req, res) {
 
         console.log(req.session.currentUser)
 
-        return res.redirect('/dashboard')
+        return res.redirect('/fumblr/dashboard')
     } catch (err) {
         console.log(err);
         res.send(err);
@@ -76,7 +76,7 @@ router.get('/logout', async function (req, res) {
     try {
 
         await req.session.destroy();
-        return res.redirect('/login');
+        return res.redirect('./login');
     } catch (error) {
         console.log(error)
         return res.send(error);

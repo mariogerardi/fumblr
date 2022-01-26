@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+    <%- include('./partials/restrictednav.ejs') %>
+
+        <section>
+            <div>
+                <h1 class="title">Register</h1>
+                <form action="./register" method="POST">
+                    <div>
+                        <label>First Name</label>
+                        <div>
+                            <input name="firstName" class="input" type="text" placeholder="John" />
+                        </div>
+                    </div>
+                    <div>
+                        <label>Last Name</label>
+                        <div>
+                            <input name="lastName" class="input" type="text" placeholder="Appleseed" />
+                        </div>
+                        <div>
+                            <label>Age</label>
+                            <div>
+                                <input name="age" class="input" type="number" placeholder="20" />
+                            </div>
+                            <div>
+                                <label>Gender</label>
+                                <div>
+                                    <input name="gender" class="input" type="text" placeholder="gender" />
+                                </div>
+                                <div>
+                                    <label>Profile Picture</label>
+                                    <div>
+                                        <input name="photo" class="input" type="url"
+                                            placeholder="hostingwebsite.com/yourimage" />
+                                    </div>
+                                    <div>
+                                        <label>Email</label>
+                                        <div>
+                                            <input name="email" class="input" type="text"
+                                                placeholder="example@domain.com" />
+                                        </div>
+                                        <div>
+                                            <label>password</label>
+                                            <div>
+                                                <input name="password" class="input" type="password"
+                                                    placeholder="password" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <button>Submit</button>
+                                            </div>
+                                        </div>
+
+                </form>
+            </div>
+        </section>
+
+</html>
