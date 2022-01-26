@@ -35,6 +35,7 @@ app.use(methodOverride('_method'));
 
 app.use('/fumblr', controllers.blog);
 app.use('/content', controllers.content)
+app.use('/user', controllers.user)
 
 app.use((req, res, next) => {    
     console.log("I'm running for another new route")
