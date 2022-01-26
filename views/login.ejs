@@ -1,13 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
 <%- include('./partials/head.ejs') %>
-<%- include('./partials/nav.ejs') %>
-
+<%- include('./partials/restrictednav.ejs') %>
 <section>
-    <div>
+    <div class="form_block">
         <h1 class="title">Login</h1>
-
-            
+        <form action="/login" method="POST">
+            <div class="field">
+                <label>Email</label>
+                <div>
+                    <input
+                        name="email"
+                        class="input"
+                        type="email"
+                        placeholder="example@domain.com"
+                    />
+                </div>
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <div>
+                    <input
+                    name="password"
+                    class= "input"
+                    type="password"
+                    placeholder="*******"
+                    />
+                </div>
+                <div>
+                    <button class="button">Submit</button>
+                </div>
+            </div>
         </form>
     </div>
 </section>
-
 <%- include('./partials/footer.ejs') %>
+</html>
