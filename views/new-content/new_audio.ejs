@@ -1,22 +1,24 @@
 <%- include('../partials/head.ejs') %>
-    <%- include('../partials/nav.ejs') %>
-
-        <section>
-            <h1>Create new audio</h1>
-        </section>
-        <form action="/content" method="POST">
-            <div>
-                <label>Title</label>
-            </div>
-            <input class="input" type="text" placeholder="Title" name="title" />
-            <div>
-                <label>Audio</label>
-            </div>
-            <input class="input" type="text" placeholder="your audio" name="audio" />
-            <div>
-                <button class="button" id="submit">Submit</button>
-                <a href="/fumblr/dashboard" class="button" id="cancel">Cancel</a>
-            </div>
-        </form>
-
-        <%- include('../partials/footer.ejs') %>
+<%- include('../partials/nav.ejs') %>
+<div class="blogpostcontain" id="newpostpage">
+    <section>
+        <h1 class="posttypetitle">NEW AUDIO POST</h1>
+    </section>
+    <form class="postform" action="/content" method="POST">
+        <div>
+            <H3 class="posttext" id="smallmargin">Title:</H3>
+        </div>
+        <input class="titleinput" type="text" placeholder="Title" name="title" />
+        <div>
+            <H3 class="posttext" id="smallmargin">Link:</H3>
+        </div>
+        <input class="titleinput" type="text" placeholder="What's your favorite song?" name="audio" />
+        <div>
+            <button class="button" id="submit">Submit</button>
+            <a href="/fumblr/dashboard">
+                <button class="button" id="cancel">Cancel</button>
+            </a>
+        </div>
+    </form>
+</div>
+<%- include('../partials/footer.ejs') %>
