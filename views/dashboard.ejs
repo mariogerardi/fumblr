@@ -25,6 +25,14 @@
             </div>
         </div>
             <div class="blogposts">
+                <% for(let idx = 0; idx < content.length; idx++){ %> 
+                    <% const cont = content[idx] %>
+                    
+                
+                    <p><%= cont.title %></p>
+                    <p><%= cont.text %></p>
+                
+                <% } %>
             </div>
         </div>
         <div class="sidebar">
