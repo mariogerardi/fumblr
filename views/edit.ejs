@@ -1,7 +1,43 @@
 <%- include('./partials/head.ejs') %>
 <%- include('./partials/nav.ejs') %>
-<%- include('./partials/account.ejs') %>
-<%- include('./partials/inbox.ejs') %>
-<%- include('./partials/notifications.ejs') %>
+<div class="blogpostcontain" id="newpostpage">
+    <section>
+        <h1 class="posttypetitle">EDIT POST</h1>
+    </section>
+        
+        <% for(let idx = 0; idx < content.length; idx++) { %> 
+            <% const cont = content[idx] %>
+            <h3><%= cont %></h3>
+
+    <form action="/content/<%= cont.id %>?_method=PUT" method="POST">
+        <% if (cont.text && cont.text !== "") { %>
+            <h4 class="textpostitem"><%= cont.text%> </h4>
+        <% } %> 
+
+        <% if (cont.photo && cont.photo !== "") { %>
+            <img class="postimage" src="<%= cont.photo %>">
+        <% } %> 
+
+        <% if (cont.quote && cont.quote !== "") { %>
+            <h3 class="postquote"><%= cont.quote %></h3>
+        <% } %> 
+
+        <% if (cont.link && cont.link !== "") { %>
+            <iframe class ="postlink" src="<%= cont.link %>"></iframe>
+        <% } %> 
+
+        <% if (cont.chat && cont.chat !== "") { %>
+            <h3 class="postchat"><%= cont.chat %></h3>
+        <% } %> 
+
+        <% if (cont.audio && cont.audio !== "") { %>
+            <audio class="postaudio" src="<%= cont.audio %>"></audio>
+        <% } %> 
+
+        <% if (cont.video && cont.video !== "") { %>
+            <a class="postvideo" src="<%= cont.video %>" type="video/webm"></a>
+        <% } %> 
+
+    <% } %>
 
 <%- include('./partials/footer.ejs') %>

@@ -79,9 +79,9 @@ router.delete('/:contentId', (req, res) => {
 router.get('/:contentId/edit', (req, res) => {
     Content.findById(req.params.contentId, (error, updatedContent) => {
         if(error) console.log(error);
-
+        
         console.log(updatedContent);
-        res.render('edit.ejs', { guitar: updatedContent})
+        res.render('edit.ejs', {content: updatedContent})
     })
 });
 
@@ -91,7 +91,7 @@ router.put('/:contentId', (req, res) => {
 
         console.log(updatedContent);
 
-        return res.redirect(`/guitars`);
+        return res.redirect(`/fumblr/dashboard`);
     });
 });
 
