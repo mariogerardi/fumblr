@@ -300,3 +300,30 @@ hr.title {
     margin: 10px;
     color: rgb(34, 34, 34);
 }
+#newpostpage {
+    width: 50%;
+    height: 500px;
+    display: flex;
+    align-items: left;
+    margin: 10% 25%;
+}
+.posttypetitle {
+    text-align: center;
+}
+.postform {
+    margin-left: 20px;
+    padding: 0px;
+}
+.posttext {
+    color:rgb(34, 34, 34)
+}
+#submit {
+    height: 40px;
+    width: 80px;
+    background-color: #138511;
+}
+#cancel {
+    height: 40px;
+    width: 80px;
+    background-color: #851111;
+}
