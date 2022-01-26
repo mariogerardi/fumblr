@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 
         console.log(foundContent)
         const context = {content: foundContent}
-        res.render('blog.ejs', context);
+        res.render('dashboard.ejs', context);
     })
 });
 
@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
         console.log(createdContent);
         
         
-        res.redirect("/content");
+        res.redirect("/fumblr/dashboard");
     })
 });
 

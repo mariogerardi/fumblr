@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Blog } = require('../models')
+const { Blog, Content } = require('../models')
 
 router.get('/', (req, res) => {
     
@@ -16,7 +16,13 @@ router.get('/', (req, res) => {
 });
 
 router.get("/dashboard", (req, res) => {
-    res.render("dashboard.ejs")
+    Content.find({}, (error, foundContent) => {
+        if(error) return console.log(error);
+
+        console.log(foundContent)
+        const context = {content: foundContent}
+        res.render('dashboard.ejs', context);
+    })
 });
 
 
