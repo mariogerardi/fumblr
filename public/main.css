@@ -68,7 +68,6 @@ hr.title {
 ::placeholder {
     color: rgb(109, 109, 109);
     font-size: large;
-    position: relative;
 }
 .icon {
     width: 36px;
@@ -301,17 +300,17 @@ hr.title {
     color: rgb(34, 34, 34);
 }
 #newpostpage {
-    width: 50%;
-    height: 500px;
+    width: 75%;
+    height: 40%;
     display: flex;
     align-items: left;
-    margin: 10% 25%;
+    margin: 3% 12.5%;
 }
 .posttypetitle {
     text-align: center;
 }
 .postform {
-    margin-left: 20px;
+    margin-left: 2%;
     padding: 0px;
 }
 .posttext {
@@ -321,9 +320,35 @@ hr.title {
     height: 40px;
     width: 80px;
     background-color: #138511;
+    margin: 20px 20px 20px 0px;
 }
 #cancel {
     height: 40px;
     width: 80px;
     background-color: #851111;
+    margin: 20px 20px 20px 0px;
+}
+.titleinput {
+    height: 20px;
+    width: 40%;
+    font-size: large;
+    padding: 10px;
+}
+.textinput {
+    font-size: medium;
+    height: 50px;
+    padding: 10px;
+    inline-size: 95%;
+    overflow-wrap: normal;
+}
+.titleinput::placeholder {
+    color: rgb(109, 109, 109);
+    font-size: large;
+}
+.textinput::placeholder {
+    color: rgb(109, 109, 109);
+    font-size: large;
+}
+#smallmargin {
+    margin: 10px 0px;
 }

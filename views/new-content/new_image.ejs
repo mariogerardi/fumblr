@@ -1,26 +1,28 @@
 <%- include('../partials/head.ejs') %>
-    <%- include('../partials/nav.ejs') %>
-
-        <section>
-            <h1>Create new image</h1>
-        </section>
-        <form action="/content" method="POST">
-            <div>
-                <label>Title</label>
-            </div>
-            <input class="input" type="text" placeholder="Title" name="title" />
-            <div>
-                <label>Image</label>
-            </div>
-            <input class="input" type="text" placeholder="your image link" name="photo" />
-            <div>
-                <label>Description</label>
-            </div>
-            <input class="input" type="text" placeholder="your description" name="text" />
-            <div>
-                <button class="button" id="submit">Submit</button>
-                <a href="/fumblr/dashboard" class="button" id="cancel">Cancel</a>
-            </div>
-        </form>
-
-        <%- include('../partials/footer.ejs') %>
+<%- include('../partials/nav.ejs') %>
+<div class="blogpostcontain" id="newpostpage">
+    <section>
+        <h1 class="posttypetitle">NEW IMAGE POST</h1>
+    </section>
+    <form class="postform" action="/content" method="POST">
+        <div>
+            <H3 class="posttext" id="smallmargin">Title:</H3>
+        </div>
+        <input class="titleinput" type="text" placeholder="Title" name="title" />
+        <div>
+            <H3 class="posttext" id="smallmargin">Body:</H3>
+        </div>
+        <input class="textinput" type="text" placeholder="Share your thoughts with the world..." name="text" />
+        <div>
+            <H3 class="posttext" id="smallmargin">Image Link:</H3>
+        </div>
+        <input class="titleinput" type="text" placeholder="Insert your link here..." name="photo" />
+        <div>
+            <button class="button" id="submit">Submit</button>
+            <a href="/fumblr/dashboard">
+                <button class="button" id="cancel">Cancel</button>
+            </a>
+        </div>
+    </form>
+</div>
+<%- include('../partials/footer.ejs') %>
