@@ -22,14 +22,16 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: [true]
+        required: [true],
+        unique: true,
     },
     age: {
-        type: Number
+        type: Number,
+        required: [true],
     },
     gender: {
         type: String,
-    }
+    }, 
 });
 
 const User = mongoose.model('User', userSchema);
