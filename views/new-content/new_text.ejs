@@ -1,22 +1,24 @@
 <%- include('../partials/head.ejs') %>
-    <%- include('../partials/nav.ejs') %>
+<%- include('../partials/nav.ejs') %>
 
-        <section>
-            <h1>Create new text</h1>
-        </section>
-        <form action="/content" method="POST">
-            <div>
-                <label>Title</label>
-            </div>
-            <input class="input" type="text" placeholder="Title" name="title" />
-            <div>
-                <label>Body</label>
-            </div>
-            <input class="input" type="text" placeholder="your content" name="text" />
-            <div>
-                <button class="button" id="submit">Submit</button>
-                <a href="/fumblr/dashboard" class="button" id="cancel">Cancel</a>
-            </div>
-        </form>
+<div class="blogpostcontain" id="newpostpage">
+    <section>
+        <h1 class="posttypetitle">NEW TEXT POST</h1>
+    </section>
+    <form class="postform" action="/content" method="POST">
+        <div>
+            <H3 class="posttext">Title:</H3>
+        </div>
+        <input class="input" type="text" placeholder="Title" name="title" />
+        <div>
+            <H3 class="posttext">Body:</H3>
+        </div>
+        <input class="input" type="text" placeholder="your content" name="text" />
+        <div>
+            <button class="button" id="submit">Submit</button>
+            <a href="/fumblr/dashboard" class="button" id="cancel">Cancel</a>
+        </div>
+    </form>
+</div>
 
-        <%- include('../partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>
