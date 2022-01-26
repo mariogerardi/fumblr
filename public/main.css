@@ -275,6 +275,7 @@ hr.title {
     border-radius: 8px;
     position: relative;
     bottom: 45px;
+    margin-top: 10px;
 }
 #labelspacer {
     width: 70px;
