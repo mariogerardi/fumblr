@@ -194,7 +194,6 @@ hr.title {
     background-color: rgb(237, 237, 237);
     border: none;
     border-radius: 8px;
-    padding: 1%;
 }
 .createpost {
     padding: 5px;
@@ -274,7 +273,6 @@ hr.title {
     align-items: center;
     border: none;
     border-radius: 8px;
-    padding: 1%;
     position: relative;
     bottom: 45px;
 }

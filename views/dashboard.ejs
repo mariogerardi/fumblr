@@ -36,17 +36,19 @@
             </div>
         </div>
 
-        <% for(let idx = 0; idx < content.length; idx++) { %> 
-            <% const cont = content[idx] %>
+            <% for(let idx = 0; idx < content.length; idx++) { %> 
+                <% const cont = content[idx] %>
 
         <div class="blogposts">
             <a class="userphoto" href="./myblog">
                 <img class="feedphoto" src="https://picsum.photos/200">
             </a>
             <div class="blogpostcontain">
+                <% if (content.title !== "") { %>
                 <h2 class="textpostitem">
                     <%= cont.title %>
                 </h2>
+                <% } %>
                 <h4 class="textpostitem">
                     <%= cont.text %>
                 </h4>
