@@ -14,48 +14,51 @@ h3 {
 }
 hr {
     color: rgb(237, 237, 237);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(126, 126, 126, 0.5));
 }
 a {
     text-decoration: none;
 }
 hr.title {
-    width: 460px;
-    margin: 20px 20px 40px;
+    width: 55%;
+    margin: 20px;
 }
 .nav {
     width: 100%;
-    height: 60px;
-    padding: 16px 0px 8px;
+    height: 8vh;
+    padding: 8px 0px 8px;
     background: #34526F;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
 }
+#restricted {
+    box-shadow: 0px 5px 5px rgb(34, 34, 34);
+}
 .navlogo {
-    height: 50px;
+    height: 40px;
     margin: 0px 10px;
     position: relative;
-    top: 1px;
     filter: invert(16%) sepia(30%) saturate(2095%) hue-rotate(178deg) brightness(96%) contrast(81%);
 }
 .navleft {
-    width: 425px;
+    width: 350px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-left: 20px;
 }
 .button-bar {
-    width: 450px;
+    width: 350px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-right: 25px;
 }
 .input {
-    width: 300px;
-    padding: 12px 20px;
+    width: 250px;
+    padding: 6px 10px;
     font-size: large;
     color: #414040;
     border: none;
@@ -68,17 +71,17 @@ hr.title {
     position: relative;
 }
 .icon {
-    width: 45px;
-    height: 45px;
+    width: 36px;
+    height: 36px;
     filter: invert(69%) sepia(37%) saturate(321%) hue-rotate(168deg) brightness(97%) contrast(89%);
 }
 .icon#home {
-    width: 37px;
-    height: 37px;
+    width: 30px;
+    height: 30px;
 }
 .icon#messages {
-    width: 40px;
-    height: 40px;
+    width: 33px;
+    height: 33px;
 }
 .icon:hover {
     filter: invert(90%);
@@ -87,28 +90,37 @@ hr.title {
     height: 80px;
     width: 325px;
     padding: 35px;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(126, 126, 126, 0.5));
 }
 .navlogin {
-    margin-right: 20px;
+    margin-right: 8px;
 }
 .button {
     border: none;
     border-radius: 3px;
-    margin: 5px 5px 5px 5px;
+    margin: 7px 5px;
     color: rgb(237, 237, 237);
     font-size: larger;
-    padding: 10px 20px;
-    height: 40px;
+    padding: 10px 10px;
+    height: 25px;
     width: 100px;
+}
+.login {
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
 }
 #log_in {
     background-color: #138511;
+    text-align: center;
 }
 #sign_up {
     background-color: #3A91E4;
+    text-align: center;
 }
 #kitten {
     background-color: #c6519fb6;
+    text-align: center;
 }
 .threebuttons {
     display: flex;
@@ -116,18 +128,23 @@ hr.title {
     justify-content: center;
 }
 .landing {
+    height: 92vh;
     width: 100%;
-    background-color: #34526F;
+    background-image: url("https://picsum.photos/1600/900");
     display: flex;
     justify-content: center;
 }
 .splash {
-    width: min-content;
+    width: 100%;
+    background-color: rgb(34, 34, 34);
+    opacity: 85%;
+}
+.splashcontain {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 75px;
+    margin-top: 100px;
 }
 .call-to-action {
     color: rgb(237, 237, 237);
@@ -137,7 +154,8 @@ hr.title {
     padding: 5px;
 }
 .contain {
-    height: 500px;
+    min-height: 500px;
+    height: fit-content;
     width: 96%;
     margin: 1% 2% 2%;
     border: none;
@@ -153,6 +171,7 @@ hr.title {
 .sidebar {
     width: 30%;
     margin: 40px 40px 40px 20px;
+    position: sticky;
 }
 .content-creation {
     display: flex;
@@ -160,7 +179,7 @@ hr.title {
     align-items: flex-start;
 }
 .userphoto {
-    width: 10%;
+    width: 12%;
 }
 .feedphoto {
     width: 100%;
@@ -168,7 +187,8 @@ hr.title {
     border-radius: 8px;
 }
 .waytoomanyoptions {
-    width: 85%;
+    width: 100%;
+    height: 120px;
     display: flex;
     justify-content: space-evenly;
     background-color: rgb(237, 237, 237);
@@ -183,45 +203,52 @@ hr.title {
 }
 #newtextpost {
     width: 70px;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newimagepost {
     width: 70px;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newquotepost {
     width: 70px;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newlinkpost {
     width: 70px;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newchatpost {
     width: 70px;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newaudiopost {
     width: 70px;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newvideopost {
     width: 70px;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newtextpost:hover {
-    filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(332deg) brightness(96%) contrast(92%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(26%) sepia(0%) saturate(0%) hue-rotate(332deg) brightness(96%) contrast(92%);
 }
 #newimagepost:hover {
-    filter: invert(42%) sepia(71%) saturate(914%) hue-rotate(332deg) brightness(92%) contrast(84%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(42%) sepia(71%) saturate(914%) hue-rotate(332deg) brightness(92%) contrast(84%);
 }
 #newquotepost:hover {
-    filter: invert(66%) sepia(95%) saturate(1714%) hue-rotate(341deg) brightness(104%) contrast(90%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(66%) sepia(95%) saturate(1714%) hue-rotate(341deg) brightness(104%) contrast(90%);
 }
 #newlinkpost:hover {
-    filter: invert(62%) sepia(12%) saturate(1528%) hue-rotate(98deg) brightness(103%) contrast(88%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(62%) sepia(12%) saturate(1528%) hue-rotate(98deg) brightness(103%) contrast(88%);
 }
 #newchatpost:hover {
-    filter: invert(61%) sepia(75%) saturate(342%) hue-rotate(164deg) brightness(81%) contrast(95%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(61%) sepia(75%) saturate(342%) hue-rotate(164deg) brightness(81%) contrast(95%);
 }
 #newaudiopost:hover {
-    filter: invert(49%) sepia(80%) saturate(241%) hue-rotate(233deg) brightness(96%) contrast(87%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(49%) sepia(80%) saturate(241%) hue-rotate(233deg) brightness(96%) contrast(87%);
 }
 #newvideopost:hover {
-    filter: invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%);
 }
 .fourohfour {
     display: flex;
@@ -230,4 +257,48 @@ hr.title {
 }
 #notfound {
     margin: 25px;;
+}
+.containcreate {
+    width: 85%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.labels {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    padding: 1%;
+    position: relative;
+    bottom: 45px;
+}
+#labelspacer {
+    width: 70px;
+}
+.blogposts {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.blogpostcontain {
+    width: 100%;
+    min-height: 120px;
+    height: fit-content;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(237, 237, 237);
+    border: none;
+    border-radius: 8px;
+    margin: inherit;
+    padding: 1%;
+}
+.textpostitem {
+    margin: 10px;
+    color: rgb(34, 34, 34);
 }
