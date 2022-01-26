@@ -166,7 +166,6 @@ hr.title {
 }
 .feed {
     width: 65%;
-    margin: 40px 20px 40px 40px;
 }
 .sidebar {
     width: 30%;
@@ -177,6 +176,7 @@ hr.title {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin: 5% 5% 0%;
 }
 .userphoto {
     width: 12%;
@@ -263,6 +263,7 @@ hr.title {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+    margin: 0%
 }
 .labels {
     width: 100%;
@@ -283,10 +284,10 @@ hr.title {
 .blogposts {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    margin: 5% 5% 0%;
 }
 .blogpostcontain {
-    width: 100%;
+    width: 85%;
     min-height: 120px;
     height: fit-content;
     text-align: left;
@@ -295,8 +296,6 @@ hr.title {
     background-color: rgb(237, 237, 237);
     border: none;
     border-radius: 8px;
-    margin: inherit;
-    padding: 1%;
 }
 .textpostitem {
     margin: 10px;
