@@ -45,17 +45,14 @@
             </a>
             <div class="blogpostcontain">
                 <h2 class="textpostitem"><%= cont.title %></h2>
-                <h4 class="textpostitem"><%= cont.text %></h4>
-                <img class="postimage" src="<%= cont.photo %>">
-                <h3 class="postquote"><%= cont.quote %></h3>
-                <iframe class ="postlink" src="<%= cont.link %>"></iframe>
-                <h3 class="postchat"><%= cont.chat %></h3>
-                <a class="postvideo" src="<%= cont.video %>" type="video/webm"></a>
-                <audio class="postaudio" src="<%= cont.audio %>"></audio>
+
+                <% if (content.text !== "") { %>
+                    <%- include('template_text_post.ejs') %>
+                <% } %>
+
                 <div class="actionbar">
-                    <h5 class="textpostitem" id="notes">
-                        <%= cont.id %> notes 
-                    </h5>
+                    <h5 class="textpostitem" id="notes"><%= cont.id %> notes</h5>
+                    <a class="button" id="log_in" href="/fumblr/dashboard">DELETE</a>
                 </div>
             </div>
         </div>
