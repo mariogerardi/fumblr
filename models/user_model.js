@@ -32,6 +32,11 @@ const userSchema = new mongoose.Schema({
     gender: {
         type: String,
     }, 
+    content: [{
+        type: mongoose.Types.ObjectId,
+        // required: [true, "We need to know where this is posting"],
+        ref: "Content"
+    }],
 });
 
 const User = mongoose.model('User', userSchema);
