@@ -1,7 +1,7 @@
 body {
     margin: 0px;
     font-family: 'Inter', sans-serif;
-    background-color: #34526F;
+    background-color: #132638;
 }
 h2 {
     color: rgb(237, 237, 237);
@@ -13,10 +13,10 @@ h3 {
     font-size: large;
 }
 h4 {
-    color: rgb(34, 34, 34);
+    color: rgb(237, 237, 237);
 }
 h5 {
-    color: rgb(34, 34, 34);
+    color: rgb(237, 237, 237);
 }
 hr {
     color: rgb(237, 237, 237);
@@ -32,8 +32,7 @@ hr.title {
 .nav {
     width: 100%;
     height: 8vh;
-    padding: 8px 0px 8px;
-    background: #34526F;
+    padding: 1% 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -124,7 +123,7 @@ hr.title {
     text-align: center;
 }
 #kitten {
-    background-color: #c6519fb6;
+    background-color: #c6519f;
     text-align: center;
 }
 .threebuttons {
@@ -162,12 +161,12 @@ hr.title {
     min-height: 500px;
     height: fit-content;
     width: 96%;
-    margin: 1% 2% 2%;
+    margin: 0% 2% 2%;
     border: none;
     border-radius: 15px;
     display: flex;
     justify-content: space-around;
-    background-color: #22374A;
+    background-color: #0D1C2B;
     padding: 0px 0px 30px;
 }
 .feed {
@@ -197,7 +196,7 @@ hr.title {
     height: 120px;
     display: flex;
     justify-content: space-evenly;
-    background-color: rgb(237, 237, 237);
+    background-color: #0E1821;
     border: none;
     border-radius: 8px;
 }
@@ -205,55 +204,49 @@ hr.title {
     padding: 5px;
     border: none;
     border-radius: 10px;
+    filter: invert(90%);
 }
 #newtextpost {
     width: 70px;
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newimagepost {
     width: 70px;
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newquotepost {
     width: 70px;
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newlinkpost {
     width: 70px;
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newchatpost {
     width: 70px;
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newaudiopost {
     width: 70px;
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newvideopost {
     width: 70px;
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 #newtextpost:hover {
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(26%) sepia(0%) saturate(0%) hue-rotate(332deg) brightness(96%) contrast(92%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(26%) sepia(0%) saturate(0%) hue-rotate(332deg) brightness(96%) contrast(92%) invert(100%);
 }
 #newimagepost:hover {
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(42%) sepia(71%) saturate(914%) hue-rotate(332deg) brightness(92%) contrast(84%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(42%) sepia(71%) saturate(914%) hue-rotate(332deg) brightness(92%) contrast(84%) invert(100%);
 }
 #newquotepost:hover {
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(66%) sepia(95%) saturate(1714%) hue-rotate(341deg) brightness(104%) contrast(90%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(66%) sepia(95%) saturate(1714%) hue-rotate(341deg) brightness(104%) contrast(90%) invert(100%);
 }
 #newlinkpost:hover {
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(62%) sepia(12%) saturate(1528%) hue-rotate(98deg) brightness(103%) contrast(88%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(62%) sepia(12%) saturate(1528%) hue-rotate(98deg) brightness(103%) contrast(88%) invert(100%);
 }
 #newchatpost:hover {
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(61%) sepia(75%) saturate(342%) hue-rotate(164deg) brightness(81%) contrast(95%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(61%) sepia(75%) saturate(342%) hue-rotate(164deg) brightness(81%) contrast(95%) invert(100%);
 }
 #newaudiopost:hover {
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(49%) sepia(80%) saturate(241%) hue-rotate(233deg) brightness(96%) contrast(87%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(49%) sepia(80%) saturate(241%) hue-rotate(233deg) brightness(96%) contrast(87%) invert(100%);
 }
 #newvideopost:hover {
-    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%);
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%) invert(100%);
 }
 .fourohfour {
     display: flex;
@@ -261,7 +254,7 @@ hr.title {
     align-items: center;
 }
 #notfound {
-    margin: 25px;;
+    margin: 25px;
 }
 .containcreate {
     width: 85%;
@@ -282,6 +275,7 @@ hr.title {
     position: relative;
     bottom: 45px;
     margin-top: 10px;
+    filter: invert(100%)
 }
 #labelspacer {
     width: 70px;
@@ -392,15 +386,19 @@ h3.postchat {
 #smallmargin {
     margin: 10px 0px;
 }
-.notes {
-    font-size: larger;
-    color:rgba(59, 59, 59, 0.5);
-    height: 20%;
+#notes {
+    font-size: large;
+    color: rgb(237, 237, 237);
+    height: 15%;
     padding: 5px 2px;
-    font-weight: 900;
+    font-weight: 500;
 }
 .actionbar {
     width: 100%;
+    background-color: #0E1821;
+    border: none;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -414,7 +412,8 @@ h3.postchat {
     padding: 5px;
 }
 .actionbaritem {
-    width: 35px;
+    width: 30px;
+    filter: invert(100%);
 }
 .postquote {
     width: 90%;
@@ -442,6 +441,7 @@ h3.postchat {
 }
 form.trash {
     height: inherit;
+    filter: invert(100%);
 }
 .postdelete {
     width: 35px;
@@ -462,4 +462,105 @@ form.trash {
 #postdelete:hover {
     cursor: pointer;
     filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%);
+}
+.registercontain {
+    background-color: rgb(237, 237, 237);
+    border: none;
+    border-radius: 15px;
+    height: 40vh;
+    padding: 2%;
+    margin: 1.5% 17.5%;
+}
+.registerform {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.registersection {
+    height: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.registersectiontwo {
+    height: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.regsec {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.registertitle {
+    width: 100%;
+    font-size: x-large;
+    text-align: center;
+    color: rgb(34, 34, 34);
+    margin: 0px 0px 10px;
+}
+.registertext {
+    font-size: medium;
+    color: rgb(34, 34, 34);
+    padding: 0px;
+    margin: 2.5px 5px 2.5px 0px;
+}
+#regnametitle {
+    width: 35%;
+}
+.reginput {
+    height: 100%;
+    border: none;
+    border-radius: 3px;
+    font-size: medium;
+}
+#reginputsmall {
+    width: 50%;
+    font-size: medium;
+    border: none;
+    border-radius: 3px;
+}
+#reginputsmaller {
+    width: 35%;
+    font-size: medium;
+    border: none;
+    border-radius: 3px;
+}
+#reginputpic {
+    width: 60%;
+    font-size: medium;
+    border: none;
+    border-radius: 3px;
+}
+.reginput::placeholder {
+    font-size: medium;
+    margin: 0px 0px 0px 5px;
+}
+.reginputsmall::placeholder {
+    font-size: medium;
+    margin: 0px 0px 0px 5px;
+}
+.reginputpic::placeholder {
+    font-size: medium;
+    margin: 0px 0px 0px 5px;
+}
+#regbutton {
+    background-color: #138511;
+    text-align: center;
+    height: 40px;
+    width: 200px;
+}
+.regsec#age {
+    justify-content: center;
+    width: 22%;
+}
+.regsec#gender {
+    justify-content: center;
+    width: 28%;
+}
+.regsec#pic {
+    justify-content: center;
+    width: 60%;
 }
