@@ -3,17 +3,9 @@ const router = express.Router();
 const { Blog, Content, User } = require('../models');
 
 router.get('/', (req, res) => {
-    
-    Blog.find({}, (error, foundBlogs) => {
-        if(error) return console.log(error);
+    res.render('index.ejs');
+    });
 
-        console.log(foundBlogs)
-        context = {
-            blogs: foundBlogs
-        }
-        res.render('index.ejs', context);
-    })
-});
 
 // router.get("/dashboard", (req, res) => {
 //     Content.find({}, (error, foundContent) => {
