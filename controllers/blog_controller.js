@@ -16,40 +16,40 @@ router.get('/', (req, res) => {
 //     })
 // });
 
-// router.get('/dashboard', (req, res) => {
-//     Content.find({}, (error, foundContent) => {
-//         if(error) {
-//             console.log(error)
-//             req.error = error;
-//             return next();
-//         }
-//     User.find({}, (error, foundUsers) => {
-//         console.log(error)
-//         const context = {
-//             content: foundContent,
-//             user: foundUsers
-//         };
-//         return res.render('dashboard.ejs', context)
-//     })
-//     })
-// })
-
-router.get('/dashboard', async function (req, res, next) {
-    try {
-        const foundContent = await Content.find({})
-        if (!foundContent) return res.send('Cant find content!')
-        const foundUsers = await User.find({})
-        const context = { 
+router.get('/dashboard', (req, res) => {
+    Content.find({}, (error, foundContent) => {
+        if(error) {
+            console.log(error)
+            req.error = error;
+            return next();
+        }
+    User.find({}, (error, foundUsers) => {
+        console.log(error)
+        const context = {
             content: foundContent,
             user: foundUsers
-        }
-        res.render('dashboard.ejs', context)
-    } catch (err) {
-        console.log(err);
-        res.send(err);
-        return next();
-    }
+        };
+        return res.render('dashboard.ejs', context)
+    })
+    })
 })
+
+// router.get('/dashboard', async function (req, res, next) {
+//     try {
+//         const foundContent = await Content.find({})
+//         if (!foundContent) return res.send('Cant find content!')
+//         const foundUsers = await User.find({})
+//         const context = { 
+//             content: foundContent,
+//             user: foundUsers
+//         }
+//         res.render('dashboard.ejs', context)
+//     } catch (err) {
+//         console.log(err);
+//         res.send(err);
+//         return next();
+//     }
+// })
 
 router.get('/:blogId', (req, res) => {
     
