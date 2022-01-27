@@ -55,7 +55,10 @@
                 <% } %> 
 
                 <% if (cont.quote && cont.quote !== "") { %>
-                    <h3 class="postquote"><%= cont.quote %></h3>
+                    <div class="quotecontain">
+                        <h3 class="postquote"><%= cont.quote %><br><br><br><br></h3>
+                        <h3 class="postauthor"><%= cont.author %></h3>
+                    </div>
                 <% } %> 
 
                 <% if (cont.link && cont.link !== "") { %>
@@ -63,23 +66,42 @@
                 <% } %> 
 
                 <% if (cont.chat && cont.chat !== "") { %>
-                    <h3 class="postchat"><%= cont.chat %></h3>
+                        <div class="bubble">
+                            <h3 class="postchat"><%= cont.chat %></h3>
+                        </div>
                 <% } %> 
 
                 <% if (cont.audio && cont.audio !== "") { %>
-                    <audio class="postaudio" src="<%= cont.audio %>"></audio>
+                    <audio class=postaudio controls>
+                        <source src="<%= cont.audio %>" type="audio/ogg">
+                        <source src="<%= cont.audio %>" type="audio/mpeg">
+                      Your browser does not support the audio element.
+                    </audio> 
                 <% } %> 
 
                 <% if (cont.video && cont.video !== "") { %>
-                    <a class="postvideo" src="<%= cont.video %>" type="video/webm"></a>
+                    <video controls class="postvideo" src="<%= cont.video %>" type="video/webm"></video>
                 <% } %> 
 
                 <div class="actionbar">
-                    <h5 class="textpostitem" id="notes"><%= cont.id %> notes</h5>
-                    <form action="/content/<%= cont.id %>?_method=DELETE" method="POST">
-                        <input class="button" type="submit" id="log_in" value="DELETE" />
-                    </form>
-                    <a class="button" id="log_in" href="/content/<%= cont.id %>/edit">Edit Post</a>
+                    <div class="notes">
+                        <h5 class="textpostitem" id="notes"><%= content.length %> notes</h5>
+                    </div>
+                    <div class="actionbaritems">
+                        <a>
+                            <img class="actionbaritem" id="love" src="https://drive.google.com/uc?export=download&id=1iMNvGyI1wmG23mA16sveMLzD41X4iN4S">
+                        </a>
+                        <a>
+                            <img class="actionbaritem" id="reblog" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
+                        </a>
+                        <a href="/content/<%=cont.id %>/edit">
+                            <img class="actionbaritem" id="edit" src="https://drive.google.com/uc?export=download&id=1-Uf2XtS-VFXQ0Z7vMMNSvxmj0CKasK1K">
+                        </a>
+                        <form class="trash" action="/content/<%= cont.id %>?_method=DELETE" method="POST">
+                            <input class="postdelete" type="image" src="https://drive.google.com/uc?export=download&id=1_FIACPaWgrCgpISp3NLS1jOhcBleS3Xf">
+                        </form>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
