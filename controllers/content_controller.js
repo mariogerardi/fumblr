@@ -3,16 +3,9 @@ const router = express.Router();
 const { Content } = require('../models')
 
 router.get('/', (req, res) => {
-    
-    Content.find({}, (error, foundContent) => {
-        if(error) return console.log(error);
-
-        console.log(foundContent)
-        const context = {content: foundContent}
-        res.render('dashboard.ejs', context);
+    res.render('dashboard.ejs', context);
     })
-});
-
+    
 router.get("/new-text-post", (req, res) => {
     res.render("new-content/new_text.ejs")
 });
