@@ -3,7 +3,7 @@ const router = express.Router();
 const { Blog, Content, User } = require('../models');
 
 router.get('/', (req, res) => {
-    res.render('index.ejs', context);
+    res.render('index.ejs');
     });
 
 
