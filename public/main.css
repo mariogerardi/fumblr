@@ -12,6 +12,12 @@ h3 {
     color: rgb(237, 237, 237);
     font-size: large;
 }
+h4 {
+    color: rgb(34, 34, 34);
+}
+h5 {
+    color: rgb(34, 34, 34);
+}
 hr {
     color: rgb(237, 237, 237);
     filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(126, 126, 126, 0.5));
@@ -162,6 +168,7 @@ hr.title {
     display: flex;
     justify-content: space-around;
     background-color: #22374A;
+    padding: 0px 0px 30px;
 }
 .feed {
     width: 65%;
@@ -175,7 +182,7 @@ hr.title {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 5% 5% 0%;
+    margin: 5% 5% -4%;
 }
 .userphoto {
     width: 12%;
@@ -316,6 +323,39 @@ hr.title {
 .posttext {
     color:rgb(34, 34, 34)
 }
+.postlink {
+    min-height: 400px;
+    color: rgb(34, 34, 34);
+}
+.bubble {
+    width: auto;
+    background-image: url("https://drive.google.com/uc?export=download&id=1soWea3h6iURTG6hVlNqvt0Xu_A-ScQ2v");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 25px;
+}
+h3.postchat {
+    color: rgb(34, 34, 34);
+    padding: 25% 20%;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: bolder;
+    text-align: left;
+    position: relative;
+    bottom: 45px;
+    right: 15px;
+}
+.postaudio {
+    background-color: rgb(34, 34, 34);
+    padding: 10px;
+    width: auto;
+}
+.postimage {
+    color: rgb(34, 34, 34);
+}
+.postvideo {
+    color: rgb(34, 34, 34);
+}
 #submit {
     height: 40px;
     width: 80px;
@@ -351,4 +391,75 @@ hr.title {
 }
 #smallmargin {
     margin: 10px 0px;
+}
+.notes {
+    font-size: larger;
+    color:rgba(59, 59, 59, 0.5);
+    height: 20%;
+    padding: 5px 2px;
+    font-weight: 900;
+}
+.actionbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0%;
+}
+.actionbaritems {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    padding: 5px;
+}
+.actionbaritem {
+    width: 35px;
+}
+.postquote {
+    width: 90%;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(194, 194, 194);
+    color: rgb(34, 34, 34);
+    position: relative;
+    bottom: 10px;
+}
+.postauthor {
+    color: rgb(34, 34, 34);
+    font-style: italic;
+    position: relative;
+    bottom: 95px;
+    left: 15%;
+    margin-bottom: -8%;
+}
+.quotecontain {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+form.trash {
+    height: inherit;
+}
+.postdelete {
+    width: 35px;
+    border: none;
+}
+#love:hover {
+    cursor: pointer;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(42%) sepia(71%) saturate(914%) hue-rotate(332deg) brightness(92%) contrast(84%);
+}
+#reblog:hover {
+    cursor: pointer;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(62%) sepia(12%) saturate(1528%) hue-rotate(98deg) brightness(103%) contrast(88%);
+}
+#edit:hover {
+    cursor: pointer;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(66%) sepia(95%) saturate(1714%) hue-rotate(341deg) brightness(104%) contrast(90%);
+}
+#postdelete:hover {
+    cursor: pointer;
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5)) invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%);
 }
