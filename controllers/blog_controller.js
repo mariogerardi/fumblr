@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 //     })
 // })
 
-router.get('/dashboard', async function (req, res) {
+router.get('/dashboard', async function (req, res, next) {
     try {
         const foundContent = await Content.find({})
         if (!foundContent) return res.send('Cant find content!')
@@ -43,10 +43,11 @@ router.get('/dashboard', async function (req, res) {
             content: foundContent,
             user: foundUsers
         }
-        return res.render('dashboard.ejs', context)
+        res.render('dashboard.ejs', context)
     } catch (err) {
         console.log(err);
         res.send(err);
+        return next();
     }
 })
 
