@@ -15,7 +15,12 @@ const blogSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         required: [true, "We need to know which account is posting"],
         ref: "User"
-    },
+    },    
+    content: [{
+        type: mongoose.Types.ObjectId,
+        // required: [true, "We need to know where this is posting"],
+        ref: "Content"
+    }]
 });
 
 const Blog = mongoose.model('Blog', blogSchema);

@@ -2,10 +2,6 @@ const express = require('express');
 const router = express.Router();
 const { Content } = require('../models')
 
-router.get('/', (req, res) => {
-    res.render('dashboard.ejs', context);
-    })
-    
 router.get("/new-text-post", (req, res) => {
     res.render("new-content/new_text.ejs")
 });
@@ -33,15 +29,28 @@ router.get("/new-video-post", (req, res) => {
     res.render("new-content/new_video.ejs")
 });
 
-router.post('/', (req, res) => {
-    Content.create(req.body, (error, createdContent) => {
-        if(error) console.log(error);
-        console.log(createdContent);
+// router.post('/', (req, res) => {
+//     Content.create(req.body, (error, createdContent) => {
+//         if(error) console.log(error);
+//         console.log(createdContent);
         
         
-        res.redirect("/fumblr/dashboard");
-    })
-});
+//         res.redirect("/fumblr/dashboard");
+//     })
+// });
+
+router.post('/', async function(req, res) {
+    try {
+        const createdContent = await Content.create(req.body)
+        if(!createdContent) return res.send('No Content being created (ﾉ*ФωФ)ﾉ)')
+        console.log(createdContent)
+
+        res.redirect('/fumblr/dashboard')
+    } catch(err) {
+        console.log(err);
+        return res.send(err); 
+    }
+})
 
 router.get('/:contentId', (req, res) => {
     

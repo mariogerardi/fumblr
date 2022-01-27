@@ -30,7 +30,7 @@ router.post('/register', async function (req, res) {
 
         return res.redirect('./login');
     } catch (err) {
-        console.log(error);
+        console.log(err);
         return res.send(err);
     }
 });
