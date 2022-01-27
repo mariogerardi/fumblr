@@ -44,7 +44,10 @@
                 <img class="feedphoto" src="https://picsum.photos/200">
             </a>
             <div class="blogpostcontain">
-                <h2 class="textpostitem"><%= cont.title %></h2>
+
+                <% if (cont.title && cont.title !== "") { %>
+                    <h2 class="textpostitem"><%= cont.title %></h2>
+                <% } %> 
 
                 <% if (cont.text && cont.text !== "") { %>
                     <h4 class="textpostitem"><%= cont.text%> </h4>
@@ -75,7 +78,7 @@
                     <audio class=postaudio controls>
                         <source src="<%= cont.audio %>" type="audio/ogg">
                         <source src="<%= cont.audio %>" type="audio/mpeg">
-                      Your browser does not support the audio element.
+                      Your browser does not support this audio format.
                     </audio> 
                 <% } %> 
 
