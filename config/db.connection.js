@@ -3,7 +3,9 @@ require('dotenv').config();
 
 const connectionStr = process.env.MONGO_URI;
 
-mongoose.connect(connectionStr)
+// mongoose.connect(connectionStr)
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/fumblr' );
 
 mongoose.connection.on('connected', () => {
     console.log(`[${new Date().toLocaleTimeString()}] - MongoDB connected ... 🙌 🙌 🙌`); 

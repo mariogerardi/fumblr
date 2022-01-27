@@ -4,6 +4,7 @@
   "description": "An attempt to reimagine and modernize the popular blog-hosting website, tumblr.",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

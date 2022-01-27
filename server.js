@@ -7,7 +7,7 @@ const MongoStore = require("connect-mongo");
 
 require('./config/db.connection')
 
-const PORT = 4000;
+// const PORT = 4000;
 
 app.set('view engine', 'ejs');
 
@@ -53,6 +53,6 @@ app.get("/*", (req, res) => {
     return res.status(404).render("404", context);
 });
         
-app.listen(PORT, function() {
+app.listen(process.env.PORT || 4000, function() {
     console.log(`I am listening on port ${PORT}`)
 });
