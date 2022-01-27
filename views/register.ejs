@@ -1,60 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
 <%- include('./partials/head.ejs') %>
-    <%- include('./partials/restrictednav.ejs') %>
-
-        <section>
-            <div>
-                <h1 class="title">Register</h1>
-                <form action="./register" method="POST">
-                    <div>
-                        <label>First Name</label>
-                        <div>
-                            <input name="firstName" class="input" type="text" placeholder="John" />
-                        </div>
-                    </div>
-                    <div>
-                        <label>Last Name</label>
-                        <div>
-                            <input name="lastName" class="input" type="text" placeholder="Appleseed" />
-                        </div>
-                        <div>
-                            <label>Age</label>
-                            <div>
-                                <input name="age" class="input" type="number" placeholder="20" />
-                            </div>
-                            <div>
-                                <label>Gender</label>
-                                <div>
-                                    <input name="gender" class="input" type="text" placeholder="gender" />
-                                </div>
-                                <div>
-                                    <label>Profile Picture</label>
-                                    <div>
-                                        <input name="photo" class="input" type="url"
-                                            placeholder="hostingwebsite.com/yourimage" />
-                                    </div>
-                                    <div>
-                                        <label>Email</label>
-                                        <div>
-                                            <input name="email" class="input" type="text"
-                                                placeholder="example@domain.com" />
-                                        </div>
-                                        <div>
-                                            <label>password</label>
-                                            <div>
-                                                <input name="password" class="input" type="password"
-                                                    placeholder="password" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div>
-                                                <button>Submit</button>
-                                            </div>
-                                        </div>
-
-                </form>
+<%- include('./partials/restrictednav.ejs') %>
+<section class="registercontain">
+    <form class="registerform" action="./register" method="POST">
+        <h1 class="registertitle">Create Your Account:</h1>
+        <div class="registersectiontwo">
+            <div class="regsec">
+                <h3 class="registertext" id="regnametitle">First Name:</h3>
+                <input name="firstName" class="reginput" id="regname" type="text" placeholder="example: Johnny"/>
             </div>
-        </section>
-
-</html>
+            <div class="regsec">
+                <h3 class="registertext" id="regnametitle">Last Name:</h3>
+                <input name="lastName" class="reginput" id="regname" type="text" placeholder="example: Appleseed"/>
+            </div>
+        </div>
+        <div class="registersection">
+            <div class="regsec" id="age">
+                <h3 class="registertext">Age:</h3>
+                <input name="age" class="reginput" id="reginputsmaller" type="number" placeholder=""/>
+            </div>
+            <div class="regsec" id="gender">
+                <h3 class="registertext">Gender:</h3>
+                <input name="gender" class="reginput" id="reginputsmall" type="text" placeholder=""/>
+            </div>
+            <div class="regsec" id="pic">
+                <h3 class="registertext">Profile Picture:</h3>
+                <input name="photo" class="reginput" id="reginputpic" type="url" placeholder="example: hostingwebsite.com/yourimage"/>
+            </div>
+        </div>
+        <div class="registersectiontwo">
+            <div class="regsec">
+                <h3 class="registertext">Email:</h3>
+                <input name="email" class="reginput" type="text" placeholder="example: example@domain.com"/>  
+            </div>    
+            <div class="regsec">
+                <h3 class="registertext">Password:</h3>
+                <input name="password" class="reginput" type="password" placeholder=""/>
+            </div>
+        </div>
+        <div class="registersection">
+            <button class="button" id="regbutton"> Welcome to fumblr! </button>    
+        </div>    
+    </form>
+</section>
+<%- include('./partials/footer.ejs') %>
