@@ -52,19 +52,33 @@ router.post('/', async function(req, res) {
     }
 })
 
-router.get('/:contentId', (req, res) => {
+// router.get('/:contentId', (req, res) => {
     
-    Content.findById(req.params.contentId, (error, foundContent) => {
-        if (error) {
-            console.log(req.params)
-            console.log(error);
-            const context = { error: error };
-            return res.status(404).render("404", context);
-        }
-        res.render('show.ejs', {content: foundContent});
-    });
+//     Content.findById(req.params.contentId, (error, foundContent) => {
+//         if (error) {
+//             console.log(req.params)
+//             console.log(error);
+//             const context = { error: error };
+//             return res.status(404).render("404", context);
+//         }
+//         res.render('show.ejs', {content: foundContent});
+//     });
     
+// });
+
+router.get('/:contentId', async function (req, res) {
+    try{
+        const foundContent = await Content.findOne(req.params._id)
+        if (!foundContent) return res.send('No content found !!! ผ(•̀_•́ผ)')
+        console.log(foundContent)
+
+        res.render('show.ejs', foundContent)
+    } catch(err) {
+        console.log(err);
+        return res.send(err);
+    }
 });
+
 
 router.delete('/:contentId', (req, res) => {
     Content.findByIdAndDelete(req.params.contentId, (error, deleteContent) => {
