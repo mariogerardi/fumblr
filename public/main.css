@@ -102,7 +102,7 @@ hr.title {
     filter: drop-shadow(0rem 0rem 0.5rem rgba(126, 126, 126, 0.5));
 }
 .navlogin {
-    margin-right: 8px;
+    margin-right: 2%;
 }
 .button {
     border: none;
@@ -471,13 +471,21 @@ form.trash {
     cursor: pointer;
     filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%);
 }
+.logincontain {
+    background-color: rgb(237, 237, 237);
+    border: none;
+    border-radius: 15px;
+    height: 37vh;
+    padding: 2%;
+    margin: 1.5% 30%;
+}
 .registercontain {
     background-color: rgb(237, 237, 237);
     border: none;
     border-radius: 15px;
     height: 40vh;
     padding: 2%;
-    margin: 1.5% 17.5%;
+    margin: 1.5% 10%;
 }
 .registerform {
     height: 100%;
@@ -488,18 +496,18 @@ form.trash {
 .registersection {
     height: 25%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
 }
 .registersectiontwo {
     height: 25%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
 .regsec {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
 }
 .registertitle {
@@ -510,13 +518,10 @@ form.trash {
     margin: 0px 0px 10px;
 }
 .registertext {
-    font-size: medium;
+    font-size: large;
     color: rgb(34, 34, 34);
     padding: 0px;
     margin: 2.5px 5px 2.5px 0px;
-}
-#regnametitle {
-    width: 35%;
 }
 .reginput {
     height: 100%;
@@ -526,21 +531,15 @@ form.trash {
 }
 #reginputsmall {
     width: 50%;
-    font-size: medium;
-    border: none;
-    border-radius: 3px;
+    font-size: large;
 }
 #reginputsmaller {
     width: 35%;
-    font-size: medium;
-    border: none;
-    border-radius: 3px;
+    font-size: large;
 }
 #reginputpic {
-    width: 60%;
-    font-size: medium;
-    border: none;
-    border-radius: 3px;
+    width: 70%;
+    font-size: large;
 }
 .reginput::placeholder {
     font-size: medium;
@@ -557,18 +556,50 @@ form.trash {
 #regbutton {
     background-color: #138511;
     text-align: center;
-    height: 40px;
+    height: 45px;
     width: 200px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
 }
 .regsec#age {
-    justify-content: center;
-    width: 22%;
+    justify-content: flex-start;
+    width: 20%;
 }
 .regsec#gender {
-    justify-content: center;
-    width: 28%;
+    width: 37%;
 }
 .regsec#pic {
-    justify-content: center;
+    justify-content: flex-start;
     width: 60%;
+}
+#loginlogo {
+    margin-top: 20px;
+}
+#registerlogo {
+    margin-top: 20px;
+    height: 150px;
+}
+.logindivider {
+    height: 25%;
+    margin: 0%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#backbutton {
+    background-color: #851111;
+    text-align: center;
+    height: 25px;
+    width: 200px;
+    cursor: pointer;
+    text-decoration: none;
+}
+#nogosignup {
+    text-align: center;
+    color: rgb(194, 194, 194);
+    padding: 5px;
+}
+.waitidonthaveanaccount {
+    display: flex;
+    justify-content: center;
 }
