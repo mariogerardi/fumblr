@@ -1,38 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
 <%- include('./partials/head.ejs') %>
-<%- include('./partials/restrictednav.ejs') %>
-<section>
-    <div class="form_block">
-        <h1 class="title">Login</h1>
-        <form action="./login" method="POST">
-            <div class="field">
-                <label>Email</label>
-                <div>
-                    <input
-                        name="email"
-                        class="input"
-                        type="email"
-                        placeholder="example@domain.com"
-                    />
-                </div>
-            </div>
-            <div class="field">
-                <label>Password</label>
-                <div>
-                    <input
-                    name="password"
-                    class= "input"
-                    type="password"
-                    placeholder="*******"
-                    />
-                </div>
-                <div>
-                    <button class="button">Submit</button>
-                </div>
-            </div>
-        </form>
-    </div>
+<div class="splashcontain" id="registerlogo">
+    <img class="big-boy-logo" src="https://drive.google.com/uc?export=download&id=1J8dk_FaIy3r1wiPmgL_rCYkajRK58kJt">
+</div>
+<section class="logincontain">
+    <form class="registerform" action="./login" method="POST">
+        <h1 class="registertitle">Login</h1>
+        <div class="logindivider">
+            <h1 class="registertext" id="regnametext">Email:</h1>
+            <input name="email" class="input" type="email" placeholder="example@domain.com"/>
+        </div>
+        <div class="logindivider">
+            <h1 class="registertext" id="regnametext">Password:</h1>
+            <input name="password" class= "input" type="password" placeholder="*******"/>
+        </div>
+        <div class="registersectiontwo">
+            <a class="button" id="backbutton" href="/fumblr">Go Back</a>
+            <button class="button" id="regbutton">Log In</button>
+        </div>
+    </form>
 </section>
+<h1 class="registertext" id="nogosignup">Don't have an account?</h1>
+<div class="waitidonthaveanaccount">
+    <a class="button" id="sign_up" href="/user/register">Sign Up</a>
+</div>
 <%- include('./partials/footer.ejs') %>
-</html>
