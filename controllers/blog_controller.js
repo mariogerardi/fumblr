@@ -51,18 +51,35 @@ router.get('/dashboard', async function (req, res, next) {
     }
 })
 
-router.get('/:blogId', (req, res) => {
+// router.get('/:blogId', (req, res) => {
     
-    Blog.findById(req.params.blogId, (error, foundBlog) => {
-        if (error) {
-            console.log(req.params)
-            console.log(error);
-            const context = { error: error };
-            return res.status(404).render("404", context);
+//     Blog.findById(req.params.blogId, (error, foundBlog) => {
+//         if (error) {
+//             console.log(req.params)
+//             console.log(error);
+//             const context = { error: error };
+//             return res.status(404).render("404", context);
+//         }
+//         return res.render('show.ejs', {blog: foundBlog});
+//     });
+    
+// });
+
+router.get('/:blogId', async function (req, res, next) {
+    try {
+        const foundBlog = await Blog.findOne({req:params._id})
+        if (!foundBlog) return res.send('Oh, no.. I cant find the blog 😨');
+        const foundContent = await Blog.content.find({})
+        if (!foundContent) return res.send('uh...no content  ಥ _ ಥ  ')
+        const context = {
+            blog: foundBlog,
+            content: foundContent
         }
-        return res.render('show.ejs', {blog: foundBlog});
-    });
-    
-});
+        res.render('blog.ejs', context)
+    } catch(err) {
+        console.log(err);
+        return res.send(err);
+    }
+})
 
 module.exports = router;

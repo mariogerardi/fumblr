@@ -5,6 +5,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         // required: [true, "We need to know the user type"]
     },
+    userName: {
+        type: String,
+        required:[true],
+        unique: true
+    },
     firstName: {
         type: String,
         required: [true]
@@ -31,12 +36,13 @@ const userSchema = new mongoose.Schema({
     },
     gender: {
         type: String,
-    }, 
-    content: [{
+    },
+    blog: [{
         type: mongoose.Types.ObjectId,
         // required: [true, "We need to know where this is posting"],
-        ref: "Content"
+        ref: "blog"
     }],
+
 });
 
 const User = mongoose.model('User', userSchema);
