@@ -16,6 +16,9 @@ const contentSchema = new mongoose.Schema({
         // required: [true, "We need to know which account is posting"],
         ref: "User"
     },
+    userName: {
+        type: String
+    },
     title: {
         type: String
     },

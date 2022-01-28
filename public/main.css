@@ -18,6 +18,10 @@ h4 {
 h5 {
     color: rgb(237, 237, 237);
 }
+h6 {
+    color: #132638;
+    margin: 10px 0px 5px 10px;
+}
 hr {
     color: rgb(237, 237, 237);
     filter: drop-shadow(0rem 0rem 0.5rem rgba(126, 126, 126, 0.5));
@@ -602,4 +606,15 @@ form.trash {
 .waitidonthaveanaccount {
     display: flex;
     justify-content: center;
+}
+.originallypostedby {
+}
+.origin {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 5%;
+}
+#reblog {
+    height: 100%;
 }
