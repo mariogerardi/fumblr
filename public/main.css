@@ -614,3 +614,6 @@ form.trash {
 .donotdisplay {
     display: none;
 }
+.agentlenudgeupandright {
+    margin: 0% 0% 0% 2%;
+}
