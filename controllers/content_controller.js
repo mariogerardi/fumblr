@@ -1,4 +1,5 @@
 const express = require('express');
+const req = require('express/lib/request');
 const router = express.Router();
 const { Content } = require('../models')
 
@@ -80,37 +81,74 @@ router.get('/:contentId', async function (req, res) {
 });
 
 
-router.delete('/:contentId', (req, res) => {
-    Content.findByIdAndDelete(req.params.contentId, (error, deleteContent) => {
-        if(error) {
-            console.log(error);
-            res.send(error);
-        }
+// router.delete('/:contentId', (req, res) => {
+//     Content.findByIdAndDelete(req.params.contentId, (error, deleteContent) => {
+//         if(error) {
+//             console.log(error);
+//             res.send(error);
+//         }
 
-        console.log(deleteContent);
-        res.redirect("/fumblr/dashboard");
-    })
-});
+//         console.log(deleteContent);
+//         res.redirect("/fumblr/dashboard");
+//     })
+// });
 
-router.get('/:contentId/edit', (req, res) => {
-    Content.findById(req.params.contentId, (error, updatedContent) => {
-        if(error) console.log(error);
+router.delete('/:contentId', async (req, res, next) => {
+    try {
+        const deletedContent = await Content.findByIdAndDelete(req.params.contentId);
+
+        console.log(deletedContent);
+        res.redirect('/fumblr/dashboard')
+    } catch(error) {
+        console.log(error)
+        req.error = error;
+        return next();
+    }
+})
+
+// router.get('/:contentId/edit', (req, res) => {
+//     Content.findById(req.params.contentId, (error, updatedContent) => {
+//         if(error) console.log(error);
+        
+//         console.log(updatedContent);
+//         res.render('edit.ejs', {content: updatedContent})
+//     })
+// });
+
+router.get('/:contentId/edit', async (req, res, next) => {
+    try {
+        const updatedContent = await Content.findById(req.params.contentId);
         
         console.log(updatedContent);
-        res.render('edit.ejs', {content: updatedContent})
-    })
-});
+        return res.render('edit.ejs', { content: updatedContent})
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();
+    }
+})
 
-router.put('/:contentId', (req, res) => {
-    Content.findByIdAndUpdate(req.params.contentId, req.body,(error, updatedContent) => {
-        if (error) return console.log(error);
+// router.put('/:contentId', (req, res) => {
+//     Content.findByIdAndUpdate(req.params.contentId, req.body,(error, updatedContent) => {
+//         if (error) return console.log(error);
 
+//         console.log(updatedContent);
+
+//         return res.redirect(`/fumblr/dashboard`);
+//     });
+// });
+
+router.put('/:contentId', async (req, res, next) => {
+    try {
+        const updatedContent = await Content.findByIdAndUpdate(req.params.contentId, req.body)
         console.log(updatedContent);
-
-        return res.redirect(`/fumblr/dashboard`);
-    });
-});
-
+        return res.redirect('/fumblr/dashboard')
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();
+    }
+})
 
 
 
