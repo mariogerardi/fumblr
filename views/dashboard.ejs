@@ -1,11 +1,10 @@
 <%- include('./partials/head.ejs') %>
 <%- include('./partials/nav.ejs') %>
-
 <div class="contain">
     <div class="feed">
         <div class="content-creation">
             <a class="userphoto" href="/fumblr/dashboard">
-                <img class="feedphoto" src="https://static8.depositphotos.com/1377527/943/i/600/depositphotos_9431737-stock-photo-portrait-of-gray-striped-cat.jpg">
+                <img class="feedphoto" src="<%= currentUser[0].photo %>">
             </a>
             <div class="containcreate">
                 <div class="waytoomanyoptions">
@@ -27,7 +26,7 @@
                 <div class="labels">
                     <h4 class="createpost" id="labelspacer">Text</h4> 
                     <h4 class="createpost" id="labelspacer">Image</h4> 
-                    <h4 class="createpost" id="labelspacer">Quote</h4> 
+                    <h4 class="createpost" id="labelspacer"><%= currentUser[0].firstName %></h4> 
                     <h4 class="createpost" id="labelspacer">Link</h4>
                     <h4 class="createpost" id="labelspacer">Chat</h4>
                     <h4 class="createpost" id="labelspacer">Audio</h4> 
@@ -41,7 +40,7 @@
 
         <div class="blogposts">
             <a class="userphoto" href="/fumblr/myblog">
-                <img class="feedphoto" src="https://static8.depositphotos.com/1377527/943/i/600/depositphotos_9431737-stock-photo-portrait-of-gray-striped-cat.jpg">
+                <img class="feedphoto" src="https://mypotatogames.com/wp-content/uploads/2020/11/animal_crossing_isabelle_movie.jpg">
             </a>
             <div class="blogpostcontain">
 

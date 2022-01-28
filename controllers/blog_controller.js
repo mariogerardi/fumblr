@@ -44,9 +44,9 @@ router.get('/dashboard', async function (req, res, next) {
         const context = { 
             content: foundContent,
             allUsers: foundUsers,
-            user: foundUser
+            currentUser: foundUser
         }
-        
+        console.log(context)
         console.log('Im testing foundUser:' + " " + foundUser)
         res.render('dashboard.ejs', context)
     } catch (err) {
