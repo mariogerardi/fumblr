@@ -41,7 +41,7 @@ router.get('/dashboard', async function (req, res, next) {
         const foundUsers = await User.find({})
         const context = { 
             content: foundContent,
-            user: foundUsers
+            allusers: foundUsers
         }
         res.render('dashboard.ejs', context)
     } catch (err) {
