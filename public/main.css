@@ -118,7 +118,7 @@ hr.title {
     width: 100px;
 }
 .login {
-    width: 350px;
+    width: 700px;
     display: flex;
     justify-content: space-between;
 }
@@ -260,12 +260,13 @@ hr.title {
     filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%) invert(100%);
 }
 .fourohfour {
+    margin: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 #notfound {
-    margin: 25px;
+    margin: 45px;
 }
 .containcreate {
     width: 85%;
@@ -616,4 +617,14 @@ form.trash {
 }
 .agentlenudgeupandright {
     margin: 0% 0% 0% 2%;
+}
+.notfoundbutton {
+    border: none;
+    border-radius: 3px;
+    margin: 7px 5px;
+    color: rgb(237, 237, 237);
+    font-size: larger;
+    padding: 10px 10px;
+    height: 25px;
+    width: 175px;
 }
