@@ -68,14 +68,19 @@ router.post('/login', async function (req, res) {
         console.log(req.session.currentUser)
         const foundUsr = await req.session.currentUser.id
         console.log("This is the found user" + " " + foundUsr + " ")
-        const foundUsers = await User.find({})
-        const context = {
-            content: foundContent,
-            user: foundUsr,
-            allUsers: foundUsers
-        }
-        console.log(context)
-        return res.render('dashboard.ejs', context)
+        // const foundUsers = await User.find({})
+        // const context = {
+        //     content: foundContent,
+        //     user: foundUsr,
+        //     allUsers: foundUsers
+        // }
+        console.log(req.sessionID)
+        const foundSession = req.session.id
+        console.log("Before I created a session, this is the foundSession: " + foundSession)
+        const createdSession = await User.findByIdAndUpdate(foundUsr, {currentSession: foundSession})
+        console.log("I created a session createdSession: " + createdSession)
+        // return res.render('dashboard.ejs', context)
+        return res.redirect('/fumblr/dashboard')
     } catch (err) {
         console.log(err);
         res.send(err);

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { populate } = require('./content_model');
 
 const userSchema = new mongoose.Schema({
     typeOf: {
@@ -7,7 +8,7 @@ const userSchema = new mongoose.Schema({
     },
     userName: {
         type: String,
-        required:[true],
+        // required:[true],
         unique: true
     },
     firstName: {
@@ -42,6 +43,9 @@ const userSchema = new mongoose.Schema({
         // required: [true, "We need to know where this is posting"],
         ref: "blog"
     }],
+    currentSession: {
+        type: String,
+    }
 
 });
 
