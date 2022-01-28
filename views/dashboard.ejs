@@ -50,8 +50,8 @@
     
                     <% if (usr._id = cont.user) { %>
                         <div class="origin">
-                            <h6 class="originallypostedby">originally posted by <%- cont.userName %></h6>
-                            <img class="originbar" id="reblog" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
+                            <h6 class="originallypostedby">- originally posted by <%- cont.userName %></h6>
+                            <img class="originbar" id="reblogorigin" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
                         </div>
                         <% break %>
                     <% } %>
@@ -70,10 +70,8 @@
                 <% } %> 
 
                 <% if (cont.quote && cont.quote !== "") { %>
-                    <div class="quotecontain">
-                        <h3 class="postquote"><%= cont.quote %><br><br><br><br></h3>
-                        <h3 class="postauthor"><%= cont.author %></h3>
-                    </div>
+                    <h3 class="postquote"><%= cont.quote %></h3>
+                    <h3 class="postauthor"><%= cont.author %></h3>
                 <% } %> 
 
                 <% if (cont.link && cont.link !== "") { %>
@@ -87,7 +85,7 @@
                 <% } %> 
 
                 <% if (cont.audio && cont.audio !== "") { %>
-                    <audio class=postaudio controls>
+                    <audio class="postaudio" controls>
                         <source src="<%= cont.audio %>" type="audio/ogg">
                         <source src="<%= cont.audio %>" type="audio/mpeg">
                       Your browser does not support this audio format.

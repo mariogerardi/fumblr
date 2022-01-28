@@ -20,7 +20,6 @@ h5 {
 }
 h6 {
     color: #132638;
-    margin: 10px 0px 5px 10px;
 }
 hr {
     color: rgb(237, 237, 237);
@@ -213,7 +212,7 @@ hr.title {
     border-radius: 8px;
 }
 .createpost {
-    padding: 5px;
+    padding: 10px 5px 5px;
     border: none;
     border-radius: 10px;
     filter: invert(90%);
@@ -273,7 +272,7 @@ hr.title {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    margin: 0%
+    margin: 0;
 }
 .labels {
     width: 100%;
@@ -334,25 +333,17 @@ hr.title {
     color: rgb(34, 34, 34);
 }
 .bubble {
-    width: auto;
-    background-image: url("https://drive.google.com/uc?export=download&id=1soWea3h6iURTG6hVlNqvt0Xu_A-ScQ2v");
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 25px;
+    background-color: #132638;
 }
 h3.postchat {
-    color: rgb(34, 34, 34);
-    padding: 25% 20%;
-    font-size: 28px;
+    color: rgb(214, 214, 214);
+    font-size: large;
     font-style: italic;
     font-weight: bolder;
-    text-align: left;
-    position: relative;
-    bottom: 45px;
-    right: 15px;
+    text-align: center;
 }
 .postaudio {
-    background-color: rgb(34, 34, 34);
+    background-color: rgb(194, 194, 194);
     padding: 10px;
     width: auto;
 }
@@ -428,27 +419,22 @@ h3.postchat {
     filter: invert(100%);
 }
 .postquote {
-    width: 90%;
-    border: none;
-    border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
+    margin: 0;
     background-color: rgb(194, 194, 194);
     color: rgb(34, 34, 34);
-    position: relative;
-    bottom: 10px;
 }
 .postauthor {
+    padding: 10px;
+    margin: 0;
     color: rgb(34, 34, 34);
+    background-color: rgb(194, 194, 194);
     font-style: italic;
-    position: relative;
-    bottom: 95px;
-    left: 15%;
-    margin-bottom: -8%;
+    text-align: right;
 }
 .quotecontain {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
 }
 form.trash {
@@ -608,13 +594,23 @@ form.trash {
     justify-content: center;
 }
 .originallypostedby {
+    font-size: small;
 }
 .origin {
+    height: 30px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: center;
-    height: 5%;
+    padding: 5px 10px;
+    background-color: rgb(214, 214, 214);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
 }
-#reblog {
-    height: 100%;
+#reblogorigin {
+    height: 70%;
+    margin: 0px 5px;
+    filter: invert(30%);
+}
+.donotdisplay {
+    display: none;
 }
