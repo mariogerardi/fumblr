@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs')
-const { User } = require('../models');
+const { User, Content } = require('../models');
 
 
 
@@ -63,10 +63,19 @@ router.post('/login', async function (req, res) {
             id: foundUser._id,
             username: foundUser.email
         };
+        const foundContent = await Content.find({})
 
         console.log(req.session.currentUser)
-
-        return res.redirect('/fumblr/dashboard')
+        const foundUsr = await req.session.currentUser.id
+        console.log("This is the found user" + " " + foundUsr + " ")
+        const foundUsers = await User.find({})
+        const context = {
+            content: foundContent,
+            user: foundUsr,
+            allUsers: foundUsers
+        }
+        console.log(context)
+        return res.render('dashboard.ejs', context)
     } catch (err) {
         console.log(err);
         res.send(err);
@@ -75,7 +84,7 @@ router.post('/login', async function (req, res) {
 
 router.get('/logout', async function (req, res) {
     try {
- 
+
         await req.session.destroy();
         return res.redirect('./login');
     } catch (error) {
