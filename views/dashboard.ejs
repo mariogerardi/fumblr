@@ -45,6 +45,18 @@
             </a>
             <div class="blogpostcontain">
 
+                <% for(let idx = 0; idx < allUsers.length; idx++) { %>
+                    <% const usr = allUsers[idx] %>
+    
+                    <% if (usr._id = cont.user) { %>
+                        <div class="origin">
+                            <h6 class="originallypostedby">originally posted by <%- cont.userName %></h6>
+                            <img class="originbar" id="reblog" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
+                        </div>
+                        <% break %>
+                    <% } %>
+                <% } %>
+
                 <% if (cont.title && cont.title !== "") { %>
                     <h2 class="textpostitem"><%= cont.title %></h2>
                 <% } %> 
@@ -95,7 +107,7 @@
                             <img class="actionbaritem" id="love" src="https://drive.google.com/uc?export=download&id=1iMNvGyI1wmG23mA16sveMLzD41X4iN4S">
                         </a>
                         <a>
-                            <img class="actionbaritem" id="reblog" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
+                            <img class="actionbaritem" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
                         </a>
                         <a href="/content/<%=cont.id %>/edit">
                             <img class="actionbaritem" id="edit" src="https://drive.google.com/uc?export=download&id=1-Uf2XtS-VFXQ0Z7vMMNSvxmj0CKasK1K">
