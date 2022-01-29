@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs')
-const { User, Content } = require('../models');
+const { User } = require('../models');
 
 
 
@@ -63,7 +63,7 @@ router.post('/login', async function (req, res) {
             id: foundUser._id,
             username: foundUser.email
         };
-        const foundContent = await Content.find({})
+        // const foundContent = await Content.find({})
 
         console.log(req.session.currentUser)
         const foundUsr = await req.session.currentUser.id
