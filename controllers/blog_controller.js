@@ -39,8 +39,7 @@ router.get('/dashboard', async function (req, res, next) {
         const foundContent = await Content.find({})
         if (!foundContent) return res.send('Cant find content!')
         const foundUsers = await User.find({})
-        const userSes = req.sessionID
-    const foundUser = await User.find({currentSession: userSes})
+    const foundUser = await User.find({currentSession: req.sessionID})
         const context = { 
             content: foundContent,
             allUsers: foundUsers,
