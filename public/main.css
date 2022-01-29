@@ -389,6 +389,10 @@ h3.postchat {
 #smallmargin {
     margin: 10px 0px;
 }
+.notes {
+    display: flex;
+    justify-content: flex-start;
+}
 #notes {
     font-size: large;
     color: rgb(237, 237, 237);
@@ -409,14 +413,15 @@ h3.postchat {
 }
 .actionbaritems {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     width: 250px;
-    padding: 5px;
+    margin: 8.5px 10px;
 }
 .actionbaritem {
     width: 30px;
     filter: invert(100%);
+    margin: 0px 10px;
 }
 .postquote {
     padding: 10px;
@@ -457,7 +462,7 @@ form.trash {
     cursor: pointer;
     filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(66%) sepia(95%) saturate(1714%) hue-rotate(341deg) brightness(104%) contrast(90%);
 }
-#postdelete:hover {
+.trash:hover {
     cursor: pointer;
     filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%);
 }
