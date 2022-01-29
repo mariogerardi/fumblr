@@ -98,4 +98,19 @@ router.get('/logout', async function (req, res) {
     }
 })
 
+router.get('/:userId/edit', async (req, res, next) => {
+    try {
+        const foundUser = await User.findOne(req.params._id)
+        if(!foundUser) return res.send("Cannot find that user!! o(≧口≦)o ")
+        console.log(foundUser)
+        const context = {
+            currentUser: foundUser
+        }
+
+        res.render('accountsettings.ejs', context)
+    } catch (error) {
+        console.log(error)
+        return res.send(error)
+    }
+})
 module.exports = router;

@@ -4,60 +4,60 @@ const router = express.Router();
 const { Content, User } = require('../models')
 
 
-router.get("/*", async (req, res) => {
+// router.get("/*", async (req, res) => {
 
-    //Looking for user based on the session ID
-    const currentUser = await User.find({ currentSession: req.sessionID })
-    console.log(currentUser)
-    console.log(req.params[0])
-    //check for link and return type associated to link
-    if (req.params[0] === "new-text-post") {
-        return res.render('new-content/new_text.ejs', currentUser)
-    }
-    else if (req.params[0] === "new-image-post") {
-        return res.render('new-content/new_image.ejs', currentUser)
-    } else if (req.params[0] === "new-quote-post") {
-        return res.render('new-content/new_quote.ejs', currentUser)
-    } else if (req.params[0] === 'new-link-post') {
-        return res.render('new-content/new_link.ejs', currentUser)
-    } else if (req.params[0] === 'new-chat-post') {
-        return res.render('new-content/new_chat.ejs', currentUser)
-    } else if (req.params[0] === 'new-audio-post') {
-        return res.render('new-content/new_link.ejs', currentUser)
-    } else if (req.params[0] === 'new-video-post') {
-        return res.render('new-content/new_video.ejs', currentUser)
-    } else {
-        const context = { error: req.error };
-        return res.status(404).render("404", context);
-    }
+//     //Looking for user based on the session ID
+//     const currentUser = await User.find({ currentSession: req.sessionID })
+//     console.log(currentUser)
+//     console.log(req.params[0])
+//     //check for link and return type associated to link
+//     if (req.params[0] === "new-text-post") {
+//         return res.render('new-content/new_text.ejs', currentUser)
+//     }
+//     else if (req.params[0] === "new-image-post") {
+//         return res.render('new-content/new_image.ejs', currentUser)
+//     } else if (req.params[0] === "new-quote-post") {
+//         return res.render('new-content/new_quote.ejs', currentUser)
+//     } else if (req.params[0] === 'new-link-post') {
+//         return res.render('new-content/new_link.ejs', currentUser)
+//     } else if (req.params[0] === 'new-chat-post') {
+//         return res.render('new-content/new_chat.ejs', currentUser)
+//     } else if (req.params[0] === 'new-audio-post') {
+//         return res.render('new-content/new_link.ejs', currentUser)
+//     } else if (req.params[0] === 'new-video-post') {
+//         return res.render('new-content/new_video.ejs', currentUser)
+//     } else {
+//         const context = { error: req.error };
+//         return res.status(404).render("404", context);
+//     }
+// });
+
+router.get("/new-text-post", (req, res) => {
+    res.render("new-content/new_text.ejs")
 });
 
-// router.get("/new-text-post", (req, res) => {
-//     res.render("new-content/new_text.ejs")
-// });
+router.get("/new-image-post", (req, res) => {
+    res.render("new-content/new_image.ejs")
+});
 
-// router.get("/new-image-post", (req, res) => {
-//     res.render("new-content/new_image.ejs")
-// });
+router.get("/new-quote-post", (req, res) => {
+    res.render("new-content/new_quote.ejs")
+});
 
-// router.get("/new-quote-post", (req, res) => {
-//     res.render("new-content/new_quote.ejs")
-// });
+router.get("/new-link-post", (req, res) => {
+    res.render("new-content/new_link.ejs")
+});
 
-// router.get("/new-link-post", (req, res) => {
-//     res.render("new-content/new_link.ejs")
-// });
+router.get("/new-chat-post", (req, res) => {
+    res.render("new-content/new_chat.ejs")
+});
 
-// router.get("/new-chat-post", (req, res) => {
-//     res.render("new-content/new_chat.ejs")
-// });
-
-// router.get("/new-audio-post", (req, res) => {
-//     res.render("new-content/new_audio.ejs")
-// });
-// router.get("/new-video-post", (req, res) => {
-//     res.render("new-content/new_video.ejs")
-// });
+router.get("/new-audio-post", (req, res) => {
+    res.render("new-content/new_audio.ejs")
+});
+router.get("/new-video-post", (req, res) => {
+    res.render("new-content/new_video.ejs")
+});
 
 // router.post('/', (req, res) => {
 //     Content.create(req.body, (error, createdContent) => {
