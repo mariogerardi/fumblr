@@ -45,8 +45,10 @@ const userSchema = new mongoose.Schema({
     }],
     currentSession: {
         type: String,
-    }
-
+    },
+    likedContent: [{
+        type: mongoose.Types.ObjectId,
+    }]
 });
 
 const User = mongoose.model('User', userSchema);

@@ -45,7 +45,10 @@ const contentSchema = new mongoose.Schema({
     },
     link: {
         type: String
-    }}, {timestamps:true}
+    }, 
+    notes: [{
+        type: Boolean,
+    }]},{timestamps:true}
 );
 
 const Content = mongoose.model('Content', contentSchema);
