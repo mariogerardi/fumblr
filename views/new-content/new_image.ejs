@@ -12,11 +12,15 @@
         <div>
             <H3 class="posttext" id="smallmargin">Body:</H3>
         </div>
-        <input class="textinput" type="text" placeholder="Share your thoughts with the world..." name="text" />
+        <input class="textinput" type="text" placeholder="Share your thoughts with the world..." name="text"/>
         <div>
             <H3 class="posttext" id="smallmargin">Image Link:</H3>
         </div>
-        <input class="titleinput" type="text" placeholder="Insert your link here..." name="photo" />
+        <input class="titleinput" type="text" placeholder="Insert your link here..." name="photo"/>
+        <div class="donotdisplay">
+            <input name="userName" class="donotdisplay" type="text" value="<%= currentUser[0].userName %>"/>
+            <input name="user" class="donotdisplay" type="text" value="<%= currentUser[0]._id %>"/>
+        </div>
         <div>
             <button class="button" id="submit">Submit</button>
         </div>
