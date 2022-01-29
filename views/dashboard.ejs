@@ -45,11 +45,13 @@
             </a>
             <div class="blogpostcontain">
                 <div class="origin">
-                    <h6 class="originallypostedby">- originally posted by <%- cont.userName %></h6>                        <img class="originbar" id="reblogorigin" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
+                    <h6 class="originallypostedby"><%- cont.userName %></h6>
+                    <img class="originbar" id="reblogorigin" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
                 </div>
                     <% break %>
                 <% } %>
             <% } %>
+                <hr class="postdivider">
             <% if (cont.title && cont.title !== "") { %>
                 <h2 class="textpostitem"><%= cont.title %></h2>
             <% } %> 
@@ -110,8 +112,20 @@
     <div class="sidebar">
         <h2 class="sidebartitle">Welcome, <%= currentUser[0].userName %>!</h2>
         <hr>
-        <h3 class="sidebartitle">Check out these blogs</h3>
-        <h5>...I'll get to this at some point.</h5>
+        <h3 class="sidebartitle">Check out these blogs (they're actually users right now; pretend they are blogs)</h3>
+        <% for(let idx = 0; idx < allUsers.length; idx++) { %>
+            <% const usr = allUsers[idx] %>
+        <div class="suggestedblog">
+            <a href="/user/<%= usr.userName %>">
+                <img class="suggestedblogphoto" src="<%= usr.photo %>">
+            </a>
+            <div class="suggestedblogcontent">
+                <h3 class="suggestedblogname"><%= usr.userName %></h3>
+                <h4 class="suggestedblogdesc"><%= usr.email %></h4>
+                <h4 class="suggestedblogdesc"><%= usr.keywords %></h4>
+            </div>
+        </div>
+        <% } %>
     </div>
 </div>
 <%- include('./partials/footer.ejs') %>
