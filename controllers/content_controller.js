@@ -32,31 +32,95 @@ const { Content, User } = require('../models')
 //     }
 // });
 
-router.get("/new-text-post", (req, res) => {
-    res.render("new-content/new_text.ejs")
+router.get("/new-text-post", async (req, res) => {
+    try {
+        const foundUser = await User.find({ currentSession: req.sessionID })
+        const context = {
+            currentUser: foundUser
+        }
+        res.render("new-content/new_text.ejs", context)
+    } catch (err) {
+        console.log(err)
+        return res.send(err)
+    }
 });
 
-router.get("/new-image-post", (req, res) => {
-    res.render("new-content/new_image.ejs")
+router.get("/new-image-post", async (req, res) => {
+    try {
+        const foundUser = await User.find({ currentSession: req.sessionID })
+        const context = {
+            currentUser: foundUser
+        }
+        res.render("new-content/new_image.ejs", context)
+    } catch (err) {
+        console.log(err)
+        return res.send(err)
+    }
 });
 
-router.get("/new-quote-post", (req, res) => {
-    res.render("new-content/new_quote.ejs")
+router.get("/new-quote-post", async (req, res) => {
+    try {
+        const foundUser = await User.find({ currentSession: req.sessionID })
+        const context = {
+            currentUser: foundUser
+        }
+        res.render("new-content/new_quote.ejs", context)
+    } catch (err) {
+        console.log(err)
+        return res.send(err)
+    }
 });
 
-router.get("/new-link-post", (req, res) => {
-    res.render("new-content/new_link.ejs")
+router.get("/new-link-post", async (req, res) => {
+    try {
+        const foundUser = await User.find({ currentSession: req.sessionID })
+        const context = {
+            currentUser: foundUser
+        }
+        res.render("new-content/new_link.ejs", context)
+    } catch (err) {
+        console.log(err)
+        return res.send(err)
+    }
 });
 
-router.get("/new-chat-post", (req, res) => {
-    res.render("new-content/new_chat.ejs")
+router.get("/new-chat-post", async (req, res) => {
+    try {
+        const foundUser = await User.find({ currentSession: req.sessionID })
+        const context = {
+            currentUser: foundUser
+        }
+        res.render("new-content/new_chat.ejs", context)
+    } catch (err) {
+        console.log(err)
+        return res.send(err)
+    }
 });
 
-router.get("/new-audio-post", (req, res) => {
-    res.render("new-content/new_audio.ejs")
+router.get("/new-audio-post", async (req, res) => {
+    try {
+        const foundUser = await User.find({ currentSession: req.sessionID })
+        const context = {
+            currentUser: foundUser
+        }
+        res.render("new-content/new_audio.ejs", context)
+    } catch (err) {
+        console.log(err)
+        return res.send(err)
+    }
 });
-router.get("/new-video-post", (req, res) => {
-    res.render("new-content/new_video.ejs")
+
+router.get("/new-video-post", async (req, res) => {
+    try {
+        const foundUser = await User.find({ currentSession: req.sessionID })
+        const context = {
+            currentUser: foundUser
+        }
+        res.render("new-content/new_video.ejs", context)
+    } catch (err) {
+        console.log(err)
+        return res.send(err)
+    }
 });
 
 // router.post('/', (req, res) => {
