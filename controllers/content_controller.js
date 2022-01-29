@@ -79,7 +79,7 @@ router.post('/', async function (req, res) {
         res.redirect('/fumblr/dashboard')
     } catch (err) {
         console.log(err);
-        return res.send(err);
+        return res.send('No Content being created (ﾉ*ФωФ)ﾉ) ' + err);
     }
 })
 

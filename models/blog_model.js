@@ -8,9 +8,9 @@ const blogSchema = new mongoose.Schema({
     blogImg: {
         type: String,
     },
-    keywords: {
+    keywords: [{
         type: String,
-    },
+    }],
     user: {
         type: mongoose.Types.ObjectId,
         required: [true, "We need to know which account is posting"],

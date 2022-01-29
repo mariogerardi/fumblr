@@ -37,13 +37,11 @@
 
             <% for(let idx = 0; idx < content.length; idx++) { %> 
                 <% const cont = content[idx] %>
-
         <div class="blogposts">
             <a class="userphoto" href="/fumblr/myblog">
                 <img class="feedphoto" src="https://mypotatogames.com/wp-content/uploads/2020/11/animal_crossing_isabelle_movie.jpg">
             </a>
             <div class="blogpostcontain">
-
                 <% for(let idx = 0; idx < allUsers.length; idx++) { %>
                     <% const usr = allUsers[idx] %>
     
@@ -55,34 +53,27 @@
                         <% break %>
                     <% } %>
                 <% } %>
-
                 <% if (cont.title && cont.title !== "") { %>
                     <h2 class="textpostitem"><%= cont.title %></h2>
                 <% } %> 
-
                 <% if (cont.text && cont.text !== "") { %>
                     <h4 class="textpostitem"><%= cont.text%> </h4>
                 <% } %> 
-
                 <% if (cont.photo && cont.photo !== "") { %>
                     <img class="postimage" src="<%= cont.photo %>">
                 <% } %> 
-
                 <% if (cont.quote && cont.quote !== "") { %>
                     <h3 class="postquote"><%= cont.quote %></h3>
                     <h3 class="postauthor"><%= cont.author %></h3>
                 <% } %> 
-
                 <% if (cont.link && cont.link !== "") { %>
                     <iframe class ="postlink" src="<%= cont.link %>"></iframe>
                 <% } %> 
-
                 <% if (cont.chat && cont.chat !== "") { %>
                         <div class="bubble">
                             <h3 class="postchat"><%= cont.chat %></h3>
                         </div>
                 <% } %> 
-
                 <% if (cont.audio && cont.audio !== "") { %>
                     <audio class="postaudio" controls>
                         <source src="<%= cont.audio %>" type="audio/ogg">
@@ -90,11 +81,9 @@
                       Your browser does not support this audio format.
                     </audio> 
                 <% } %> 
-
                 <% if (cont.video && cont.video !== "") { %>
                     <video controls class="postvideo" src="<%= cont.video %>" type="video/webm"></video>
                 <% } %> 
-
                 <div class="actionbar">
                     <div class="notes">
                         <h5 class="textpostitem" id="notes"><%= content.length %> notes</h5>
@@ -117,13 +106,13 @@
                 </div>
             </div>
         </div>
-
    <% } %>
    
     </div>
     <div class="sidebar">
-        <h2 class="sidebartitle">Check out these blogs</h2>
+        <h2 class="sidebartitle">Welcome, <%= currentUser[0].firstName %>!</h2>
         <hr>
+        <h3 class="sidebartitle">Check out these blogs</h3>
     </div>
 </div>
 
