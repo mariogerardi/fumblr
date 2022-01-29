@@ -47,7 +47,7 @@ const contentSchema = new mongoose.Schema({
         type: String
     }, 
     notes: [{
-        type: Boolean,
+        type: mongoose.Types.ObjectId,
     }]},{timestamps:true}
 );
 
