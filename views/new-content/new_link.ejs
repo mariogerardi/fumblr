@@ -8,11 +8,15 @@
         <div>
             <H3 class="posttext" id="smallmargin">Title:</H3>
         </div>
-        <input class="titleinput" type="text" placeholder="Title" name="title" />
+        <input class="titleinput" type="text" placeholder="Title" name="title"/>
         <div>
             <H3 class="posttext" id="smallmargin">Link:</H3>
         </div>
-        <input class="titleinput" type="text" placeholder="Where are we going?" name="link" />
+        <input class="titleinput" type="text" placeholder="Where are we going?" name="link"/>
+        <div class="donotdisplay">
+            <input name="userName" class="donotdisplay" type="text" value="<%= currentUser[0].userName %>"/>
+            <input name="user" class="donotdisplay" type="text" value="<%= currentUser[0]._id %>"/>
+        </div>
         <div>
             <button class="button" id="submit">Submit</button>
         </div>

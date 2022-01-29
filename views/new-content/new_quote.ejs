@@ -8,15 +8,19 @@
         <div>
             <H3 class="posttext" id="smallmargin">Title:</H3>
         </div>
-        <input class="titleinput" type="text" placeholder="Title" name="title" />
+        <input class="titleinput" type="text" placeholder="Title" name="title"/>
         <div>
             <H3 class="posttext" id="smallmargin">Quote:</H3>
         </div>
-        <input class="textinput" type="text" placeholder="'To be or not to be...'" name="quote" />
+        <input class="textinput" type="text" placeholder="'To be or not to be...'" name="quote"/>
         <div>
             <H3 class="posttext" id="smallmargin">Author:</H3>
         </div>
-        <input class="titleinput" type="text" placeholder="Give credit where it's due!" name="author" />
+        <input class="titleinput" type="text" placeholder="Give credit where it's due!" name="author"/>
+        <div class="donotdisplay">
+            <input name="userName" class="donotdisplay" type="text" value="<%= currentUser[0].userName %>"/>
+            <input name="user" class="donotdisplay" type="text" value="<%= currentUser[0]._id %>"/>
+        </div>
         <div>
             <button class="button" id="submit">Submit</button>
         </div>
