@@ -1,4 +1,5 @@
 const express = require('express');
+const res = require('express/lib/response');
 const router = express.Router();
 const { Blog, Content, User } = require('../models');
 
@@ -40,6 +41,7 @@ router.get('/dashboard', async function (req, res, next) {
         if (!foundContent) return res.send('Cant find content!')
         const foundUsers = await User.find({})
         const foundUser = await User.find({currentSession: req.sessionID})
+        if (!foundUser) return res.redirect('/user/login')
         console.log("Hey hey, The user is: " + foundUser)
         const foundBlogs = await Blog.find({});
         const foundBlog = await Blog.findOne({_id: foundUser[0].blog})
@@ -60,6 +62,7 @@ router.get('/dashboard', async function (req, res, next) {
         return next();
     }
 })
+
 
 // router.get('/:blogId', (req, res) => {
     
