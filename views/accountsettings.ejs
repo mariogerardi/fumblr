@@ -1,0 +1,39 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/nav.ejs') %>
+<div class="blogpostcontain" id="newpostpage">
+    <section>
+        <h1 class="posttypetitle">ACCOUNT SETTINGS</h1>
+    </section>
+    <form class="postform" action="/user/<%= currentUser[0].userName %>?_method=PUT" method="POST">
+        <div>
+            <H3 class="posttext" id="smallmargin">First Name:</H3>
+        </div>
+        <input class="titleinput" type="text" value="<%= currentUser[0].firstName %>" placeholder="example: Johnny" name="firstName"/>
+        <div>
+            <H3 class="posttext" id="smallmargin">Last Name:</H3>
+        </div>
+        <input class="titleinput" type="text" value="<%= currentUser[0].lastName %>" placeholder="example: Johnny" name="lastName"/>
+        <div>
+            <H3 class="posttext" id="smallmargin">Body:</H3>
+        </div>
+        <div>
+            <H3 class="posttext" id="smallmargin">Profile Photo:</H3>
+        </div>
+        <input class="titleinput" type="text" value="<%= currentUser[0].photo %>" name="photo"/>
+        <div>
+            <H3 class="posttext" id="smallmargin">Email:</H3>
+        </div>
+        <input class="textinput" type="text" value="<%= currentUser[0].email %>" name="email"/>
+        <div>
+            <H3 class="posttext" id="smallmargin">Password:</H3>
+        </div>
+        <input class="titleinput" type="text" name="currentUser[0].password"/>
+        <div>
+            <button class="button" id="submit">Submit</button>
+            <a href="/fumblr/dashboard">
+                <button class="button" id="cancel">Cancel</button>
+            </a>
+        </div>
+    </form>
+</div>
+<%- include('./partials/footer.ejs') %>

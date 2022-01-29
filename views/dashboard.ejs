@@ -3,7 +3,7 @@
 <div class="contain">
     <div class="feed">
         <div class="content-creation">
-            <a class="userphoto" href="/fumblr/dashboard">
+            <a class="userphoto" href="/user/<%= currentUser[0].userName %>">
                 <img class="feedphoto" src="<%= currentUser[0].photo %>">
             </a>
             <div class="containcreate">
@@ -26,7 +26,7 @@
                 <div class="labels">
                     <h4 class="createpost" id="labelspacer">Text</h4> 
                     <h4 class="createpost" id="labelspacer">Image</h4> 
-                    <h4 class="createpost" id="labelspacer"><%= currentUser[0].firstName %></h4> 
+                    <h4 class="createpost" id="labelspacer">Quote</h4> 
                     <h4 class="createpost" id="labelspacer">Link</h4>
                     <h4 class="createpost" id="labelspacer">Chat</h4>
                     <h4 class="createpost" id="labelspacer">Audio</h4> 
@@ -34,56 +34,53 @@
                 </div>
             </div>
         </div>
-
-            <% for(let idx = 0; idx < content.length; idx++) { %> 
-                <% const cont = content[idx] %>
+        <% for(let idx = 0; idx < content.length; idx++) { %> 
+            <% const cont = content[idx] %>
+            <% for(let idx = 0; idx < allUsers.length; idx++) { %>
+                <% const usr = allUsers[idx] %>
+                <% if (usr.userName === cont.userName) { %>
         <div class="blogposts">
-            <a class="userphoto" href="/fumblr/myblog">
-                <img class="feedphoto" src="https://mypotatogames.com/wp-content/uploads/2020/11/animal_crossing_isabelle_movie.jpg">
+            <a class="userphoto" href="/user/<%= usr.userName%>">
+                <img class="feedphoto" src="<%= usr.photo %>">
             </a>
             <div class="blogpostcontain">
-                <% for(let idx = 0; idx < allUsers.length; idx++) { %>
-                    <% const usr = allUsers[idx] %>
-    
-                    <% if (usr._id = cont.user) { %>
-                        <div class="origin">
-                            <h6 class="originallypostedby">- originally posted by <%- cont.userName %></h6>
-                            <img class="originbar" id="reblogorigin" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
-                        </div>
-                        <% break %>
-                    <% } %>
+                <div class="origin">
+                    <h6 class="originallypostedby">- originally posted by <%- cont.userName %></h6>                        <img class="originbar" id="reblogorigin" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
+                </div>
+                    <% break %>
                 <% } %>
-                <% if (cont.title && cont.title !== "") { %>
-                    <h2 class="textpostitem"><%= cont.title %></h2>
-                <% } %> 
-                <% if (cont.text && cont.text !== "") { %>
-                    <h4 class="textpostitem"><%= cont.text%> </h4>
-                <% } %> 
-                <% if (cont.photo && cont.photo !== "") { %>
-                    <img class="postimage" src="<%= cont.photo %>">
-                <% } %> 
-                <% if (cont.quote && cont.quote !== "") { %>
-                    <h3 class="postquote"><%= cont.quote %></h3>
-                    <h3 class="postauthor"><%= cont.author %></h3>
-                <% } %> 
-                <% if (cont.link && cont.link !== "") { %>
-                    <iframe class ="postlink" src="<%= cont.link %>"></iframe>
-                <% } %> 
-                <% if (cont.chat && cont.chat !== "") { %>
-                        <div class="bubble">
-                            <h3 class="postchat"><%= cont.chat %></h3>
-                        </div>
-                <% } %> 
-                <% if (cont.audio && cont.audio !== "") { %>
-                    <audio class="postaudio" controls>
-                        <source src="<%= cont.audio %>" type="audio/ogg">
-                        <source src="<%= cont.audio %>" type="audio/mpeg">
-                      Your browser does not support this audio format.
-                    </audio> 
-                <% } %> 
-                <% if (cont.video && cont.video !== "") { %>
-                    <video controls class="postvideo" src="<%= cont.video %>" type="video/webm"></video>
-                <% } %> 
+            <% } %>
+            <% if (cont.title && cont.title !== "") { %>
+                <h2 class="textpostitem"><%= cont.title %></h2>
+            <% } %> 
+            <% if (cont.text && cont.text !== "") { %>
+                <h4 class="textpostitem"><%= cont.text%> </h4>
+            <% } %> 
+            <% if (cont.photo && cont.photo !== "") { %>
+                <img class="postimage" src="<%= cont.photo %>">
+            <% } %> 
+            <% if (cont.quote && cont.quote !== "") { %>
+                <h3 class="postquote"><%= cont.quote %></h3>
+                <h3 class="postauthor"><%= cont.author %></h3>
+            <% } %> 
+            <% if (cont.link && cont.link !== "") { %>
+                <iframe class ="postlink" src="<%= cont.link %>"></iframe>
+            <% } %> 
+            <% if (cont.chat && cont.chat !== "") { %>
+                    <div class="bubble">
+                        <h3 class="postchat"><%= cont.chat %></h3>
+                    </div>
+            <% } %> 
+            <% if (cont.audio && cont.audio !== "") { %>
+                <audio class="postaudio" controls>
+                    <source src="<%= cont.audio %>" type="audio/ogg">
+                    <source src="<%= cont.audio %>" type="audio/mpeg">
+                  Your browser does not support this audio format.
+                </audio> 
+            <% } %> 
+            <% if (cont.video && cont.video !== "") { %>
+                <video controls class="postvideo" src="<%= cont.video %>" type="video/webm"></video>
+            <% } %> 
                 <div class="actionbar">
                     <div class="notes">
                         <h5 class="textpostitem" id="notes"><%= content.length %> notes</h5>
@@ -107,13 +104,12 @@
             </div>
         </div>
    <% } %>
-   
     </div>
     <div class="sidebar">
-        <h2 class="sidebartitle">Welcome, <%= currentUser[0].firstName %>!</h2>
+        <h2 class="sidebartitle">Welcome, <%= currentUser[0].userName %>!</h2>
         <hr>
         <h3 class="sidebartitle">Check out these blogs</h3>
+        <h5>...I'll get to this at some point.</h5>
     </div>
 </div>
-
 <%- include('./partials/footer.ejs') %>
