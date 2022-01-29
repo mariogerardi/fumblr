@@ -39,14 +39,20 @@ router.get('/dashboard', async function (req, res, next) {
         const foundContent = await Content.find({})
         if (!foundContent) return res.send('Cant find content!')
         const foundUsers = await User.find({})
-    const foundUser = await User.find({currentSession: req.sessionID})
+        const foundUser = await User.find({currentSession: req.sessionID})
+        console.log("Hey hey, The user is: " + foundUser)
+        const foundBlogs = await Blog.find({});
+        const foundBlog = await Blog.findOne({_id: foundUser[0].blog})
+        console.log("Hey hey, found the blog, its: " + foundBlog)
         const context = { 
             content: foundContent,
             allUsers: foundUsers,
-            currentUser: foundUser
+            currentUser: foundUser,
+            allBlogs: foundBlogs,
+            currentBlog: foundBlog
         }
-        console.log(context)
-        console.log('Im testing foundUser:' + " " + foundUser)
+        // console.log(context)
+        // console.log('Im testing foundUser:' + " " + foundUser)
         res.render('dashboard.ejs', context)
     } catch (err) {
         console.log(err);
