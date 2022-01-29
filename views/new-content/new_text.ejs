@@ -12,7 +12,11 @@
         <div>
             <H3 class="posttext" id="smallmargin">Body:</H3>
         </div>
-        <input class="textinput" type="text" placeholder="Share your thoughts with the world..." name="text" />
+        <input class="textinput" type="text" placeholder="Share your thoughts with the world..." name="text"/>
+        <div class="donotdisplay">
+            <input name="userName" class="donotdisplay" type="text" value="<%= currentUser[0].userName %>"/>
+            <input name="user" class="donotdisplay" type="text" value="<%= currentUser[0].id %>"/>
+        </div>
         <div>
             <button class="button" id="submit">Submit</button>
         </div>
