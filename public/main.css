@@ -420,7 +420,6 @@ h3.postchat {
 }
 .actionbaritem {
     width: 30px;
-    filter: invert(100%);
     margin: 0px 10px;
 }
 .postquote {
@@ -452,7 +451,6 @@ form.trash {
 }
 #love:hover {
     cursor: pointer;
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(42%) sepia(71%) saturate(914%) hue-rotate(332deg) brightness(92%) contrast(84%);
 }
 #reblog:hover {
     cursor: pointer;
@@ -659,4 +657,10 @@ form.trash {
     width: 80px;
     border: none;
     border-radius: 15px;
+}
+.hidden {
+    display: none;
+}
+.invert {
+    filter: invert(100%);
 }
