@@ -5,13 +5,36 @@
         <% for(let idx = 0; idx < content.length; idx++) { %> 
             <% const cont = content[idx] %>
             <script>
-                $(".feed").on("click", "#unlovethispost<%=idx%>", function() {
+                $(".feed").on("click", "#unlovethispost<%=idx%>", function(e) {
                     $("#lovethispost<%=idx%>").toggle();
                     $("#unlovethispost<%=idx%>").toggle();
+                    let newNote = {"<%cont.notes%>": "currentUser[0].id"}
+                    console.log(newNote);
+                    e.preventDefault(); 
+                    $.ajax({
+                        url: '/fumblr/dashboard',
+                        method: 'POST',
+                        contentType: 'application/json',
+                        success: function(html) {
+                            alert('data sent!');
+                            return false;
+                        }
+                    });
                 });
-                $(".feed").on("click", "#lovethispost<%=idx%>", function() {
+                $(".feed").on("click", "#lovethispost<%=idx%>", function(e) {
                     $("#lovethispost<%=idx%>").toggle();
                     $("#unlovethispost<%=idx%>").toggle();
+                    let newNote = {"<%cont.notes%>": "currentUser[0].id"}
+                    e.preventDefault(); 
+                    $.ajax({
+                        url: '/fumblr/dashboard',
+                        method: 'POST',
+                        contentType: 'application/json',
+                        success: function(html) {
+                            alert('data sent!');
+                            return false;
+                        }
+                    });
                 });
             </script>
         <% } %>
