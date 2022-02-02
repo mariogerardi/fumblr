@@ -12,13 +12,14 @@
                     console.log(newNote);
                     e.preventDefault(); 
                     $.ajax({
-                        url: '/fumblr/dashboard',
-                        method: 'POST',
+                        url: '/content/<%cont.id%>',
+                        method: 'PUT',
                         contentType: 'application/json',
+                        data: {notes: "<%currentUser[0].id%>"},
                         success: function(html) {
-                            alert('data sent!');
+                            alert('You liked this!');
                             return false;
-                        }
+                        }, 
                     });
                 });
                 $(".feed").on("click", "#lovethispost<%=idx%>", function(e) {
@@ -27,11 +28,12 @@
                     let newNote = {"<%cont.notes%>": "currentUser[0].id"}
                     e.preventDefault(); 
                     $.ajax({
-                        url: '/fumblr/dashboard',
-                        method: 'POST',
+                        url: '/content/<%cont.id%>',
+                        method: 'PUT',
                         contentType: 'application/json',
+                        data: {notes: "<%currentUser[0].id%>"},
                         success: function(html) {
-                            alert('data sent!');
+                            alert('You unliked this!');
                             return false;
                         }
                     });

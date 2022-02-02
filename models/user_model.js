@@ -46,10 +46,10 @@ const userSchema = new mongoose.Schema({
     currentSession: {
         type: String,
     },
-    likedContent: [{
-        type: mongoose.Types.ObjectId,
-    }]
-});
+    likedContent: [
+        String,
+    ]}
+);
 
 const User = mongoose.model('User', userSchema);
 module.exports = User;

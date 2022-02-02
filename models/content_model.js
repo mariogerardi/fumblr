@@ -46,9 +46,9 @@ const contentSchema = new mongoose.Schema({
     link: {
         type: String
     }, 
-    notes: [{
-        type: mongoose.Types.ObjectId,
-    }]},{timestamps:true}
+    notes: [
+        String,
+    ]},{timestamps:true}
 );
 
 const Content = mongoose.model('Content', contentSchema);
