@@ -4,7 +4,7 @@ const router = express.Router();
 const { Content, User } = require('../models')
 
 
-// router.get("/*", async (req, res) => {
+// router.get("/new/*", async (req, res) => {
 
 //     //Looking for user based on the session ID
 //     const currentUser = await User.find({ currentSession: req.sessionID })
