@@ -8,16 +8,15 @@
                 $(".feed").on("click", "#unlovethispost<%=idx%>", function(e) {
                     $("#lovethispost<%=idx%>").toggle();
                     $("#unlovethispost<%=idx%>").toggle();
-                    let newNote = {"<%cont.notes%>": "currentUser[0].id"}
-                    console.log(newNote);
+                    $(".lovethispost<%=idx%>").toggle();
+                    $(".unlovethispost<%=idx%>").toggle();
                     e.preventDefault(); 
                     $.ajax({
-                        url: '/content/<%cont.id%>',
+                        url: '/content/<%=cont.id%>',
                         method: 'PUT',
                         contentType: 'application/json',
                         data: {notes: "<%currentUser[0].id%>"},
                         success: function(html) {
-                            alert('You liked this!');
                             return false;
                         }, 
                     });
@@ -25,7 +24,8 @@
                 $(".feed").on("click", "#lovethispost<%=idx%>", function(e) {
                     $("#lovethispost<%=idx%>").toggle();
                     $("#unlovethispost<%=idx%>").toggle();
-                    let newNote = {"<%cont.notes%>": "currentUser[0].id"}
+                    $(".lovethispost<%=idx%>").toggle();
+                    $(".unlovethispost<%=idx%>").toggle();
                     e.preventDefault(); 
                     $.ajax({
                         url: '/content/like/<%=cont.id%>',
@@ -33,7 +33,6 @@
                         contentType: 'application/json',
                         data: {notes: "<%currentUser[0].id%>"},
                         success: function(html) {
-                            alert('You unliked this!');
                             return false;
                         }
                     });
@@ -122,21 +121,54 @@
                 <video controls class="postvideo" src="<%= cont.video %>" type="video/webm"></video>
             <% } %> 
                 <div class="actionbar">
-                    <% const likes = cont.notes %>
                     <div class="notes">
-                    <% if (likes.length === 1) { %>
-                        <h5 class="textpostitem" id="notes"><%= likes.length %> note</h5>
-                    <% } else { %>
-                        <h5 class="textpostitem" id="notes"><%= likes.length %> notes</h5>
+                    <% const likes = cont.notes %>
+                    <% if (likes.length === 0) { %>
+                        <h5 class="textpostitem unlovethispost<%=idx%>" id="notes"><%=likes.length%> notes</h5>
+                        <h5 class="textpostitem lovethispost<%=idx%> hidden" id="notes"><%=likes.length + 1%> notes</h5>
+                    <% } %>
+                    <% for (let i = 0; i < likes.length; i++) { %>
+                        <% if (currentUser[0].id === likes[i]) { %>
+                            <h5 class="textpostitem unlovethispost<%=idx%> hidden" id="notes"><%=likes.length - 1%> notes</h5>
+                            <h5 class="textpostitem lovethispost<%=idx%>" id="notes"><%=likes.length%> notes</h5>
+                        <% break %>
+                        <% } %>
+                        <% if (currentUser[0].id !== likes[i]) { %>
+                            <h5 class="textpostitem unlovethispost<%=idx%>" id="notes"><%=likes.length%> notes</h5>
+                            <h5 class="textpostitem lovethispost<%=idx%> hidden" id="notes"><%=likes.length + 1%> notes</h5>
+                        <% break %>
+                        <% } %>
                     <% } %>
                     </div>
                     <div class="actionbaritems">
+                    <% if (likes.length === 0) { %>
+                        <a class="hidden" id="unlovethispost<%=idx%>">
+                            <img class="actionbaritem" id="loved" src="https://drive.google.com/uc?export=download&id=13AZ6fG7ngHg6nE0glSmnQxGXjT8RAQh4">
+                        </a>
+                        <a class="invert" id="lovethispost<%=idx%>">
+                            <img class="actionbaritem" id="love" src="https://drive.google.com/uc?export=download&id=1iMNvGyI1wmG23mA16sveMLzD41X4iN4S">
+                        </a>
+                    <% } %>
+                    <% for (let i = 0; i < likes.length; i++) { %>
+                        <% if (currentUser[0].id !== likes[i]) { %>
                             <a class="hidden" id="unlovethispost<%=idx%>">
                                 <img class="actionbaritem" id="loved" src="https://drive.google.com/uc?export=download&id=13AZ6fG7ngHg6nE0glSmnQxGXjT8RAQh4">
                             </a>
                             <a class="invert" id="lovethispost<%=idx%>">
                                 <img class="actionbaritem" id="love" src="https://drive.google.com/uc?export=download&id=1iMNvGyI1wmG23mA16sveMLzD41X4iN4S">
-                            </a>      
+                            </a>
+                            <% break %>
+                            <% } %>
+                            <% if (currentUser[0].id === likes[i]) { %>
+                            <a id="unlovethispost<%=idx%>">
+                                <img class="actionbaritem" id="loved" src="https://drive.google.com/uc?export=download&id=13AZ6fG7ngHg6nE0glSmnQxGXjT8RAQh4">
+                            </a>
+                            <a class="invert hidden" id="lovethispost<%=idx%>">
+                                <img class="actionbaritem" id="love" src="https://drive.google.com/uc?export=download&id=1iMNvGyI1wmG23mA16sveMLzD41X4iN4S">
+                            </a>
+                            <% break %>
+                            <% } %>
+                        <% } %>
                         <a>
                             <img class="actionbaritem invert" id="reblog" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
                         </a>

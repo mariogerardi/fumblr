@@ -249,7 +249,7 @@ router.put('/like/:contentId', async (req, res, next) => {
         const likedBy = await User.find({ currentSession: req.sessionID })
         const likedContent = await Content.findById(req.params.contentId)
         console.log("I am the one who is liked!   :" + likedContent);
-        const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{notes:likedBy})
+        const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$push:{notes:likedBy}})
         console.log(updatedContent)
         return res.redirect('/fumblr/dashboard')
     } catch (error) {
@@ -259,8 +259,35 @@ router.put('/like/:contentId', async (req, res, next) => {
     }
 })
 
-
-
+// router.put('/like/:contentId', async (req, res, next) => {
+//     try {
+//         const likedBy = await User.find({ currentSession: req.sessionID})
+//         const likedContent = await Content.findById(req.params.contentId)
+//         const allNotes = await Content.find({_id:likedContent.notes})
+//         console.log(allNotes)
+//         if (allNotes.length === 0) {
+//             const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$pull:{notes:likedBy}})
+//             console.log(updatedContent)
+//             return res.redirect('/fumblr/dashboard')
+//         } 
+//         for (let i = 0; i < allNotes.length; i++) {
+//             if (likedBy === allNotes[i]) {
+//                 const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$pull:{notes:likedBy}})
+//                 console.log(updatedContent)
+//                 return res.redirect('/fumblr/dashboard') 
+//             } else { 
+//                 const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$push:{notes:likedBy}})
+//                 console.log(updatedContent)
+//                 return res.redirect('/fumblr/dashboard')
+//             }
+//         } 
+//     }
+//     catch (error) {
+//     console.log(error)
+//     req.error = error;
+//     return next();
+//     }
+// })
 
 // router.get("/create_post", (req, res) => {
 //     res.render("create_post.ejs")
