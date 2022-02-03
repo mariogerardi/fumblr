@@ -244,6 +244,21 @@ router.put('/:contentId', async (req, res, next) => {
     }
 })
 
+router.put('/like/:contentId', async (req, res, next) => {
+    try {
+        const likedBy = await User.find({ currentSession: req.sessionID })
+        const likedContent = await Content.findById(req.params.contentId)
+        console.log("I am the one who is liked!   :" + likedContent);
+        const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{notes:likedBy})
+        console.log(updatedContent)
+        return res.redirect('/fumblr/dashboard')
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();
+    }
+})
+
 
 
 
