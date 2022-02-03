@@ -263,23 +263,27 @@ router.put('/like/:contentId', async (req, res, next) => {
 //     try {
 //         const likedBy = await User.find({ currentSession: req.sessionID})
 //         const likedContent = await Content.findById(req.params.contentId)
-//         const allNotes = await Content.find({_id:likedContent.notes})
-//         console.log(allNotes)
-//         if (allNotes.length === 0) {
+//         const allNotes = likedContent.notes
+//         const trueorfalse = allNotes[0] === undefined
+//         console.log("Boolean value of trueorfalse: " + trueorfalse)
+//         console.log("Im the variable likedBy: " + likedBy[0]._id)
+//         console.log("hey I'm all the notes dude: " + allNotes[0] !== undefined)
+//         if (trueorfalse===true) {
 //             const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$pull:{notes:likedBy}})
-//             console.log(updatedContent)
+//             console.log("Im being updated dog...: " + updatedContent)
 //             return res.redirect('/fumblr/dashboard')
-//         } 
-//         for (let i = 0; i < allNotes.length; i++) {
-//             if (likedBy === allNotes[i]) {
-//                 const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$pull:{notes:likedBy}})
-//                 console.log(updatedContent)
-//                 return res.redirect('/fumblr/dashboard') 
-//             } else { 
-//                 const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$push:{notes:likedBy}})
-//                 console.log(updatedContent)
-//                 return res.redirect('/fumblr/dashboard')
-//             }
+//         } else {
+//             for (let i = 0; i < allNotes.length; i++) {
+//                 if (likedBy[0]._id === allNotes[i]) {
+//                     const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$pull:{notes:likedBy}})
+//                     console.log(updatedContent)
+//                     return res.redirect('/fumblr/dashboard') 
+//                 } else { 
+//                     const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$push:{notes:likedBy}})
+//                     console.log(updatedContent)
+//                     return res.redirect('/fumblr/dashboard')
+//                 }
+//         }
 //         } 
 //     }
 //     catch (error) {
