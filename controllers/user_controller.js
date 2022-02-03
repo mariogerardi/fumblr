@@ -98,6 +98,21 @@ router.get('/logout', async function (req, res) {
     }
 })
 
+router.get('/:userId', async function (req, res) {
+    try{
+        const foundUser = await User.findOne({userName: req.params.userId})
+        console.log(foundUser)
+        const context = {
+            user: foundUser
+        }
+        res.render("blog.ejs", context)
+
+    } catch(err) {
+        console.log(err);
+        return res.send(err);
+    }
+})
+
 router.get('/:userId/edit', async (req, res, next) => {
     try {
         const foundUser = await User.findOne(req.params._id)

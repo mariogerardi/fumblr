@@ -4,7 +4,7 @@ const router = express.Router();
 const { Content, User } = require('../models')
 
 
-// router.get("/*", async (req, res) => {
+// router.get("/new/*", async (req, res) => {
 
 //     //Looking for user based on the session ID
 //     const currentUser = await User.find({ currentSession: req.sessionID })
@@ -236,6 +236,21 @@ router.put('/:contentId', async (req, res, next) => {
     try {
         const updatedContent = await Content.findByIdAndUpdate(req.params.contentId, req.body)
         console.log(updatedContent);
+        return res.redirect('/fumblr/dashboard')
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();
+    }
+})
+
+router.put('/like/:contentId', async (req, res, next) => {
+    try {
+        const likedBy = await User.find({ currentSession: req.sessionID })
+        const likedContent = await Content.findById(req.params.contentId)
+        console.log("I am the one who is liked!   :" + likedContent);
+        const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{notes:likedBy})
+        console.log(updatedContent)
         return res.redirect('/fumblr/dashboard')
     } catch (error) {
         console.log(error)

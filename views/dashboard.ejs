@@ -28,7 +28,7 @@
                     let newNote = {"<%cont.notes%>": "currentUser[0].id"}
                     e.preventDefault(); 
                     $.ajax({
-                        url: '/content/<%cont.id%>',
+                        url: '/content/like/<%=cont.id%>',
                         method: 'PUT',
                         contentType: 'application/json',
                         data: {notes: "<%currentUser[0].id%>"},
