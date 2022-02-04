@@ -3,10 +3,29 @@ const res = require('express/lib/response');
 const router = express.Router();
 const { Blog, Content, User } = require('../models');
 
-router.get('/', (req, res) => {
-    res.render('index.ejs');
-    });
+router.get('/blog-creation', async function (req, res) {
+    try {
+        const foundUser = await User.find({currentSession: req.sessionID})
+        const context = {
+            currentUser: foundUser
+        }
+        return res.render('blogcreation.ejs', context);
+    } catch (err) {
+        console.log(err);
+        return res.send(err);
+    }
+});
 
+router.post('/blog-creation', async function (req, res) {
+    try {
+        const newBlog = await Blog.create(req.body);
+        console.log(newBlog);
+        return res.redirect('/fumblr/dashboard');
+    } catch (err) {
+        console.log(err);
+        return res.send(err);
+    }
+});
 
 // router.get("/dashboard", (req, res) => {
 //     Content.find({}, (error, foundContent) => {

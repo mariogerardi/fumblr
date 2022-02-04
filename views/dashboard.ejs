@@ -190,17 +190,17 @@
     <div class="sidebar">
         <h2 class="sidebartitle">Welcome, <%= currentUser[0].userName %>!</h2>
         <hr>
-        <h3 class="sidebartitle">Check out these blogs (they're actually users right now; pretend they are blogs)</h3>
-        <% for(let idx = 0; idx < allUsers.length; idx++) { %>
-            <% const usr = allUsers[idx] %>
+        <h3 class="sidebartitle">Check out these blogs (they're actually blogs now!)</h3>
+        <% for(let idx = 0; idx < allBlogs.length; idx++) { %>
+            <% const blog = allBlogs[idx] %>
         <div class="suggestedblog">
-            <a href="/user/<%= usr.userName %>">
-                <img class="suggestedblogphoto" src="<%= usr.photo %>">
+            <a href="/blog/<%= blog.title %>">
+                <img class="suggestedblogphoto" src="<%= blog.blogImg %>">
             </a>
             <div class="suggestedblogcontent">
-                <h3 class="suggestedblogname"><%= usr.userName %></h3>
-                <h4 class="suggestedblogdesc"><%= usr.email %></h4>
-                <h4 class="suggestedblogdesc"><%= usr.keywords %></h4>
+                <h3 class="suggestedblogname"><%= blog.title %></h3>
+                <h4 class="suggestedblogdesc"><%= blog.user %></h4>
+                <h4 class="suggestedblogdesc"><%= blog.keywords %></h4>
             </div>
         </div>
         <% } %>
