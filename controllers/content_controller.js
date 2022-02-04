@@ -261,25 +261,31 @@ router.put('/like/:contentId', async (req, res, next) => {
 
 // router.put('/like/:contentId', async (req, res, next) => {
 //     try {
-//         const likedBy = await User.find({ currentSession: req.sessionID})
+//         const likedBy = await User.findOne({ currentSession: req.sessionID})
 //         const likedContent = await Content.findById(req.params.contentId)
-//         const allNotes = await Content.find({_id:likedContent.notes})
-//         console.log(allNotes)
-//         if (allNotes.length === 0) {
-//             const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$pull:{notes:likedBy}})
-//             console.log(updatedContent)
+//         const allNotes = likedContent.notes
+//         const trueorfalse = allNotes[0] === undefined
+//         const ispostalreadyliked = allNotes[0] === toString(likedBy._id)
+//         console.log(ispostalreadyliked)
+//         // console.log("Boolean value of trueorfalse: " + trueorfalse)
+//         console.log("Im the variable likedBy: " + toString(likedBy._id))
+//         console.log("hey I'm all the notes dude: " + allNotes[0])
+//         if (trueorfalse===true) {
+//             const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$push:{notes:likedBy}})
+//             console.log("Im being updated dog...: " + updatedContent)
 //             return res.redirect('/fumblr/dashboard')
-//         } 
-//         for (let i = 0; i < allNotes.length; i++) {
-//             if (likedBy === allNotes[i]) {
-//                 const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$pull:{notes:likedBy}})
-//                 console.log(updatedContent)
-//                 return res.redirect('/fumblr/dashboard') 
-//             } else { 
-//                 const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$push:{notes:likedBy}})
-//                 console.log(updatedContent)
-//                 return res.redirect('/fumblr/dashboard')
-//             }
+//         } else {
+//             for (let i = 0; i < allNotes.length; i++) {
+//                 if (likedBy[0]._id === allNotes[i]) {
+//                     const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$pull:{notes:likedBy}})
+//                     console.log("Im going to take your like away...dog: " + updatedContent)
+//                     return res.redirect('/fumblr/dashboard') 
+//                 } else { 
+//                     const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$push:{notes:likedBy}})
+//                     console.log("this is the second else that pushes a like:  " + updatedContent)
+//                     return res.redirect('/fumblr/dashboard')
+//                 }
+//         }
 //         } 
 //     }
 //     catch (error) {
