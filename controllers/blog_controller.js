@@ -36,6 +36,7 @@ router.get('/dashboard', async function (req, res, next) {
         console.log("Hey hey, the current user is " + foundUser[0].userName)
         const foundBlogs = await Blog.find({});
         const foundBlog = await Blog.findOne({_id: foundUser[0].blog})
+        console.log("The current user's blog: " + foundBlog.title)
         const context = { 
             content: foundContent,
             allUsers: foundUsers,
