@@ -1,11 +1,12 @@
 const express = require('express');
 const req = require('express/lib/request');
 const router = express.Router();
-const { Content, User } = require('../models')
+const { Content, User, Blog } = require('../models')
 
 router.get("/new/:postType", async (req, res) => {
     try {
         const foundUser = await User.find({currentSession: req.sessionID})
+        const foundBlog = await Blog.findOne({_id: foundUser[0].blog})
         let test_text = false
         let test_image = false
         let test_quote = false
@@ -36,6 +37,7 @@ router.get("/new/:postType", async (req, res) => {
         }
         const context = {
             currentUser: foundUser,
+            currentBlog: foundBlog,
             text: test_text,
             image: test_image,
             quote: test_quote,
