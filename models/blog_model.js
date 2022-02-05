@@ -8,6 +8,9 @@ const blogSchema = new mongoose.Schema({
     blogImg: {
         type: String,
     },
+    description: {
+        type: String,
+    },
     keywords: [{
         type: String,
     }],

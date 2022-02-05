@@ -649,9 +649,12 @@ form.trash {
 }
 .suggestedblogname {
     margin: 0%;
+    color: rgb(217, 217, 217);
 }
 .suggestedblogdesc {
+    color: rgb(194, 194, 194);
     margin: 3px 0px 3px;
+    font-size: small;
 }
 .suggestedblogphoto {
     width: 80px;
