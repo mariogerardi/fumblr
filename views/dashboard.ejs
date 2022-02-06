@@ -77,9 +77,14 @@
                 <% const usr = allUsers[idx] %>
                 <% if (usr.userName === cont.userName) { %>
         <div class="blogposts">
-            <a class="userphoto" href="/user/<%= usr.userName%>">
-                <img class="feedphoto" src="<%= usr.photo %>">
+                <% for (let i = 0; i < allBlogs.length; i++) { %>
+                <% const blog = allBlogs[i] %>
+                <% if (blog.userName === cont.userName) { %>
+            <a class="userphoto" href="/fumblr/blog/<%= blog.title%>">
+                <img class="feedphoto" src="<%= blog.blogImg %>">
             </a>
+                <% } %>
+            <% } %>
             <div class="blogpostcontain">
                 <div class="origin">
                     <h6 class="originallypostedby"><%- cont.userName %></h6>

@@ -198,6 +198,7 @@ hr.title {
 }
 .feedphoto {
     width: 100%;
+    height: 85px;
     border: none;
     border-radius: 8px;
 }
@@ -658,6 +659,7 @@ form.trash {
 }
 .suggestedblogphoto {
     width: 80px;
+    height: 80px;
     border: none;
     border-radius: 15px;
 }

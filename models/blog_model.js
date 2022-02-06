@@ -18,6 +18,9 @@ const blogSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         required: [true, "We need to know which account is posting"],
         ref: "User"
+    },
+    userName: {
+        type: String,
     },    
     content: [{
         type: mongoose.Types.ObjectId,
