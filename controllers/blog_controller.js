@@ -19,40 +19,14 @@ router.get('/blog-creation', async function (req, res) {
 router.post('/blog-creation', async function (req, res) {
     try {
         const newBlog = await Blog.create(req.body);
-        console.log(newBlog);
-        return res.redirect('/fumblr/dashboard');
+        return res.redirect('/dashboard');
     } catch (err) {
         console.log(err);
         return res.send(err);
     }
 });
 
-router.get('/dashboard', async function (req, res, next) {
-    try {
-        const foundContent = await Content.find({})
-        const foundUsers = await User.find({})
-        const foundUser = await User.find({currentSession: req.sessionID})
-        if (!foundUser) return res.redirect('/user/login')
-        console.log("Hey hey, the current user is " + foundUser[0].userName)
-        const foundBlogs = await Blog.find({});
-        const foundBlog = await Blog.findOne({_id: foundUser[0].blog})
-        console.log("The current user's blog: " + foundBlog.title)
-        const context = { 
-            content: foundContent,
-            allUsers: foundUsers,
-            currentUser: foundUser,
-            allBlogs: foundBlogs,
-            currentBlog: foundBlog
-        }
-        res.render('dashboard.ejs', context)
-    } catch (err) {
-        console.log(err);
-        res.send(err);
-        return next();
-    }
-})
-
-router.get('/blog/:title', async function (req, res, next) {
+router.get('/:title', async function (req, res, next) {
     try {
         const foundUsers = await User.find({})
         const foundUser = await User.find({currentSession: req.sessionID})
@@ -77,11 +51,11 @@ router.get('/blog/:title', async function (req, res, next) {
     }
 })
 
-router.get('/blog/edit/:blogId', async (req, res, next) => {
+router.get('/edit/:blogId', async (req, res, next) => {
     try {
         const updatedBlog = await Blog.findById(req.params.blogId);
         console.log(updatedBlog);
-        return res.render('blogedit.ejs', { blog: updatedBlog })
+        return res.render('blogedit.ejs', {blog: updatedBlog})
     } catch (error) {
         console.log(error)
         req.error = error;
@@ -89,11 +63,11 @@ router.get('/blog/edit/:blogId', async (req, res, next) => {
     }
 })
 
-router.put('/blog/edit/:blogId', async (req, res, next) => {
+router.put('/edit/:blogId', async (req, res, next) => {
     try {
         const updatedBlog = await Blog.findByIdAndUpdate(req.params.blogId, req.body)
         console.log(updatedBlog);
-        return res.redirect('/fumblr/dashboard')
+        return res.redirect('/dashboard')
     } catch (error) {
         console.log(error)
         req.error = error;

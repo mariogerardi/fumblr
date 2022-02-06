@@ -4,6 +4,7 @@ const controllers = require('./controllers')
 const methodOverride = require('method-override');
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const { Blog, Content, User } = require('./models');
 
 require('./config/db.connection')
 
@@ -14,16 +15,12 @@ app.set('view engine', 'ejs');
 app.use(
     session(
         {
-        // where to store the sessions in mongodb
         store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-
-        // secret key is used to sign every cookie to say its is valid
         secret: "super secret",
         resave: false,
         saveUninitialized: false,
-        // configure the experation of the cookie
         cookie: {
-            maxAge: 1000 * 60 * 60 * 24 * 7 * 2, // two weeks
+            maxAge: 1000 * 60 * 60 * 24 * 7 * 2 // two weeks
         },
         }
     )
@@ -33,23 +30,42 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
-app.use('/fumblr', controllers.blog);
+app.use('/blog', controllers.blog);
 app.use('/content', controllers.content)
 app.use('/user', controllers.user)
 
-app.use((req, res, next) => {    
-    console.log("I'm running for another new route")
-	console.log(`${req.method} ${req.originalUrl}`);    
-	next();
+app.get('/', (req, res) => {
+    res.render('index.ejs');
 });
 
-app.get("/", function(req, res) {
-    res.send("I am a test and I am working!")
-});
-
+app.get('/dashboard', async function (req, res, next) {
+    try {
+        const foundContent = await Content.find({})
+        const foundUsers = await User.find({})
+        const foundUser = await User.find({currentSession: req.sessionID})
+        if (!foundUser) return res.redirect('/user/login')
+        console.log("Hey hey, the current user is " + foundUser[0].userName)
+        const foundBlogs = await Blog.find({});
+        const foundBlog = await Blog.findOne({_id: foundUser[0].blog})
+        if (!foundBlog) return res.redirect('/blog/blog-creation')
+        console.log("The current user's blog: " + foundBlog.title)
+        const context = { 
+            content: foundContent,
+            allUsers: foundUsers,
+            currentUser: foundUser,
+            allBlogs: foundBlogs,
+            currentBlog: foundBlog
+        }
+        res.render('dashboard.ejs', context)
+    } catch (err) {
+        console.log(err);
+        res.send(err);
+        return next();
+    }
+})
 
 app.get("/*", (req, res) => {
-    const context = { error: req.error };
+    const context = {error: req.error};
     return res.status(404).render("404", context);
 });
         

@@ -40,7 +40,7 @@
             </script>
         <% } %>
         <div class="content-creation">
-            <a class="userphoto" href="/fumblr/blog/<%= currentBlog.title %>">
+            <a class="userphoto" href="blog/<%= currentBlog.title %>">
                 <img class="feedphoto" src="<%= currentBlog.blogImg %>">
             </a>
             <div class="containcreate">
@@ -80,7 +80,7 @@
                 <% for (let i = 0; i < allBlogs.length; i++) { %>
                 <% const blog = allBlogs[i] %>
                 <% if (blog.userName === cont.userName) { %>
-            <a class="userphoto" href="/fumblr/blog/<%= blog.title%>">
+            <a class="userphoto" href="/blog/<%= blog.title%>">
                 <img class="feedphoto" src="<%= blog.blogImg %>">
             </a>
             <div class="blogpostcontain">
@@ -199,7 +199,7 @@
             <% if (blog.userName === currentUser[0].userName) { %>
         <h3 class="sidebartitle">Your blog:</h3>
         <div class="suggestedblog">
-            <a href="/fumblr/blog/<%=blog.title%>">
+            <a href="/blog/<%=blog.title%>">
                 <img class="suggestedblogphoto" src="<%= blog.blogImg %>">
             </a>
             <div class="suggestedblogcontent">
@@ -211,16 +211,20 @@
                     #<%= blog.keywords %>
                 <% } %>
                 </h4>
-                <a class="totheright" href="/fumblr/blog/edit/<%=blog.id%>">
+                <a class="totheright" href="/blog/edit/<%=blog.id%>">
                     <h4 class="suggestedblogdesc editlink">Edit your blog</h4>
                 </a>
             </div>
         </div>
         <hr class="suggestedblogsdivider">
         <h3 class="sidebartitle">Check out these blogs:</h3>
-        <% } else { %>
+        <% } %>
+    <% } %>
+        <% for(let idx = 0; idx < allBlogs.length; idx++) { %>
+            <% const blog = allBlogs[idx] %>
+            <% if (blog.userName !== currentUser[0].id) { %>
         <div class="suggestedblog">
-            <a href="/fumblr/blog/<%=blog.title%>">
+            <a href="/blog/<%=blog.title%>">
                 <img class="suggestedblogphoto" src="<%= blog.blogImg %>">
             </a>
             <div class="suggestedblogcontent">
