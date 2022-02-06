@@ -239,25 +239,25 @@ hr.title {
     width: 70px;
 }
 #newtextpost:hover {
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(26%) sepia(0%) saturate(0%) hue-rotate(332deg) brightness(96%) contrast(92%) invert(100%);
+    filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(332deg) brightness(96%) contrast(92%) invert(100%);
 }
 #newimagepost:hover {
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(42%) sepia(71%) saturate(914%) hue-rotate(332deg) brightness(92%) contrast(84%) invert(100%);
+    filter: invert(42%) sepia(71%) saturate(914%) hue-rotate(332deg) brightness(92%) contrast(84%) invert(100%);
 }
 #newquotepost:hover {
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(66%) sepia(95%) saturate(1714%) hue-rotate(341deg) brightness(104%) contrast(90%) invert(100%);
+    filter: invert(66%) sepia(95%) saturate(1714%) hue-rotate(341deg) brightness(104%) contrast(90%) invert(100%);
 }
 #newlinkpost:hover {
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(62%) sepia(12%) saturate(1528%) hue-rotate(98deg) brightness(103%) contrast(88%) invert(100%);
+    filter: invert(62%) sepia(12%) saturate(1528%) hue-rotate(98deg) brightness(103%) contrast(88%) invert(100%);
 }
 #newchatpost:hover {
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(61%) sepia(75%) saturate(342%) hue-rotate(164deg) brightness(81%) contrast(95%) invert(100%);
+    filter: invert(61%) sepia(75%) saturate(342%) hue-rotate(164deg) brightness(81%) contrast(95%) invert(100%);
 }
 #newaudiopost:hover {
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(49%) sepia(80%) saturate(241%) hue-rotate(233deg) brightness(96%) contrast(87%) invert(100%);
+    filter: invert(49%) sepia(80%) saturate(241%) hue-rotate(233deg) brightness(96%) contrast(87%) invert(100%);
 }
 #newvideopost:hover {
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(0, 0, 0, 0.5)) invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%) invert(100%);
+    filter: invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%) invert(100%);
 }
 .fourohfour {
     margin: 5%;

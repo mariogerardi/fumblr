@@ -83,14 +83,13 @@
             <a class="userphoto" href="/fumblr/blog/<%= blog.title%>">
                 <img class="feedphoto" src="<%= blog.blogImg %>">
             </a>
-                <% } %>
-            <% } %>
             <div class="blogpostcontain">
                 <div class="origin">
-                    <h6 class="originallypostedby"><%- cont.userName %></h6>
+                    <h6 class="originallypostedby"><%- blog.title %></h6>
                     <img class="originbar" id="reblogorigin" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
                 </div>
-                    <% break %>
+                        <% } %>
+                    <% } %>
                 <% } %>
             <% } %>
                 <hr class="postdivider">
