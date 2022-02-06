@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { populate } = require('./content_model');
 
 const userSchema = new mongoose.Schema({
     typeOf: {

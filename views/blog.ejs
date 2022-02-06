@@ -40,7 +40,7 @@
             </script>
         <% } %>
         <div class="content-creation">
-            <a class="userphoto" href="/fumblr/blog/<%=currentBlog.title%>">
+            <a class="userphoto" href="/blog/<%=currentBlog.title%>">
                 <img class="feedphoto" src="<%=currentBlog.blogImg%>">
             </a>
             <div class="containcreate">
@@ -78,7 +78,7 @@
                 <% const usr = allUsers[idx] %>
                 <% if (usr.userName === cont.userName) { %>
         <div class="blogposts">
-            <a class="userphoto" href="/fumblr/blog/<%=currentBlog.title%>">
+            <a class="userphoto" href="/blog/<%=currentBlog.title%>">
                 <img class="feedphoto" src="<%=currentBlog.blogImg%>">
             </a>
             <div class="blogpostcontain">
@@ -174,7 +174,7 @@
                             <img class="actionbaritem invert" id="reblog" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
                         </a>
                         <% if (cont.userName === currentUser[0].userName) { %>
-                        <a class="invert" href="/content/<%=cont.id %>/edit">
+                        <a class="invert" href="/<%=cont.id %>/edit">
                             <img class="actionbaritem" id="edit" src="https://drive.google.com/uc?export=download&id=1-Uf2XtS-VFXQ0Z7vMMNSvxmj0CKasK1K">
                         </a>
                         <form class="trash" action="/content/<%= cont.id %>?_method=DELETE" method="POST">
@@ -196,7 +196,7 @@
         <% for(let idx = 0; idx < allBlogs.length; idx++) { %>
             <% const blog = allBlogs[idx] %>
         <div class="suggestedblog">
-            <a href="/fumblr/blog/<%= blog.title %>">
+            <a href="/blog/<%= blog.title %>">
                 <img class="suggestedblogphoto" src="<%= blog.blogImg %>">
             </a>
             <div class="suggestedblogcontent">

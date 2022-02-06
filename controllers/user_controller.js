@@ -14,7 +14,7 @@ router.post('/register', async function (req, res) {
         //if so redirect to login
         if (foundUser) {
             console.log("This email is already in use, please use different email address")
-            return res.redirect('./login')
+            return res.redirect('/login')
         }
         //if not create user and redirect to login
 
@@ -26,7 +26,7 @@ router.post('/register', async function (req, res) {
         const newUser = await User.create(req.body);
         console.log(newUser);
 
-        return res.redirect('./login');
+        return res.redirect('/user/login');
     } catch (err) {
         console.log(err);
         return res.send(err);
@@ -78,7 +78,7 @@ router.post('/login', async function (req, res) {
         const createdSession = await User.findByIdAndUpdate(foundUsr, {currentSession: foundSession})
         console.log("I created a session createdSession: " + createdSession)
         // return res.render('dashboard.ejs', context)
-        return res.redirect('/fumblr/dashboard')
+        return res.redirect('/dashboard')
     } catch (err) {
         console.log(err);
         res.send(err);
@@ -87,9 +87,8 @@ router.post('/login', async function (req, res) {
 
 router.get('/logout', async function (req, res) {
     try {
-
-        await req.session.destroy();
-        return res.redirect('./login');
+        req.session.destroy();
+        return res.redirect('/');
     } catch (error) {
         console.log(error)
         return res.send(error);
@@ -104,7 +103,6 @@ router.get('/:userId', async function (req, res) {
             user: foundUser
         }
         res.render("blog.ejs", context)
-
     } catch(err) {
         console.log(err);
         return res.send(err);
@@ -119,11 +117,11 @@ router.get('/:userId/edit', async (req, res, next) => {
         const context = {
             currentUser: foundUser
         }
-
         res.render('accountsettings.ejs', context)
     } catch (error) {
         console.log(error)
         return res.send(error)
     }
 })
+
 module.exports = router;

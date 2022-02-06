@@ -166,8 +166,7 @@ router.post('/', async function (req, res) {
         const createdContent = await Content.create(req.body)
         if (!createdContent) return res.send('No Content being created (ﾉ*ФωФ)ﾉ)')
         console.log(createdContent)
-
-        res.redirect('/fumblr/dashboard')
+        res.redirect('/dashboard')
     } catch (err) {
         console.log(err);
         return res.send('No Content being created (ﾉ*ФωФ)ﾉ) ' + err);
@@ -193,7 +192,6 @@ router.get('/:contentId', async function (req, res) {
         const foundContent = await Content.findOne(req.params._id)
         if (!foundContent) return res.send('No content found !!! ผ(•̀_•́ผ)')
         console.log(foundContent)
-
         res.render('show.ejs', foundContent)
     } catch (err) {
         console.log(err);
@@ -217,9 +215,8 @@ router.get('/:contentId', async function (req, res) {
 router.delete('/:contentId', async (req, res, next) => {
     try {
         const deletedContent = await Content.findByIdAndDelete(req.params.contentId);
-
         console.log(deletedContent);
-        res.redirect('/fumblr/dashboard')
+        res.redirect('/dashboard')
     } catch (error) {
         console.log(error)
         req.error = error;
@@ -239,7 +236,6 @@ router.delete('/:contentId', async (req, res, next) => {
 router.get('/:contentId/edit', async (req, res, next) => {
     try {
         const updatedContent = await Content.findById(req.params.contentId);
-
         console.log(updatedContent);
         return res.render('edit.ejs', { content: updatedContent })
     } catch (error) {
@@ -263,7 +259,7 @@ router.put('/:contentId', async (req, res, next) => {
     try {
         const updatedContent = await Content.findByIdAndUpdate(req.params.contentId, req.body)
         console.log(updatedContent);
-        return res.redirect('/fumblr/dashboard')
+        return res.redirect('/dashboard')
     } catch (error) {
         console.log(error)
         req.error = error;
@@ -278,7 +274,7 @@ router.put('/like/:contentId', async (req, res, next) => {
         console.log("I am the one who is liked!   :" + likedContent);
         const updatedContent = await Content.findByIdAndUpdate({_id:likedContent._id},{$push:{notes:likedBy}})
         console.log(updatedContent)
-        return res.redirect('/fumblr/dashboard')
+        return res.redirect('/dashboard')
     } catch (error) {
         console.log(error)
         req.error = error;
