@@ -77,6 +77,30 @@ router.get('/blog/:title', async function (req, res, next) {
     }
 })
 
+router.get('/blog/edit/:blogId', async (req, res, next) => {
+    try {
+        const updatedBlog = await Blog.findById(req.params.blogId);
+        console.log(updatedBlog);
+        return res.render('blogedit.ejs', { blog: updatedBlog })
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();
+    }
+})
+
+router.put('/blog/edit/:blogId', async (req, res, next) => {
+    try {
+        const updatedBlog = await Blog.findByIdAndUpdate(req.params.blogId, req.body)
+        console.log(updatedBlog);
+        return res.redirect('/fumblr/dashboard')
+    } catch (error) {
+        console.log(error)
+        req.error = error;
+        return next();
+    }
+})
+
 // router.get("/dashboard", (req, res) => {
 //     Content.find({}, (error, foundContent) => {
 //         if(error) return console.log(error);

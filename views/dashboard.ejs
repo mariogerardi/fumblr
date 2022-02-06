@@ -195,9 +195,31 @@
     <div class="sidebar">
         <h2 class="sidebartitle">Welcome, <%= currentUser[0].userName %>!</h2>
         <hr>
-        <h3 class="sidebartitle">Check out these blogs</h3>
         <% for(let idx = 0; idx < allBlogs.length; idx++) { %>
             <% const blog = allBlogs[idx] %>
+            <% if (blog.userName === currentUser[0].userName) { %>
+        <h3 class="sidebartitle">Your blog:</h3>
+        <div class="suggestedblog">
+            <a href="/fumblr/blog/<%=blog.title%>">
+                <img class="suggestedblogphoto" src="<%= blog.blogImg %>">
+            </a>
+            <div class="suggestedblogcontent">
+                <h3 class="suggestedblogname"><%= blog.title %></h3>
+                <h4 class="suggestedblogdesc"><%= blog.description %></h4>
+                <h4 class="suggestedblogdesc">
+                <% tags = blog.keywords %>
+                <% for(let i = 0; i < tags.length; i++) { %>
+                    #<%= blog.keywords %>
+                <% } %>
+                </h4>
+                <a class="totheright" href="/fumblr/blog/edit/<%=blog.id%>">
+                    <h4 class="suggestedblogdesc editlink">Edit your blog</h4>
+                </a>
+            </div>
+        </div>
+        <hr class="suggestedblogsdivider">
+        <h3 class="sidebartitle">Check out these blogs:</h3>
+        <% } else { %>
         <div class="suggestedblog">
             <a href="/fumblr/blog/<%=blog.title%>">
                 <img class="suggestedblogphoto" src="<%= blog.blogImg %>">
@@ -214,6 +236,7 @@
             </div>
         </div>
         <% } %>
+    <% } %>
     </div>
 </div>
 <%- include('./partials/footer.ejs') %>
