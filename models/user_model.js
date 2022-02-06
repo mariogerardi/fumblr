@@ -38,11 +38,11 @@ const userSchema = new mongoose.Schema({
     gender: {
         type: String,
     },
-    blog: [{
+    blog: {
         type: mongoose.Types.ObjectId,
         // required: [true, "We need to know where this is posting"],
         ref: "blog"
-    }],
+    },
     currentSession: {
         type: String,
     },

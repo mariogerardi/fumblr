@@ -2,25 +2,62 @@
 <%- include('./partials/nav.ejs') %>
 <div class="contain">
     <div class="feed">
+        <% for(let idx = 0; idx < content.length; idx++) { %> 
+            <% const cont = content[idx] %>
+            <script>
+                $(".feed").on("click", "#unlovethispost<%=idx%>", function(e) {
+                    $("#lovethispost<%=idx%>").toggle();
+                    $("#unlovethispost<%=idx%>").toggle();
+                    $(".lovethispost<%=idx%>").toggle();
+                    $(".unlovethispost<%=idx%>").toggle();
+                    e.preventDefault(); 
+                    $.ajax({
+                        url: '/content/<%=cont.id%>',
+                        method: 'PUT',
+                        contentType: 'application/json',
+                        data: {notes: "<%currentUser[0].id%>"},
+                        success: function(html) {
+                            return false;
+                        }, 
+                    });
+                });
+                $(".feed").on("click", "#lovethispost<%=idx%>", function(e) {
+                    $("#lovethispost<%=idx%>").toggle();
+                    $("#unlovethispost<%=idx%>").toggle();
+                    $(".lovethispost<%=idx%>").toggle();
+                    $(".unlovethispost<%=idx%>").toggle();
+                    e.preventDefault(); 
+                    $.ajax({
+                        url: '/content/like/<%=cont.id%>',
+                        method: 'PUT',
+                        contentType: 'application/json',
+                        data: {notes: "<%currentUser[0].id%>"},
+                        success: function(html) {
+                            return false;
+                        }
+                    });
+                });
+            </script>
+        <% } %>
         <div class="content-creation">
-            <a class="userphoto" href="/user/<%= currentUser[0].userName %>">
-                <img class="feedphoto" src="<%= currentUser[0].photo %>">
+            <a class="userphoto" href="/fumblr/blog/<%=currentBlog.title%>">
+                <img class="feedphoto" src="<%=currentBlog.blogImg%>">
             </a>
             <div class="containcreate">
                 <div class="waytoomanyoptions">
-                    <a class="createpost" href="/content/new-text-post">
+                    <a class="createpost" href="/content/new/text-post">
                     <img id="newtextpost" src="https://drive.google.com/uc?export=download&id=1OdbfDfB_D5juf87OZx8600agWPyRgmk-"></a>
-                    <a class="createpost" href="/content/new-image-post">
+                    <a class="createpost" href="/content/new/image-post">
                     <img id="newimagepost" src="https://drive.google.com/uc?export=download&id=1mGgVv6txR4-7QX6gSDt3k59xNEti6fCG"></a>
-                    <a class="createpost" href="/content/new-quote-post">
+                    <a class="createpost" href="/content/new/quote-post">
                     <img id="newquotepost" src="https://drive.google.com/uc?export=download&id=1oW3rW1RMtqi_jH-t-jJtRrsR9aeZ7i7E"></a>
-                    <a class="createpost" href="/content/new-link-post">
+                    <a class="createpost" href="/content/new/link-post">
                     <img id="newlinkpost" src="https://drive.google.com/uc?export=download&id=15Yl-_gE_6eJW4PdS3E55aGbMm3IHFAEw"></a>
-                    <a class="createpost" href="/content/new-chat-post">
+                    <a class="createpost" href="/content/new/chat-post">
                     <img id="newchatpost" src="https://drive.google.com/uc?export=download&id=1fjaUHgFSCw34hVUvXZeJS3u5xQLa-kKA"></a>
-                    <a class="createpost" href="/content/new-audio-post">
+                    <a class="createpost" href="/content/new/audio-post">
                     <img id="newaudiopost" src="https://drive.google.com/uc?export=download&id=1eHMjtByoAW84sn_k2siNprK6c2XNfEPt"></a>
-                    <a class="createpost" href="/content/new-video-post">
+                    <a class="createpost" href="/content/new/video-post">
                     <img id="newvideopost" src="https://drive.google.com/uc?export=download&id=1hrpkRKYhD9yt4LFyAXVHmf0Mq_TG03vp"></a>
                 </div>
                 <div class="labels">
@@ -34,22 +71,25 @@
                 </div>
             </div>
         </div>
-        <% for(let idx = 0; idx < content.length; idx++) { %> 
+         <% for(let idx = (content.length - 1); idx >= 0; idx--) { %> 
             <% const cont = content[idx] %>
+            <% if (cont.blog !== currentUser.blog) { %>
             <% for(let idx = 0; idx < allUsers.length; idx++) { %>
                 <% const usr = allUsers[idx] %>
                 <% if (usr.userName === cont.userName) { %>
         <div class="blogposts">
-            <a class="userphoto" href="/user/<%= usr.userName%>">
-                <img class="feedphoto" src="<%= usr.photo %>">
+            <a class="userphoto" href="/fumblr/blog/<%=currentBlog.title%>">
+                <img class="feedphoto" src="<%=currentBlog.blogImg%>">
             </a>
             <div class="blogpostcontain">
                 <div class="origin">
-                    <h6 class="originallypostedby">- originally posted by <%- cont.userName %></h6>                        <img class="originbar" id="reblogorigin" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
+                    <h6 class="originallypostedby"><%- cont.userName %></h6>
+                    <img class="originbar" id="reblogorigin" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
                 </div>
                     <% break %>
                 <% } %>
             <% } %>
+                <hr class="postdivider">
             <% if (cont.title && cont.title !== "") { %>
                 <h2 class="textpostitem"><%= cont.title %></h2>
             <% } %> 
@@ -83,17 +123,58 @@
             <% } %> 
                 <div class="actionbar">
                     <div class="notes">
-                        <h5 class="textpostitem" id="notes"><%= content.length %> notes</h5>
+                    <% const likes = cont.notes %>
+                    <% if (likes.length === 0) { %>
+                        <h5 class="textpostitem unlovethispost<%=idx%>" id="notes"><%=likes.length%> notes</h5>
+                        <h5 class="textpostitem lovethispost<%=idx%> hidden" id="notes"><%=likes.length + 1%> notes</h5>
+                    <% } %>
+                    <% for (let i = 0; i < likes.length; i++) { %>
+                        <% if (currentUser[0].id === likes[i]) { %>
+                            <h5 class="textpostitem unlovethispost<%=idx%> hidden" id="notes"><%=likes.length - 1%> notes</h5>
+                            <h5 class="textpostitem lovethispost<%=idx%>" id="notes"><%=likes.length%> notes</h5>
+                        <% break %>
+                        <% } %>
+                        <% if (currentUser[0].id !== likes[i]) { %>
+                            <h5 class="textpostitem unlovethispost<%=idx%>" id="notes"><%=likes.length%> notes</h5>
+                            <h5 class="textpostitem lovethispost<%=idx%> hidden" id="notes"><%=likes.length + 1%> notes</h5>
+                        <% break %>
+                        <% } %>
+                    <% } %>
                     </div>
                     <div class="actionbaritems">
-                        <a>
+                    <% if (likes.length === 0) { %>
+                        <a class="hidden" id="unlovethispost<%=idx%>">
+                            <img class="actionbaritem" id="loved" src="https://drive.google.com/uc?export=download&id=13AZ6fG7ngHg6nE0glSmnQxGXjT8RAQh4">
+                        </a>
+                        <a class="invert" id="lovethispost<%=idx%>">
                             <img class="actionbaritem" id="love" src="https://drive.google.com/uc?export=download&id=1iMNvGyI1wmG23mA16sveMLzD41X4iN4S">
                         </a>
+                    <% } %>
+                    <% for (let i = 0; i < likes.length; i++) { %>
+                        <% if (currentUser[0].id !== likes[i]) { %>
+                            <a class="hidden" id="unlovethispost<%=idx%>">
+                                <img class="actionbaritem" id="loved" src="https://drive.google.com/uc?export=download&id=13AZ6fG7ngHg6nE0glSmnQxGXjT8RAQh4">
+                            </a>
+                            <a class="invert" id="lovethispost<%=idx%>">
+                                <img class="actionbaritem" id="love" src="https://drive.google.com/uc?export=download&id=1iMNvGyI1wmG23mA16sveMLzD41X4iN4S">
+                            </a>
+                            <% break %>
+                            <% } %>
+                            <% if (currentUser[0].id === likes[i]) { %>
+                            <a id="unlovethispost<%=idx%>">
+                                <img class="actionbaritem" id="loved" src="https://drive.google.com/uc?export=download&id=13AZ6fG7ngHg6nE0glSmnQxGXjT8RAQh4">
+                            </a>
+                            <a class="invert hidden" id="lovethispost<%=idx%>">
+                                <img class="actionbaritem" id="love" src="https://drive.google.com/uc?export=download&id=1iMNvGyI1wmG23mA16sveMLzD41X4iN4S">
+                            </a>
+                            <% break %>
+                            <% } %>
+                        <% } %>
                         <a>
-                            <img class="actionbaritem" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
+                            <img class="actionbaritem invert" id="reblog" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
                         </a>
                         <% if (cont.userName === currentUser[0].userName) { %>
-                        <a href="/content/<%=cont.id %>/edit">
+                        <a class="invert" href="/content/<%=cont.id %>/edit">
                             <img class="actionbaritem" id="edit" src="https://drive.google.com/uc?export=download&id=1-Uf2XtS-VFXQ0Z7vMMNSvxmj0CKasK1K">
                         </a>
                         <form class="trash" action="/content/<%= cont.id %>?_method=DELETE" method="POST">
@@ -105,13 +186,31 @@
                 </div>
             </div>
         </div>
-   <% } %>
+        <% } %>
+    <% } %>
     </div>
     <div class="sidebar">
         <h2 class="sidebartitle">Welcome, <%= currentUser[0].userName %>!</h2>
         <hr>
         <h3 class="sidebartitle">Check out these blogs</h3>
-        <h5>...I'll get to this at some point.</h5>
+        <% for(let idx = 0; idx < allBlogs.length; idx++) { %>
+            <% const blog = allBlogs[idx] %>
+        <div class="suggestedblog">
+            <a href="/fumblr/blog/<%= blog.title %>">
+                <img class="suggestedblogphoto" src="<%= blog.blogImg %>">
+            </a>
+            <div class="suggestedblogcontent">
+                <h3 class="suggestedblogname"><%= blog.title %></h3>
+                <h4 class="suggestedblogdesc"><%= blog.description %></h4>
+                <h4 class="suggestedblogdesc">
+                <% tags = blog.keywords %>
+                <% for(let i = 0; i < tags.length; i++) { %>
+                    #<%= blog.keywords %>
+                    <% } %>
+                </h4>
+            </div>
+        </div>
+        <% } %>
     </div>
 </div>
 <%- include('./partials/footer.ejs') %>

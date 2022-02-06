@@ -12,6 +12,12 @@
                 <input name="title" class="input" id="regname" type="text" placeholder="example: mynewblog"/>
             </div>
         </div>
+        <div class="registersectiontwo">
+            <div class="regsec">
+                <h3 class="registertext" id="regnametitle">Blog Description:</h3>
+                <input name="description" class="input" id="regname" type="text" placeholder="example: my photography blog"/>
+            </div>
+        </div>
         <div class="registersection">
             <div class="regsec" id="pic">
                 <h3 class="registertext">Blog Image (what will appear beside your content):</h3>
@@ -27,6 +33,7 @@
         <div class="donotdisplay">
             <h3 class="donotdisplay">Session:</h3>
             <input name="user" class="donotdisplay" type="text" value="<%= currentUser[0]._id %>"/>
+            <input name="userName" class="donotdisplay" type="text" value="<%= currentUser[0].userName %>"/>
         </div>
         <div class="registersectiontwo">
             <a class="button" id="backbutton" href="/fumblr">Go Back</a>

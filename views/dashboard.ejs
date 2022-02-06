@@ -40,24 +40,24 @@
             </script>
         <% } %>
         <div class="content-creation">
-            <a class="userphoto" href="/user/<%= currentUser[0].userName %>">
-                <img class="feedphoto" src="<%= currentUser[0].photo %>">
+            <a class="userphoto" href="/fumblr/blog/<%= currentBlog.title %>">
+                <img class="feedphoto" src="<%= currentBlog.blogImg %>">
             </a>
             <div class="containcreate">
                 <div class="waytoomanyoptions">
-                    <a class="createpost" href="/content/new-text-post">
+                    <a class="createpost" href="/content/new/text-post">
                     <img id="newtextpost" src="https://drive.google.com/uc?export=download&id=1OdbfDfB_D5juf87OZx8600agWPyRgmk-"></a>
-                    <a class="createpost" href="/content/new-image-post">
+                    <a class="createpost" href="/content/new/image-post">
                     <img id="newimagepost" src="https://drive.google.com/uc?export=download&id=1mGgVv6txR4-7QX6gSDt3k59xNEti6fCG"></a>
-                    <a class="createpost" href="/content/new-quote-post">
+                    <a class="createpost" href="/content/new/quote-post">
                     <img id="newquotepost" src="https://drive.google.com/uc?export=download&id=1oW3rW1RMtqi_jH-t-jJtRrsR9aeZ7i7E"></a>
-                    <a class="createpost" href="/content/new-link-post">
+                    <a class="createpost" href="/content/new/link-post">
                     <img id="newlinkpost" src="https://drive.google.com/uc?export=download&id=15Yl-_gE_6eJW4PdS3E55aGbMm3IHFAEw"></a>
-                    <a class="createpost" href="/content/new-chat-post">
+                    <a class="createpost" href="/content/new/chat-post">
                     <img id="newchatpost" src="https://drive.google.com/uc?export=download&id=1fjaUHgFSCw34hVUvXZeJS3u5xQLa-kKA"></a>
-                    <a class="createpost" href="/content/new-audio-post">
+                    <a class="createpost" href="/content/new/audio-post">
                     <img id="newaudiopost" src="https://drive.google.com/uc?export=download&id=1eHMjtByoAW84sn_k2siNprK6c2XNfEPt"></a>
-                    <a class="createpost" href="/content/new-video-post">
+                    <a class="createpost" href="/content/new/video-post">
                     <img id="newvideopost" src="https://drive.google.com/uc?export=download&id=1hrpkRKYhD9yt4LFyAXVHmf0Mq_TG03vp"></a>
                 </div>
                 <div class="labels">
@@ -77,9 +77,14 @@
                 <% const usr = allUsers[idx] %>
                 <% if (usr.userName === cont.userName) { %>
         <div class="blogposts">
-            <a class="userphoto" href="/user/<%= usr.userName%>">
-                <img class="feedphoto" src="<%= usr.photo %>">
+                <% for (let i = 0; i < allBlogs.length; i++) { %>
+                <% const blog = allBlogs[i] %>
+                <% if (blog.userName === cont.userName) { %>
+            <a class="userphoto" href="/fumblr/blog/<%= blog.title%>">
+                <img class="feedphoto" src="<%= blog.blogImg %>">
             </a>
+                <% } %>
+            <% } %>
             <div class="blogpostcontain">
                 <div class="origin">
                     <h6 class="originallypostedby"><%- cont.userName %></h6>
@@ -190,20 +195,48 @@
     <div class="sidebar">
         <h2 class="sidebartitle">Welcome, <%= currentUser[0].userName %>!</h2>
         <hr>
-        <h3 class="sidebartitle">Check out these blogs (they're actually blogs now!)</h3>
         <% for(let idx = 0; idx < allBlogs.length; idx++) { %>
             <% const blog = allBlogs[idx] %>
+            <% if (blog.userName === currentUser[0].userName) { %>
+        <h3 class="sidebartitle">Your blog:</h3>
         <div class="suggestedblog">
-            <a href="/blog/<%= blog.title %>">
+            <a href="/fumblr/blog/<%=blog.title%>">
                 <img class="suggestedblogphoto" src="<%= blog.blogImg %>">
             </a>
             <div class="suggestedblogcontent">
                 <h3 class="suggestedblogname"><%= blog.title %></h3>
-                <h4 class="suggestedblogdesc"><%= blog.user %></h4>
-                <h4 class="suggestedblogdesc"><%= blog.keywords %></h4>
+                <h4 class="suggestedblogdesc"><%= blog.description %></h4>
+                <h4 class="suggestedblogdesc">
+                <% tags = blog.keywords %>
+                <% for(let i = 0; i < tags.length; i++) { %>
+                    #<%= blog.keywords %>
+                <% } %>
+                </h4>
+                <a class="totheright" href="/fumblr/blog/edit/<%=blog.id%>">
+                    <h4 class="suggestedblogdesc editlink">Edit your blog</h4>
+                </a>
+            </div>
+        </div>
+        <hr class="suggestedblogsdivider">
+        <h3 class="sidebartitle">Check out these blogs:</h3>
+        <% } else { %>
+        <div class="suggestedblog">
+            <a href="/fumblr/blog/<%=blog.title%>">
+                <img class="suggestedblogphoto" src="<%= blog.blogImg %>">
+            </a>
+            <div class="suggestedblogcontent">
+                <h3 class="suggestedblogname"><%= blog.title %></h3>
+                <h4 class="suggestedblogdesc"><%= blog.description %></h4>
+                <h4 class="suggestedblogdesc">
+                <% tags = blog.keywords %>
+                <% for(let i = 0; i < tags.length; i++) { %>
+                    #<%= blog.keywords %>
+                    <% } %>
+                </h4>
             </div>
         </div>
         <% } %>
+    <% } %>
     </div>
 </div>
 <%- include('./partials/footer.ejs') %>

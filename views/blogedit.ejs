@@ -1,0 +1,41 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/nav.ejs') %>
+<div class="splashcontain" id="registerlogo">
+    <img class="big-boy-logo" src="https://drive.google.com/uc?export=download&id=1J8dk_FaIy3r1wiPmgL_rCYkajRK58kJt">
+</div>
+<section class="registercontain">
+    <form class="registerform" action="./<%= blog.id %>?_method=PUT" method="POST">
+        <h1 class="registertitle">Edit your Blog</h1>
+        <div class="registersectiontwo">
+            <div class="regsec">
+                <h3 class="registertext" id="regnametitle">Blog Name:</h3>
+                <input name="title" class="input" id="regname" type="text" value="<%=blog.title%>" placeholder="example: mynewblog"/>
+            </div>
+        </div>
+        <div class="registersectiontwo">
+            <div class="regsec">
+                <h3 class="registertext" id="regnametitle">Blog Description:</h3>
+                <input name="description" class="input" id="regname" type="text" value="<%=blog.description%>"placeholder="example: my photography blog"/>
+            </div>
+        </div>
+        <div class="registersection">
+            <div class="regsec" id="pic">
+                <h3 class="registertext">Blog Image (what will appear beside your content):</h3>
+                <input name="blogImg" class="input" id="reginputpic" type="url" value="<%=blog.blogImg%>" placeholder="example: hostingwebsite.com/yourimage"/>
+            </div>
+        </div>
+        <div class="registersectiontwo">
+            <div class="regsec">
+                <h3 class="registertext">Keywords (related to content you will be posting):</h3>
+                <input name="keywords" class="input" type="text" value="<%=blog.keywords%>" placeholder="example: photography, gaming, retro"/>  
+            </div>    
+        </div>
+        <div>
+            <button class="button" id="submit">Submit</button>
+            <a href="/fumblr/dashboard">
+                <button class="button" id="cancel">Cancel</button>
+            </a>
+        </div>
+    </form>
+</section>
+<%- include('./partials/footer.ejs') %>

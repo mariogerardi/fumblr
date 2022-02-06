@@ -198,6 +198,7 @@ hr.title {
 }
 .feedphoto {
     width: 100%;
+    height: 85px;
     border: none;
     border-radius: 8px;
 }
@@ -649,14 +650,26 @@ form.trash {
 }
 .suggestedblogname {
     margin: 0%;
+    color: rgb(217, 217, 217);
 }
 .suggestedblogdesc {
+    color: rgb(194, 194, 194);
     margin: 3px 0px 3px;
+    font-size: small;
+}
+.editlink {
+    text-decoration: underline;
+    margin-top: 5%;
+    padding-bottom: 5%;
 }
 .suggestedblogphoto {
     width: 80px;
+    height: 80px;
     border: none;
     border-radius: 15px;
+}
+.suggestedblogsdivider {
+    margin: 25px 0px 10px;
 }
 .hidden {
     display: none;

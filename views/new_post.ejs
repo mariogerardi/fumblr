@@ -1,0 +1,90 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/nav.ejs') %>
+<div class="blogpostcontain" id="newpostpage">
+    <section>
+        <% if (text === true) { %>
+            <h1 class="posttypetitle">NEW TEXT POST</h1>
+        <% } %>
+        <% if (image === true) { %>
+            <h1 class="posttypetitle">NEW IMAGE POST</h1>
+        <% } %>
+        <% if (quote === true) { %>
+            <h1 class="posttypetitle">NEW QUOTE POST</h1>
+        <% } %>
+        <% if (link === true) { %>
+            <h1 class="posttypetitle">NEW LINK POST</h1>
+        <% } %>
+        <% if (chat === true) { %>
+            <h1 class="posttypetitle">NEW CHAT POST</h1>
+        <% } %>
+        <% if (audio === true) { %>
+            <h1 class="posttypetitle">NEW AUDIO POST</h1>
+        <% } %>
+        <% if (video === true) { %>
+            <h1 class="posttypetitle">NEW VIDEO POST</h1>
+        <% } %>
+    </section>
+
+    <form class="postform" action="/content" method="POST">
+        <div>
+            <H3 class="posttext" id="smallmargin">Title:</H3>
+        </div>
+        <input class="titleinput" type="text" placeholder="Title" name="title"/>
+        <div>
+            <H3 class="posttext" id="smallmargin">Body:</H3>
+        </div>
+        <input class="textinput" type="text" placeholder="Share your thoughts with the world..." name="text"/>
+        <% if (image === true) { %>
+        <div>
+            <H3 class="posttext" id="smallmargin">Image Link:</H3>
+        </div>
+        <input class="titleinput" type="text" placeholder="Insert your link here..." name="photo"/>
+        <% } %>
+        <% if (quote === true) { %>
+        <div>
+            <H3 class="posttext" id="smallmargin">Quote:</H3>
+        </div>
+        <input class="textinput" type="text" placeholder="'To be or not to be...'" name="quote"/>
+        <div>
+            <H3 class="posttext" id="smallmargin">Author:</H3>
+        </div>
+        <input class="titleinput" type="text" placeholder="Give credit where it's due!" name="author"/>
+        <% } %>
+        <% if (link === true) { %>
+        <div>
+            <H3 class="posttext" id="smallmargin">Link:</H3>
+        </div>
+        <input class="titleinput" type="text" placeholder="Where are we going?" name="link"/>
+        <% } %>
+        <% if (chat === true) { %>
+        <div>
+            <H3 class="posttext" id="smallmargin">Chat:</H3>
+        </div>
+        <input class="textinput" type="text" placeholder="What were we talking about again...?" name="chat"/>
+        <% } %>
+        <% if (audio === true) { %>
+        <div>
+            <H3 class="posttext" id="smallmargin">Link:</H3>
+        </div>
+        <input class="titleinput" type="text" placeholder="What's your favorite song?" name="audio"/>
+        <% } %>
+        <% if (video === true) { %>
+        <div>
+            <H3 class="posttext" id="smallmargin">Link:</H3>
+        </div>
+        <input class="titleinput" type="text" placeholder="Who's going viral today?" name="video"/>
+        <% } %>
+        <div class="donotdisplay">
+            <input name="userName" class="donotdisplay" type="text" value="<%= currentUser[0].userName %>"/>
+            <input name="user" class="donotdisplay" type="text" value="<%= currentUser[0]._id %>"/>
+            <input name="blog" class="donotdisplay" type="text" value="<%= currentUser[0].blog %>"/>
+        </div>
+        <div>
+            <button class="button" id="submit">Submit</button>
+        </div>
+    </form>
+    <a class="agentlenudgeupandright" href="/fumblr/dashboard">
+        <button class="button" id="cancel">Cancel</button>
+    </a>
+</div>
+<%- include('./partials/footer.ejs') %>

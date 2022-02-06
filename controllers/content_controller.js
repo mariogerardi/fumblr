@@ -1,127 +1,154 @@
 const express = require('express');
 const req = require('express/lib/request');
 const router = express.Router();
-const { Content, User } = require('../models')
+const { Content, User, Blog } = require('../models')
 
+router.get("/new/:postType", async (req, res) => {
+    try {
+        const foundUser = await User.find({currentSession: req.sessionID})
+        const foundBlog = await Blog.findOne({_id: foundUser[0].blog})
+        let test_text = false
+        let test_image = false
+        let test_quote = false
+        let test_link = false
+        let test_chat = false
+        let test_audio = false
+        let test_video = false
+        if (req.params.postType === "text-post") {
+            test_text = true
+        }
+        if (req.params.postType === "image-post") {
+            test_image = true
+        }
+        if (req.params.postType === "quote-post") {
+            test_quote = true
+        }
+        if (req.params.postType === "link-post") {
+            test_link = true
+        }
+        if (req.params.postType === "chat-post") {
+            test_chat = true
+        }
+        if (req.params.postType === "audio-post") {
+            test_audio = true
+        }
+        if (req.params.postType === "video-post") {
+            test_video = true
+        }
+        const context = {
+            currentUser: foundUser,
+            currentBlog: foundBlog,
+            text: test_text,
+            image: test_image,
+            quote: test_quote,
+            link: test_link,
+            chat: test_chat,
+            audio: test_audio,
+            video: test_video,
+        }
+        res.render('new_post.ejs', context)
+    } catch {
+        const context = { error: req.error };
+        return res.status(404).render("404", context);
+    }
+});
 
-// router.get("/new/*", async (req, res) => {
-
-//     //Looking for user based on the session ID
-//     const currentUser = await User.find({ currentSession: req.sessionID })
-//     console.log(currentUser)
-//     console.log(req.params[0])
-//     //check for link and return type associated to link
-//     if (req.params[0] === "new-text-post") {
-//         return res.render('new-content/new_text.ejs', currentUser)
-//     }
-//     else if (req.params[0] === "new-image-post") {
-//         return res.render('new-content/new_image.ejs', currentUser)
-//     } else if (req.params[0] === "new-quote-post") {
-//         return res.render('new-content/new_quote.ejs', currentUser)
-//     } else if (req.params[0] === 'new-link-post') {
-//         return res.render('new-content/new_link.ejs', currentUser)
-//     } else if (req.params[0] === 'new-chat-post') {
-//         return res.render('new-content/new_chat.ejs', currentUser)
-//     } else if (req.params[0] === 'new-audio-post') {
-//         return res.render('new-content/new_link.ejs', currentUser)
-//     } else if (req.params[0] === 'new-video-post') {
-//         return res.render('new-content/new_video.ejs', currentUser)
-//     } else {
-//         const context = { error: req.error };
-//         return res.status(404).render("404", context);
+// router.get("/new-text-post", async (req, res) => {
+//     try {
+//         const foundUser = await User.find({ currentSession: req.sessionID })
+//         const context = {
+//             currentUser: foundUser
+//         }
+//         res.render("new-content/new_text.ejs", context)
+//     } catch (err) {
+//         console.log(err)
+//         return res.send(err)
 //     }
 // });
 
-router.get("/new-text-post", async (req, res) => {
-    try {
-        const foundUser = await User.find({ currentSession: req.sessionID })
-        const context = {
-            currentUser: foundUser
-        }
-        res.render("new-content/new_text.ejs", context)
-    } catch (err) {
-        console.log(err)
-        return res.send(err)
-    }
-});
+// router.get("/new-image-post", async (req, res) => {
+//     try {
+//         const foundUser = await User.find({ currentSession: req.sessionID })
+//         const context = {
+//             currentUser: foundUser,
+//             image: true
+//         }
+//         res.render("new-content/new_image.ejs", context)
+//     } catch (err) {
+//         console.log(err)
+//         return res.send(err)
+//     }
+// });
 
-router.get("/new-image-post", async (req, res) => {
-    try {
-        const foundUser = await User.find({ currentSession: req.sessionID })
-        const context = {
-            currentUser: foundUser
-        }
-        res.render("new-content/new_image.ejs", context)
-    } catch (err) {
-        console.log(err)
-        return res.send(err)
-    }
-});
+// router.get("/new-quote-post", async (req, res) => {
+//     try {
+//         const foundUser = await User.find({ currentSession: req.sessionID })
+//         const context = {
+//             currentUser: foundUser,
+//             quote: true
+//         }
+//         res.render("new-content/new_quote.ejs", context)
+//     } catch (err) {
+//         console.log(err)
+//         return res.send(err)
+//     }
+// });
 
-router.get("/new-quote-post", async (req, res) => {
-    try {
-        const foundUser = await User.find({ currentSession: req.sessionID })
-        const context = {
-            currentUser: foundUser
-        }
-        res.render("new-content/new_quote.ejs", context)
-    } catch (err) {
-        console.log(err)
-        return res.send(err)
-    }
-});
+// router.get("/new-link-post", async (req, res) => {
+//     try {
+//         const foundUser = await User.find({ currentSession: req.sessionID })
+//         const context = {
+//             currentUser: foundUser,
+//             link: true
+//         }
+//         res.render("new-content/new_link.ejs", context)
+//     } catch (err) {
+//         console.log(err)
+//         return res.send(err)
+//     }
+// });
 
-router.get("/new-link-post", async (req, res) => {
-    try {
-        const foundUser = await User.find({ currentSession: req.sessionID })
-        const context = {
-            currentUser: foundUser
-        }
-        res.render("new-content/new_link.ejs", context)
-    } catch (err) {
-        console.log(err)
-        return res.send(err)
-    }
-});
+// router.get("/new-chat-post", async (req, res) => {
+//     try {
+//         const foundUser = await User.find({ currentSession: req.sessionID })
+//         const context = {
+//             currentUser: foundUser,
+//             chat: true
+//         }
+//         res.render("new-content/new_chat.ejs", context)
+//     } catch (err) {
+//         console.log(err)
+//         return res.send(err)
+//     }
+// });
 
-router.get("/new-chat-post", async (req, res) => {
-    try {
-        const foundUser = await User.find({ currentSession: req.sessionID })
-        const context = {
-            currentUser: foundUser
-        }
-        res.render("new-content/new_chat.ejs", context)
-    } catch (err) {
-        console.log(err)
-        return res.send(err)
-    }
-});
+// router.get("/new-audio-post", async (req, res) => {
+//     try {
+//         const foundUser = await User.find({ currentSession: req.sessionID })
+//         const context = {
+//             currentUser: foundUser,
+//             audio: true
+//         }
+//         res.render("new-content/new_audio.ejs", context)
+//     } catch (err) {
+//         console.log(err)
+//         return res.send(err)
+//     }
+// });
 
-router.get("/new-audio-post", async (req, res) => {
-    try {
-        const foundUser = await User.find({ currentSession: req.sessionID })
-        const context = {
-            currentUser: foundUser
-        }
-        res.render("new-content/new_audio.ejs", context)
-    } catch (err) {
-        console.log(err)
-        return res.send(err)
-    }
-});
-
-router.get("/new-video-post", async (req, res) => {
-    try {
-        const foundUser = await User.find({ currentSession: req.sessionID })
-        const context = {
-            currentUser: foundUser
-        }
-        res.render("new-content/new_video.ejs", context)
-    } catch (err) {
-        console.log(err)
-        return res.send(err)
-    }
-});
+// router.get("/new-video-post", async (req, res) => {
+//     try {
+//         const foundUser = await User.find({ currentSession: req.sessionID })
+//         const context = {
+//             currentUser: foundUser,
+//             video: true
+//         }
+//         res.render("new-content/new_video.ejs", context)
+//     } catch (err) {
+//         console.log(err)
+//         return res.send(err)
+//     }
+// });
 
 // router.post('/', (req, res) => {
 //     Content.create(req.body, (error, createdContent) => {

@@ -2,7 +2,27 @@
 <%- include('../partials/nav.ejs') %>
 <div class="blogpostcontain" id="newpostpage">
     <section>
-        <h1 class="posttypetitle">NEW TEXT POST</h1>
+        <% if (text === false) { %>
+            <h1 class="posttypetitle">NEW TEXT POST</h1>
+        <% } %>
+        <% if (image === true) { %>
+            <h1 class="posttypetitle">NEW IMAGE POST</h1>
+        <% } %>
+        <% if (quote === true) { %>
+            <h1 class="posttypetitle">NEW QUOTE POST</h1>
+        <% } %>
+        <% if (link === true) { %>
+            <h1 class="posttypetitle">NEW LINK POST</h1>
+        <% } %>
+        <% if (chat === true) { %>
+            <h1 class="posttypetitle">NEW CHAT POST</h1>
+        <% } %>
+        <% if (audio === true) { %>
+            <h1 class="posttypetitle">NEW AUDIO POST</h1>
+        <% } %>
+        <% if (video === true) { %>
+            <h1 class="posttypetitle">NEW VIDEO POST</h1>
+        <% } %>
     </section>
     <form class="postform" action="/content" method="POST">
         <div>
