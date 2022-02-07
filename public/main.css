@@ -3,114 +3,135 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #132638;
 }
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, hr {
     color: rgb(237, 237, 237);
+    background: none;
+    margin: 0
 }
 h6 {
     color: #132638;
 }
-hr {
-    color: rgb(237, 237, 237);
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(126, 126, 126, 0.5));
-}
 a {
     text-decoration: none;
 }
-hr.title {
-    width: 55%;
-    margin: 20px;
+img {
+    height: inherit;
+    width: inherit;
+}
+.landing {
+    height: 88vh;
+    background-image: url("https://picsum.photos/1600/900");
+    display: flex;
+    justify-content: center;
+}
+.splash {
+    width: 100vw;
+    background-color: rgb(34, 34, 34);
+    opacity: 85%;
+}
+.splashcontain, .fourohfour, .quotecontain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.splashcontain {
+    margin-top: 5vh;
+}
+.call-to-action {
+    font-size: 4.5vmin;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+.title {
+    width: 65vw;
+    margin: 1% 0% 2%;
 }
 .nav {
-    width: 100%;
+    width: 100vw;
     height: 8vh;
-    padding: 1% 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
+    padding: 2vh 0;
 }
 #restricted {
-    box-shadow: 0px 5px 5px rgb(34, 34, 34);
+    box-shadow: 0 1vh 1vh rgb(34, 34, 34);
 }
 .navlogo {
-    height: 47px;
-    margin: 5px 10px 3px;
-    position: relative;
-    filter: invert(16%) sepia(30%) saturate(2095%) hue-rotate(178deg) brightness(96%) contrast(81%);
-}
-.navlogodash {
-    height: 47px;
-    margin: 5px 10px 3px;
-    position: relative;
-    filter: invert(16%) sepia(30%) saturate(2095%) hue-rotate(178deg) brightness(96%) contrast(81%);
-}
-.navleft {
-    width: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 20px;
+    height: 9vh;
+    filter: invert(15%) sepia(30%) saturate(2000%) hue-rotate(180deg) contrast(80%);
 }
 .button-bar {
-    width: 350px;
+    width: 34.5vw;
+    margin-right: 2%;
+}
+.nav, .button-bar, .actionbar, .registersectiontwo, .logindivider, .button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 25px;
 }
-.input {
-    width: 350px;
-    padding: 6px 10px;
-    font-size: large;
-    border: none;
-    border-radius: 6px;
+.navlogin {
+    width: 39.5vw;
+    height: 5vh;
+    margin-right: 2vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.navleft {
+    width: 60.5vw;
+    margin-left: 2vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.searchbar, .postaudio, .postquote, .postauthor {
     background-color: rgb(194, 194, 194);
 }
-::placeholder {
-    font-size: large;
-    color: rgb(97, 97, 97);
+.searchbar, .button, .feedphoto, .waytoomanyoptions, .containcreate, .createpost, .labels, .blogpostcontain, .logincontain, .registercontain, .suggestedblogphoto {
+    border: none;
+    border-radius: 1vh;
+}
+.contain {
+    border: none;
+    border-radius: 2vh;
 }
 .icon {
-    width: 36px;
-    height: 36px;
-    filter: invert(69%) sepia(37%) saturate(321%) hue-rotate(168deg) brightness(97%) contrast(89%);
-}
-.icon#home {
-    width: 30px;
-    height: 30px;
-}
-.icon#messages {
-    width: 33px;
-    height: 33px;
+    width: 100%;
+    height: 5vh;
+    filter: invert(85%) sepia(30%) saturate(2000%) hue-rotate(180deg) contrast(80%);
 }
 .icon:hover {
     filter: invert(90%);
 }
-.big-boy-logo {
-    height: 150px;
-    width: 450px;
-    padding: 35px;
-    filter: drop-shadow(0rem 0rem 0.5rem rgba(126, 126, 126, 0.5));
+.searchbar {
+    width: 100%;
+    height: 4vh;
+    margin: 0 2%;
+    padding: 1% 2%;
+    font-size: 3vh;
 }
-.navlogin {
-    margin-right: 2%;
+::placeholder {
+    font-size: 3vh;
+    color: rgb(97, 97, 97);
+}
+.landing-logo {
+    height: 25%;
+    width: 35%;
+    padding: 3%;
+    filter: drop-shadow(0rem 0rem 0.5rem rgba(126, 126, 126));
 }
 .button {
-    border: none;
-    border-radius: 3px;
-    margin: 7px 5px;
+    height: 5vh;
+    font-size: 3vh;
+    padding: 1vh 1.5vw;
+    background: none;
     color: rgb(237, 237, 237);
-    font-size: larger;
-    padding: 10px 10px;
-    height: 25px;
-    width: 100px;
+    margin: 2%;
 }
 .login {
-    width: 700px;
+    width: 50vw;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
-#log_in {
+#log_in, #submit {
     background-color: #138511;
     text-align: center;
 }
@@ -122,109 +143,64 @@ hr.title {
     background-color: #c6519f;
     text-align: center;
 }
+#cancel {
+    background-color: #851111;
+}
+.fourohfour {
+    margin: 5%;
+    height: 65vh;
+}
+.notfound {
+    margin: 10vh;
+}
 .threebuttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.landing {
-    height: 92vh;
-    width: 100%;
-    background-image: url("https://picsum.photos/1600/900");
-    display: flex;
-    justify-content: center;
-}
-.splash {
-    width: 100%;
-    background-color: rgb(34, 34, 34);
-    opacity: 85%;
-}
-.splashcontain {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-}
-.call-to-action {
-    color: rgb(237, 237, 237);
-    font-size: x-large;
-    text-align: center;
-    overflow-wrap: break-word; 
-    padding: 5px;
-}
 .contain {
-    min-height: 500px;
-    height: fit-content;
     width: 96%;
-    margin: 0% 2% 2%;
-    border: none;
-    border-radius: 15px;
+    height: fit-content;
+    min-height: 80vh;
+    margin: 0 2% 2%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #0D1C2B;
-    padding: 0px 0px 30px;
+    padding: 0 0 10vh;
 }
 .feed {
     width: 65%;
 }
 .sidebar {
-    width: 30%;
-    margin: 40px 40px 40px 20px;
-}
-.sidebartitle {
-    color: rgb(194, 194, 194)
+    width: 35%;
+    margin: 5vh 5vh 0 0;
 }
 .content-creation {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 5% 5% -4%;
+    margin: 5vh 5vh 3vh;
 }
 .userphoto {
-    width: 12%;
+    width: 12.5%;
 }
 .feedphoto {
-    width: 100%;
-    height: 85px;
-    border: none;
-    border-radius: 8px;
+    width: 7vw;
+    height: 7vw;
 }
 .waytoomanyoptions {
     width: 100%;
-    height: 120px;
     display: flex;
     justify-content: space-evenly;
-    background-color: #0E1821;
-    border: none;
-    border-radius: 8px;
 }
 .createpost {
-    padding: 10px 5px 5px;
-    border: none;
-    border-radius: 10px;
     filter: invert(90%);
+    width: 5vw;
 }
-#newtextpost {
-    width: 70px;
-}
-#newimagepost {
-    width: 70px;
-}
-#newquotepost {
-    width: 70px;
-}
-#newlinkpost {
-    width: 70px;
-}
-#newchatpost {
-    width: 70px;
-}
-#newaudiopost {
-    width: 70px;
-}
-#newvideopost {
-    width: 70px;
+.column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 #newtextpost:hover {
     filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(332deg) brightness(96%) contrast(92%) invert(100%);
@@ -247,21 +223,15 @@ hr.title {
 #newvideopost:hover {
     filter: invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%) invert(100%);
 }
-.fourohfour {
-    margin: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#notfound {
-    margin: 45px;
-}
 .containcreate {
-    width: 85%;
+    height: fit-content;
+    width: 87.5%;
     display: flex;
     justify-content: space-evenly;
-    flex-direction: column;
-    margin: 0;
+    flex-direction: row;
+    padding: 3vh 0;
+    margin: 0 0 2vh 3vh;
+    background-color: #0E1821;
 }
 .labels {
     width: 100%;
@@ -270,31 +240,25 @@ hr.title {
     text-align: center;
     justify-content: space-evenly;
     align-items: center;
-    border: none;
-    border-radius: 8px;
-    position: relative;
-    bottom: 45px;
-    margin-top: 10px;
     filter: invert(100%)
 }
-#labelspacer {
-    width: 70px;
+.postdivider {
+    color:rgb(34, 34, 34);
+    margin: 0;
 }
 .blogposts {
     display: flex;
     justify-content: space-between;
-    margin: 5% 5% 0%;
+    margin: 3vh 5vh 1vh;
 }
 .blogpostcontain {
-    width: 85%;
-    min-height: 120px;
+    width: 87.5%;
     height: fit-content;
     text-align: left;
     display: flex;
     flex-direction: column;
     background-color: rgb(214, 214, 214);
-    border: none;
-    border-radius: 8px;
+    margin: 0 0 3vh 3vh;
 }
 .textpostitem {
     margin: 10px;
@@ -332,27 +296,14 @@ h3.postchat {
     text-align: center;
 }
 .postaudio {
-    background-color: rgb(194, 194, 194);
     padding: 10px;
     width: auto;
 }
 .postimage {
-    color: rgb(34, 34, 34);
+    width: 100%
 }
 .postvideo {
     color: rgb(34, 34, 34);
-}
-#submit {
-    height: 40px;
-    width: 80px;
-    background-color: #138511;
-    margin: 20px 20px 20px 0px;
-}
-#cancel {
-    height: 40px;
-    width: 80px;
-    background-color: #851111;
-    margin: 20px 20px 20px 0px;
 }
 .titleinput {
     height: 20px;
@@ -393,11 +344,8 @@ h3.postchat {
     width: 100%;
     background-color: #0E1821;
     border: none;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-bottom-left-radius: .9vh;
+    border-bottom-right-radius: .9vh;
     margin: 0%;
 }
 .actionbaritems {
@@ -414,21 +362,14 @@ h3.postchat {
 .postquote {
     padding: 10px;
     margin: 0;
-    background-color: rgb(194, 194, 194);
     color: rgb(34, 34, 34);
 }
 .postauthor {
     padding: 10px;
     margin: 0;
     color: rgb(34, 34, 34);
-    background-color: rgb(194, 194, 194);
     font-style: italic;
     text-align: right;
-}
-.quotecontain {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 form.trash {
     height: inherit;
@@ -455,16 +396,12 @@ form.trash {
 }
 .logincontain {
     background-color: rgb(237, 237, 237);
-    border: none;
-    border-radius: 15px;
     height: 37vh;
     padding: 2%;
     margin: 1.5% 30%;
 }
 .registercontain {
     background-color: rgb(237, 237, 237);
-    border: none;
-    border-radius: 15px;
     height: 40vh;
     padding: 2%;
     margin: 1.5% 10%;
@@ -483,9 +420,6 @@ form.trash {
 }
 .registersectiontwo {
     height: 25%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 .regsec {
     display: flex;
@@ -564,9 +498,6 @@ form.trash {
 .logindivider {
     height: 25%;
     margin: 0%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 #backbutton {
     background-color: #851111;
@@ -619,10 +550,7 @@ form.trash {
     height: 25px;
     width: 175px;
 }
-.postdivider {
-    color:rgb(34, 34, 34);
-    margin: inherit;
-}
+
 .suggestedblog {
     height: 100px;
     display: flex;
@@ -653,8 +581,6 @@ form.trash {
 .suggestedblogphoto {
     width: 80px;
     height: 80px;
-    border: none;
-    border-radius: 15px;
 }
 .suggestedblogsdivider {
     margin: 0% 0% 5%;
