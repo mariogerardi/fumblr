@@ -33,7 +33,7 @@ router.get('/:title', async function (req, res, next) {
         if (!foundUser) return res.redirect('/user/login')
         console.log("Hey hey, the current user is " + foundUser[0].userName)
         const foundBlogs = await Blog.find({});
-        const foundBlog = await Blog.findOne({_id: foundUser[0].blog})
+        const foundBlog = await Blog.findOne({title: req.params.title})
         console.log("This is the blog I found: " + foundBlog.title)
         const foundContent = await Content.find({})
         const context = { 

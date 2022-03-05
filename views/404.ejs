@@ -1,12 +1,12 @@
 <%- include('./partials/head.ejs') %>
 
 <div class="fourohfour">
-    <img width="325px" src="https://cdn-icons-png.flaticon.com/512/580/580185.png" alt="not found">
+    <img src="https://cdn-icons-png.flaticon.com/512/580/580185.png" alt="not found">
     <% if (error) { %>
     <h3><%= error.message %></h3>
     <% } %>
-    <div class="login" id="notfound">
-        <a class="notfoundbutton" id="log_in" href="/dashboard">Back To Dashboard</a>
+    <div class="login notfound">
+        <a class="notfoundbutton" id="log_in" href="/dashboard">Back</a>
         <a class="notfoundbutton" id="sign_up" href="">Retry</a>
         <a class="notfoundbutton" id="kitten" href="https://cf.ltkcdn.net/cats/images/orig/242157-1902x1268-persian-kittens.jpg">Need a Kitten?</a>
     </div>

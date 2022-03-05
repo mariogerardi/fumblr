@@ -44,6 +44,18 @@
                 <img class="feedphoto" src="<%=currentBlog.blogImg%>">
             </a>
             <div class="containcreate">
+                <% if (currentBlog.userName !== currentUser[0].userName) { %>
+                    <div class="waytoomanyoptions suggestedblogcontent">
+                        <h1 class="sidebartitle suggestedblogsdivider"><%= currentBlog.title %></h1>
+                        <h4 class="suggestedblogdesc"><%= currentBlog.description %></h4>
+                        <h4 class="suggestedblogdesc">
+                        <% tags = currentBlog.keywords %>
+                        <% for(let i = 0; i < tags.length; i++) { %>
+                            #<%= currentBlog.keywords %>
+                            <% } %>
+                        </h4>
+                    </div>
+                    <% } else { %>
                 <div class="waytoomanyoptions">
                     <a class="createpost" href="/content/new/text-post">
                     <img id="newtextpost" src="https://drive.google.com/uc?export=download&id=1OdbfDfB_D5juf87OZx8600agWPyRgmk-"></a>
@@ -69,14 +81,12 @@
                     <h4 class="createpost" id="labelspacer">Audio</h4> 
                     <h4 class="createpost" id="labelspacer">Video</h4> 
                 </div>
+                <% } %>
             </div>
         </div>
-         <% for(let idx = (content.length - 1); idx >= 0; idx--) { %> 
+        <% for(let idx = (content.length - 1); idx >= 0; idx--) { %> 
             <% const cont = content[idx] %>
-            <% if (cont.blog !== currentUser.blog) { %>
-            <% for(let idx = 0; idx < allUsers.length; idx++) { %>
-                <% const usr = allUsers[idx] %>
-                <% if (usr.userName === cont.userName) { %>
+            <% if (currentBlog.userName === cont.userName) { %>
         <div class="blogposts">
             <a class="userphoto" href="/blog/<%=currentBlog.title%>">
                 <img class="feedphoto" src="<%=currentBlog.blogImg%>">
@@ -86,9 +96,6 @@
                     <h6 class="originallypostedby"><%- cont.userName %></h6>
                     <img class="originbar" id="reblogorigin" src="https://drive.google.com/uc?export=download&id=15dk-xnHoHytCby2awDlqapp91W-UlRin">
                 </div>
-                    <% break %>
-                <% } %>
-            <% } %>
                 <hr class="postdivider">
             <% if (cont.title && cont.title !== "") { %>
                 <h2 class="textpostitem"><%= cont.title %></h2>
@@ -190,11 +197,27 @@
     <% } %>
     </div>
     <div class="sidebar">
-        <h2 class="sidebartitle">Welcome, <%= currentUser[0].userName %>!</h2>
-        <hr>
+        <h2 class="sidebartitle suggestedblogsdivider"><%= currentBlog.title %></h2>
+        <div class="sidebartitle suggestedblog">
+            <a href="/blog/<%= currentBlog.title %>">
+                <img class="suggestedblogphoto" src="<%= currentBlog.blogImg %>">
+            </a>
+            <div class="suggestedblogcontent">
+                <h4 class="suggestedblogdesc"><%= currentBlog.description %></h4>
+                <h4 class="suggestedblogdesc">
+                <% tags = currentBlog.keywords %>
+                <% for(let i = 0; i < tags.length; i++) { %>
+                    #<%= currentBlog.keywords %>
+                    <% } %>
+                </h4>
+            </div>
+        </div>
         <h3 class="sidebartitle">Check out these blogs</h3>
+        <hr class="suggestedblogsdivider">
         <% for(let idx = 0; idx < allBlogs.length; idx++) { %>
             <% const blog = allBlogs[idx] %>
+            <% if (currentBlog.userName === blog.userName) { %>
+            <% } else { %>
         <div class="suggestedblog">
             <a href="/blog/<%= blog.title %>">
                 <img class="suggestedblogphoto" src="<%= blog.blogImg %>">
@@ -211,6 +234,7 @@
             </div>
         </div>
         <% } %>
+    <% } %>
     </div>
 </div>
 <%- include('./partials/footer.ejs') %>

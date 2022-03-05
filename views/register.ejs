@@ -5,47 +5,40 @@
 <section class="registercontain">
     <form class="registerform" action="./register" method="POST">
         <h1 class="registertitle">Create an Account</h1>
-        <div class="registersectiontwo">
+        <div class="registerform">
             <div class="regsec">
-                <h3 class="registertext" id="regnametitle">First Name:</h3>
-                <input name="firstName" class="input" id="regname" type="text" placeholder="example: Johnny"/>
+                <h3 class="registertext">First Name:</h3>
+                <input name="firstName" class="reginput" type="text" placeholder="example: Johnny"/>
             </div>
             <div class="regsec">
-                <h3 class="registertext" id="regnametitle">Last Name:</h3>
-                <input name="lastName" class="input" id="regname" type="text" placeholder="example: Appleseed"/>
+                <h3 class="registertext">Last Name:</h3>
+                <input name="lastName" class="reginput" type="text" placeholder="example: Appleseed"/>
             </div>
-        </div>
-        <div class="registersection">
-            <div class="regsec" id="age">
+            <div class="regsec">
                 <h3 class="registertext">Age:</h3>
-                <input name="age" class="input" id="reginputsmaller" type="number" placeholder=""/>
+                <input name="age" class="reginput" type="number" placeholder=""/>
             </div>
-            <div class="regsec" id="gender">
+            <div class="regsec">
                 <h3 class="registertext">Username:</h3>
-                <input name="userName" class="input" id="reginputsmall" type="text" placeholder="example: Tacocat5"/>
+                <input name="userName" class="reginput" type="text" placeholder="example: Tacocat5"/>
             </div>
-            <div class="regsec" id="pic">
+            <div class="regsec">
                 <h3 class="registertext">Profile Picture:</h3>
-                <input name="photo" class="input" id="reginputpic" type="url" placeholder="example: hostingwebsite.com/yourimage"/>
+                <input name="photo" class="reginput" type="url" placeholder="example: hostingwebsite.com/yourimage.png"/>
             </div>
-        </div>
-        <div class="registersectiontwo">
             <div class="regsec">
                 <h3 class="registertext">Email:</h3>
-                <input name="email" class="input" type="text" placeholder="example: example@domain.com"/>  
+                <input name="email" class="reginput" type="text" placeholder="example: example@domain.com"/>  
             </div>    
             <div class="regsec">
                 <h3 class="registertext">Password:</h3>
-                <input name="password" class="input" type="password" placeholder="**********"/>
+                <input name="password" class="reginput" type="password" placeholder="**********"/>
             </div>
         </div>
-        <div class="donotdisplay">
-            <h3 class="donotdisplay">Session:</h3>
-            <input name="currentSession" class="donotdisplay" type="text"/>
-        </div>
-        <div class="registersectiontwo">
-            <a class="button" id="backbutton" href="/">Go Back</a>
-            <button class="button" id="regbutton"> Welcome to fumblr! </button>    
+        <input name="currentSession" class="donotdisplay" type="text"/>
+        <div class="regsec">
+            <a class="button registerbutton" id="backbutton" href="/">Go Back</a>
+            <button class="button registerbutton" id="regbutton"> Welcome to fumblr! </button>    
         </div>    
     </form>
 </section>
