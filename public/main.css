@@ -3,7 +3,7 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: #132638;
 }
-h1, h2, h3, h4, h5, hr {
+h1, h2, h3, h4, h5 {
     color: rgb(237, 237, 237);
     background: none;
     margin: 0
@@ -58,11 +58,19 @@ img {
     height: 9vh;
     filter: invert(15%) sepia(30%) saturate(2000%) hue-rotate(180deg) contrast(80%);
 }
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a.button {
+    height: 25px;
+}
 .button-bar {
     width: 34.5vw;
     margin-right: 2%;
 }
-.nav, .button-bar, .actionbar, .registersectiontwo, .logindivider, .button {
+.nav, .button-bar, .actionbar, .registersectiontwo, .logindivider {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -175,6 +183,9 @@ img {
     width: 35%;
     margin: 5vh 5vh 0 0;
 }
+.sidebartitle {
+    margin: 1vh 0 2vh;
+}
 .content-creation {
     display: flex;
     justify-content: space-between;
@@ -202,25 +213,25 @@ img {
     flex-direction: column;
     text-align: center;
 }
-#newtextpost:hover {
+.newtextpost:hover {
     filter: invert(26%) sepia(0%) saturate(0%) hue-rotate(332deg) brightness(96%) contrast(92%) invert(100%);
 }
-#newimagepost:hover {
+.newimagepost:hover {
     filter: invert(42%) sepia(71%) saturate(914%) hue-rotate(332deg) brightness(92%) contrast(84%) invert(100%);
 }
-#newquotepost:hover {
+.newquotepost:hover {
     filter: invert(66%) sepia(95%) saturate(1714%) hue-rotate(341deg) brightness(104%) contrast(90%) invert(100%);
 }
-#newlinkpost:hover {
+.newlinkpost:hover {
     filter: invert(62%) sepia(12%) saturate(1528%) hue-rotate(98deg) brightness(103%) contrast(88%) invert(100%);
 }
-#newchatpost:hover {
+.newchatpost:hover {
     filter: invert(61%) sepia(75%) saturate(342%) hue-rotate(164deg) brightness(81%) contrast(95%) invert(100%);
 }
-#newaudiopost:hover {
+.newaudiopost:hover {
     filter: invert(49%) sepia(80%) saturate(241%) hue-rotate(233deg) brightness(96%) contrast(87%) invert(100%);
 }
-#newvideopost:hover {
+.newvideopost:hover {
     filter: invert(53%) sepia(24%) saturate(200%) hue-rotate(163deg) brightness(88%) contrast(83%) invert(100%);
 }
 .containcreate {
@@ -305,11 +316,19 @@ h3.postchat {
 .postvideo {
     color: rgb(34, 34, 34);
 }
-.titleinput {
-    height: 20px;
-    width: 40%;
-    font-size: large;
-    padding: 10px;
+.logininput {
+    height: 15px;
+    width: 100%;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 2%;
+}
+.reginput {
+    height: 10px;
+    width: 75%;
+    border-radius: 3px;
+    border-width: 10px;
+    padding: .25% .5%;
 }
 .textinput {
     font-size: medium;
@@ -402,9 +421,9 @@ form.trash {
 }
 .registercontain {
     background-color: rgb(237, 237, 237);
-    height: 40vh;
+    height: 56vh;
     padding: 2%;
-    margin: 1.5% 10%;
+    margin: 1.5% 20%;
 }
 .registerform {
     height: 100%;
@@ -418,20 +437,18 @@ form.trash {
     justify-content: flex-start;
     align-items: center;
 }
-.registersectiontwo {
-    height: 25%;
-}
 .regsec {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 }
 .registertitle {
     width: 100%;
     font-size: x-large;
     text-align: center;
     color: rgb(34, 34, 34);
-    margin: 0px 0px 10px;
+    padding: 10px 0 20px;
 }
 .registertext {
     font-size: large;
@@ -445,48 +462,19 @@ form.trash {
     border-radius: 3px;
     font-size: medium;
 }
-#reginputsmall {
-    width: 50%;
-    font-size: large;
-}
-#reginputsmaller {
-    width: 35%;
-    font-size: large;
-}
-#reginputpic {
-    width: 70%;
-    font-size: large;
+.registerbutton {
+    margin: 0;
 }
 .reginput::placeholder {
-    font-size: medium;
-    margin: 0px 0px 0px 5px;
-}
-.reginputsmall::placeholder {
-    font-size: medium;
-    margin: 0px 0px 0px 5px;
-}
-.reginputpic::placeholder {
     font-size: medium;
     margin: 0px 0px 0px 5px;
 }
 #regbutton {
     background-color: #138511;
     text-align: center;
-    height: 45px;
-    width: 200px;
+    height: 40px;
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-}
-.regsec#age {
-    justify-content: flex-start;
-    width: 20%;
-}
-.regsec#gender {
-    width: 37%;
-}
-.regsec#pic {
-    justify-content: flex-start;
-    width: 60%;
 }
 #loginlogo {
     margin-top: 20px;
@@ -497,20 +485,19 @@ form.trash {
 }
 .logindivider {
     height: 25%;
-    margin: 0%;
+    margin: 0 2%;
 }
 #backbutton {
     background-color: #851111;
     text-align: center;
     height: 25px;
-    width: 200px;
     cursor: pointer;
     text-decoration: none;
 }
 #nogosignup {
     text-align: center;
     color: rgb(194, 194, 194);
-    padding: 5px;
+    padding: 3px;
 }
 .waitidonthaveanaccount {
     display: flex;
