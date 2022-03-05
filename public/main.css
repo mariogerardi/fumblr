@@ -75,13 +75,16 @@ a.button {
     justify-content: space-between;
     align-items: center;
 }
+.navlogin, .actionbaritems {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .navlogin {
     width: 39.5vw;
     height: 5vh;
     margin-right: 2vw;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
 }
 .navleft {
     width: 60.5vw;
@@ -117,7 +120,6 @@ a.button {
     font-size: 3vh;
 }
 ::placeholder {
-    font-size: 3vh;
     color: rgb(97, 97, 97);
 }
 .landing-logo {
@@ -130,6 +132,7 @@ a.button {
     height: 5vh;
     font-size: 3vh;
     padding: 1vh 1.5vw;
+    cursor: pointer;
     background: none;
     color: rgb(237, 237, 237);
     margin: 2%;
@@ -142,6 +145,7 @@ a.button {
 #log_in, #submit {
     background-color: #138511;
     text-align: center;
+    margin-left: 0;
 }
 #sign_up {
     background-color: #3A91E4;
@@ -165,6 +169,12 @@ a.button {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+.postbuttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    margin: 2vh 1vw 1vh 0;
 }
 .contain {
     width: 96%;
@@ -276,21 +286,23 @@ a.button {
     color: rgb(34, 34, 34);
 }
 #newpostpage {
-    width: 75%;
-    height: 40%;
+    width: 50%;
     display: flex;
     align-items: left;
-    margin: 3% 12.5%;
+    margin: 2% 25%;
 }
 .posttypetitle {
     text-align: center;
+    color: #0D1C2B;
+    margin: 20px;
 }
 .postform {
     margin-left: 2%;
     padding: 0px;
 }
 .posttext {
-    color:rgb(34, 34, 34)
+    color:rgb(34, 34, 34);
+    margin: 10px 0px;
 }
 .postlink {
     min-height: 400px;
@@ -330,20 +342,28 @@ h3.postchat {
     border-width: 10px;
     padding: .25% .5%;
 }
-.textinput {
-    font-size: medium;
-    height: 50px;
-    padding: 10px;
-    inline-size: 95%;
+.titleinput {
+    height: 20px;
+    padding: 5px;
+    inline-size: 48%;
     overflow-wrap: normal;
+    border: none;
+    border-radius: 8px;
+}
+.textinput {
+    height: 60px;
+    padding: 5px;
+    inline-size: 96%;
+    text-overflow: ellipsis;
+    border: none;
+    border-radius: 8px;
+    text-align: start;
 }
 .titleinput::placeholder {
     color: rgb(109, 109, 109);
-    font-size: large;
 }
 .textinput::placeholder {
     color: rgb(109, 109, 109);
-    font-size: large;
 }
 #smallmargin {
     margin: 10px 0px;
@@ -368,9 +388,6 @@ h3.postchat {
     margin: 0%;
 }
 .actionbaritems {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
     width: 250px;
     margin: 8.5px 10px;
 }
