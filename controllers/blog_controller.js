@@ -19,7 +19,7 @@ router.get('/blog-creation', async function (req, res) {
 router.post('/blog-creation', async function (req, res) {
     try {
         const newBlog = await Blog.create(req.body);
-        return res.redirect('/dashboard');
+        return res.redirect('/user/login');
     } catch (err) {
         console.log(err);
         return res.send(err);

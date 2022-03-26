@@ -57,12 +57,12 @@
             </div>
             <input class="titleinput" type="text" value="<%= content.video%>" placeholder="Who's going viral today?" name="video" />
         <% } %> 
-        <div>
+        <span class="postbuttons">
             <button class="button" id="submit">Submit</button>
+        </form>
             <a href="/dashboard">
-                <button class="button" id="cancel">Actually, this is fine!</button>
+                <button class="button" id="cancel">Cancel</button>
             </a>
-        </div>
-    </form>
+        </span>
 </div>
 <%- include('./partials/footer.ejs') %>

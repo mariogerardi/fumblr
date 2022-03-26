@@ -5,39 +5,27 @@
 <section class="registercontain">
     <form class="registerform" action="./blog-creation" method="POST">
         <h1 class="registertitle">Create a Blog</h1>
-        <h2 class="registertitle">Your blog will contain the content you post and reblog.</h2> 
-        <div class="registersectiontwo">
             <div class="regsec">
-                <h3 class="registertext" id="regnametitle">Blog Name:</h3>
-                <input name="title" class="input" id="regname" type="text" placeholder="example: mynewblog"/>
+                <h3 class="registertext">Blog Name:</h3>
+                <input name="title" class="titleinput" id="regname" type="text" placeholder="example: mynewblog"/>
             </div>
-        </div>
-        <div class="registersectiontwo">
             <div class="regsec">
-                <h3 class="registertext" id="regnametitle">Blog Description:</h3>
-                <input name="description" class="input" id="regname" type="text" placeholder="example: my photography blog"/>
+                <h3 class="registertext">Blog Description:</h3>
+                <input name="description" class="titleinput" id="regname" type="text" placeholder="example: my photography blog"/>
             </div>
-        </div>
-        <div class="registersection">
-            <div class="regsec" id="pic">
+            <div class="regsec">
                 <h3 class="registertext">Blog Image (what will appear beside your content):</h3>
-                <input name="blogImg" class="input" id="reginputpic" type="url" placeholder="example: hostingwebsite.com/yourimage"/>
+                <input name="blogImg" class="titleinput" id="reginputpic" type="url" placeholder="example: hostingwebsite.com/yourimage"/>
             </div>
-        </div>
-        <div class="registersectiontwo">
             <div class="regsec">
                 <h3 class="registertext">Keywords (related to content you will be posting):</h3>
-                <input name="keywords" class="input" type="text" placeholder="example: photography, gaming, retro"/>  
+                <input name="keywords" class="titleinput" type="text" placeholder="example: photography, gaming, retro"/>  
             </div>    
-        </div>
-        <div class="donotdisplay">
-            <h3 class="donotdisplay">Session:</h3>
             <input name="user" class="donotdisplay" type="text" value="<%= currentUser[0]._id %>"/>
             <input name="userName" class="donotdisplay" type="text" value="<%= currentUser[0].userName %>"/>
-        </div>
-        <div class="registersectiontwo">
-            <a class="button" id="backbutton" href="/">Nevermind...</a>
-            <button class="button" id="regbutton">Create your fumblr!</button>    
+        <div class="regsec">
+            <a class="button" id="backbutton" href="/" style="margin: 0;">Nevermind...</a>
+            <button class="button" id="regbutton" style="margin: 0;">Create your fumblr!</button>    
         </div>    
     </form>
 </section>

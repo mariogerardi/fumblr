@@ -12,7 +12,7 @@
                     $(".unlovethispost<%=idx%>").toggle();
                     e.preventDefault(); 
                     $.ajax({
-                        url: '/content/<%=cont.id%>',
+                        url: '/content/unlike/<%=cont.id%>',
                         method: 'PUT',
                         contentType: 'application/json',
                         data: {notes: "<%currentUser[0].id%>"},
